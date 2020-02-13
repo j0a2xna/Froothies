@@ -25,7 +25,6 @@
 	if(isset($_POST['login'])){
 		echo "in login".PHP_EOL;
 		$request['type'] = 'login';
-		$request['error']=$error;
 		$response = $client->send_request($request);
 		process_response($response);
 	}
@@ -40,10 +39,17 @@
 	function process_response($response){
 		echo "Received response".PHP_EOL;
 		var_dump($response);
-		if($response){
-			echo "Successfully Logged in".PHP_EOL;
+		if($response == "login"){
+			echo "Successfully Logged in\n".PHP_EOL;
+			session_register("username");
+			$_SESSION['login_user']=$username;
+			header("location: welcome.php");
+		}elseif($response == "fail"){
+				echo "sorry username/password incorrect\n".PHP_EOL;
+		}elseif($response == "registered"){
+				echo "you have successfully registered\n".PHP_EOL;
 		}else{
-			echo "sorry username/password incorrect".PHP_EOL;
+				echo "sorry username taken\n".PHP_EOL;
 		}
 	}
 	
@@ -51,44 +57,34 @@
 <html>
 	<head>
 	<title> Login </title>
-
-		<style type="text/css">
-			body{
-				font-family:Arial,Helvetica,sans-serif;
-				font-size:14px;
-			}
-			.box{
-				border:#ffffff solid 2px;
-				border-radius:25px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	
-	<body bgcolor="#ffffff">
-		<div align="center">
-			<div style = "width:300px; border:solid 1px #000000;" align="left">
-				<div style ="background-color:#eCC1C5;color:#ffffff;padding:10px;text-align:center;">
-					<b>Login</b>
-				</div>
-			<div style="margin:32px">
+	<body>
+	<div align="center">	
+		<div id="dialog">					
+			<div id="login">		
+				<b>Login</b>
+			</div>
+			<div id="cred">
 				<form name="" action="" method="POST">
 					Username: 
-					<input type="text" name="username" class="box" autocomplete="off"/>
+					<input type="text" name="username" id="box" autocomplete="off"/>
 				</br></br>
 					Password: 
-					<input type="password" name="password" class="box" autocomplete="off"/>
+					<input type="password" name="password" id="box" autocomplete="off"/>
 				</br></br>
 					<input type="Submit" value="Submit" name="login"/>
 					<input type="Submit" name="register" value="Register"/>
 				<br/>
 				</form>
 			
-				<div style="font-size:11px;color#000000;margin-top:10px">
-					Error:	<?php echo $error.PHP_EOL; ?>
+					<div style="font-size:11px;color#000000;margin-top:10px">
+						Error:	<?php echo $error.PHP_EOL; ?>
 		
-				</div>
+					</div>
 			</div>
 		</div>
+	</div>
 	</body>
 </html>
 
