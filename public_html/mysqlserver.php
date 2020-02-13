@@ -50,16 +50,17 @@ function doLogin($username, $password){
 		#session_register("username");
 		#$_SESSION['login_user']=$username;
 		print_r($row);
-		$send = true;
+		$send = "login";
 		return $send;
 	}
-	$send = false;
+	$send = "fail";
 	return $send;
 }
 
 function doRegister($username, $password){
-	if(doLogin($username, $password)){
-		echo "Sorry username taken";
+	if((doLogin($username, $password)) == "login"){
+		$send = "taken";
+		return $send;
 	}else{
 		$db_host='192.168.56.5';
  	        $db_username='nemo';
@@ -78,8 +79,9 @@ function doRegister($username, $password){
 		$result =  mysqli_query($mydb,$sql);
 	        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-		if(doLogin($username, $password)){
-			echo "successfully registered.".PHP_EOL;
+		if((doLogin($username, $password)) == "login"){
+			$send = "registered";
+			return $send;
 		}
 
 	}
