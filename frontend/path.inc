@@ -1,8 +1,8 @@
 <?php
 $path = '/usr/local/lib/system_libs';
-    if (file_exists('local.ini'))
+    if (file_exists('/backend/local.ini'))
     {
-        $parse = parse_ini_file('local.ini',true);
+        $parse = parse_ini_file('/backend/local.ini',true);
         if (isset($parse['paths']))
         {
             $path = $parse['paths']['libraries'];
