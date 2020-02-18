@@ -1,12 +1,12 @@
 #!/usr/bin/php
 <?php
 
-require_once('/frontend/path.inc');
-require_once('/frontend/get_host_info.inc');
-require_once('/frontend/rabbitMQLib.inc');
+	require_once('../frontend/path.inc');
+	require_once('../frontend/get_host_info.inc');
+	require_once('../frontend/rabbitMQLib.inc');
 
 
-	$db_host='192.168.56.5';
+		$db_host='localhost';
         $db_username='nemo';
         $db_password='dory123';
         $db_name='reef';
@@ -22,7 +22,7 @@ require_once('/frontend/rabbitMQLib.inc');
 
 function doLogin($username, $password){
 
-	$db_host='192.168.56.5';
+	$db_host='localhost';
 	$db_username='nemo';
 	$db_password='dory123';
 	$db_name='reef';
@@ -39,14 +39,11 @@ function doLogin($username, $password){
 		AND password = '$password'";
 	$result = mysqli_query($mydb,$sql);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	//$active=$row['active'];
 	$count = mysqli_num_rows($result);
 
 	echo "here 3".PHP_EOL;
 	if($count == 1){
 		echo "we're logged in B".PHP_EOL;
-		#session_register("username");
-		#$_SESSION['login_user']=$username;
 		print_r($row);
 		$send = "login";
 		return $send;
