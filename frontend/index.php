@@ -4,10 +4,9 @@
 	require_once('path.inc');
 	require_once('get_host_info.inc');
 	require_once('rabbitMQLib.inc');
-	#require_once('loginDB.php');
 
 	$error= "ready?";
-	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	$client = new rabbitMQClient("/backend/testRabbitMQ.ini","testServer");
 
 	$username = '';
 	$password = '';
@@ -41,8 +40,10 @@
 		var_dump($response);
 		if($response == "login"){
 			echo "Successfully Logged in\n".PHP_EOL;
+			session_start();
 			session_register("username");
-			$_SESSION['login_user']=$username;
+			$_SESSION['userid']=$username;
+			echo $_SESSION['userid'];
 			header("location: welcome.php");
 		}elseif($response == "fail"){
 				echo "sorry username/password incorrect\n".PHP_EOL;
