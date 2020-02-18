@@ -1,10 +1,9 @@
 #!/usr/bin/php
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
-require_once('loginDB.php');
+require_once('/frontend/path.inc');
+require_once('/frontend/get_host_info.inc');
+require_once('/frontend/rabbitMQLib.inc');
 
 
 	$db_host='192.168.56.5';
@@ -22,7 +21,6 @@ require_once('loginDB.php');
 
 
 function doLogin($username, $password){
-	echo "here 5".PHP_EOL;
 
 	$db_host='192.168.56.5';
 	$db_username='nemo';
