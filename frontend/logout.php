@@ -10,7 +10,7 @@
                 <title> Log out </title>
                 <style>
                         body{
-                                background-image: url("fruits-bg.png");
+                                background-image: url("/var/www/froothies/assets/fruits-bg.png");
                                 text-align: center;
                         }
 

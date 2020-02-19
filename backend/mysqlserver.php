@@ -6,7 +6,7 @@
 	require_once('../frontend/rabbitMQLib.inc');
 
 
-		$db_host='localhost';
+	$db_host='192.168.56.5';
         $db_username='nemo';
         $db_password='dory123';
         $db_name='reef';
@@ -22,7 +22,7 @@
 
 function doLogin($username, $password){
 
-	$db_host='localhost';
+	$db_host='192.168.56.5';
 	$db_username='nemo';
 	$db_password='dory123';
 	$db_name='reef';
