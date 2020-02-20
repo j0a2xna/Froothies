@@ -44,13 +44,13 @@
 			session_register("username");
 			$_SESSION['userid']=$username;
 			#echo $_SESSION['userid'];
-			header('location:welcome.php');
+			header('location: welcome.php');
 		}elseif($response == "fail"){
-				echo "sorry username/password incorrect\n".PHP_EOL;
+				#echo "sorry username/password incorrect\n".PHP_EOL;
 		}elseif($response == "registered"){
-				echo "you have successfully registered\n".PHP_EOL;
+				#echo "you have successfully registered\n".PHP_EOL;
 		}else{
-				echo "sorry username taken\n".PHP_EOL;
+				#echo "sorry username taken\n".PHP_EOL;
 		}
 	}
 	
