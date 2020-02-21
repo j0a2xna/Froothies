@@ -77,7 +77,6 @@
     .text-services {
         padding-left: 1em;
         padding-right: 1em;}
-    
     .text-services h2 {
         color: darkcyan;
     }
@@ -123,6 +122,9 @@
         text-align: right;
         float: right;
     }
+
+
+
 </style>
 
 <!-- <form action="login.php" method="GET">
@@ -157,8 +159,8 @@
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                           <tr>
                             <td class="text-services">
-                            	<h2>Today's Recomandation</h2>
-                                <p>Spinach Cucumber Smoothies</p> 
+                            	<h2>Today's Recommendation</h2>
+                                <p>Spinach Cucumber Smoothie</p> 
                                 <img src="img1.jpg" style="background-color: white" class="data2">
                                 <!--<p1><br>(Limited time only)</p1>-->
                             </td>
@@ -201,10 +203,34 @@
                         </table>
                       </td>
                     </tr>
-		  </table>
-    
+                    
+                    <!-- orqui row for image mood-->
+                    <tr>
+                        <td valign="center" width="25%" style="padding-top: 120px; padding-left: 1em;" >
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                              <tr>
+                                <td class="img-container">
+                                    <h2>How are you feeling today?</h2>
+                                    <button onclick="good()">Good</button>
+                                    <button onclick="sad()">Sad</button>
+                                    <img id="img-area" width="100%" height="100%" src="serene-placeholder.jpg">
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                    </tr>
+          </table>
     <div class="contact" id="login" style="text-align: center; "></div>
+    <!-- orqui script for image mood -->
+    <script>
+        var imageJS = document.getElementById('img-area');
+        function good(){
+            imageJS.src = "blueberry-smoothie.jpg";
+        }
+        function sad(){
+            imageJS.src = "strawberry-smoothie.jpg";
+        }
+    </script>
 </div> 
-        
 </body>
 </html>
