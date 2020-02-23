@@ -4,7 +4,7 @@
 	$name = 'apple';
 
 
-    	$sql ="SELECT * from fruit WHERE name = '$name'";
+    $sql ="SELECT * from fruit WHERE name = '$name'";
 	$result = mysqli_query($mydb,$sql);
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	$count = mysqli_num_rows($result);

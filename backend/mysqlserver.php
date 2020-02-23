@@ -1,9 +1,9 @@
 #!/usr/bin/php
 <?php
 
-	require_once('../frontend/path.inc');
-	require_once('../frontend/get_host_info.inc');
-	require_once('../frontend/rabbitMQLib.inc');
+	require_once('path.inc');
+	require_once('get_host_info.inc');
+	require_once('rabbitMQLib.inc');
 
 
 	$db_host='192.168.56.5';

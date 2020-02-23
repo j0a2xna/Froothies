@@ -1,12 +1,12 @@
 <?php
 	session_start();
 
-	require_once('path.inc');
-	require_once('get_host_info.inc');
-	require_once('rabbitMQLib.inc');
+	require_once('../backend/path.inc');
+	require_once('../backend/get_host_info.inc');
+	require_once('../backend/rabbitMQLib.inc');
 
 	$error= "ready?";
-	$client = new rabbitMQClient("/var/www/froothies/backend/testRabbitMQ.ini","testServer");
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 	$username = '';
 	$password = '';
@@ -18,39 +18,33 @@
 
    		$request['username'] = $username;
 		$request['password'] = $password;
-		
-		#echo "here 1".PHP_EOL;
+
 	}	
 	if(isset($_POST['login'])){
-		#echo "in login".PHP_EOL;
 		$request['type'] = 'login';
 		$response = $client->send_request($request);
 		process_response($response);
 	}
 
 	if(isset($_POST['register'])){
-		#echo "in register".PHP_EOL;
 		$request['type']='register';
 		$response = $client->send_request($request);
 		process_response($response);
 	}
 
 	function process_response($response){
-		#echo "Received response".PHP_EOL;
-		#var_dump($response);
+		var_dump($response);
 		if($response == "login"){
-			#echo "Successfully Logged in\n".PHP_EOL;
 			session_start();
 			session_register("username");
 			$_SESSION['userid']=$username;
-			#echo $_SESSION['userid'];
 			header('location: welcome.php');
 		}elseif($response == "fail"){
-				#echo "sorry username/password incorrect\n".PHP_EOL;
+				echo "sorry username/password incorrect\n".PHP_EOL;
 		}elseif($response == "registered"){
-				#echo "you have successfully registered\n".PHP_EOL;
+				echo "you have successfully registered\n".PHP_EOL;
 		}else{
-				#echo "sorry username taken\n".PHP_EOL;
+				echo "sorry username taken\n".PHP_EOL;
 		}
 	}
 	
