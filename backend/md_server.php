@@ -45,9 +45,13 @@
         $fat = $response['fat'];
         $carb = $response['carb'];
 
-        $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb');
+        $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
     }
                 
-        
+    $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+    $server->process_requests('requestProcessor');
+    $server->send_request($response);
+
+
 ?>
