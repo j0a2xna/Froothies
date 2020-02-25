@@ -1,29 +1,36 @@
 body{
-      /*background-color:#ffffff;*/
+      	background-color:#ffffff;
+	background-image: url("../assets/fruits-bg.png");
         font-family:Times,Helvetica,serif;
-        font-size:14px;
-}
-div{
-	
+        font-size:20px;
+	text-align: center;
 }
 #dialog{
-	width: 300px;
-	border: solid 1px #000000;
-	align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 3px solid pink;
+	border-style: dashed;	
+	border-radius: 15px;
+	background-color:white;
+	color:teal;
+	padding:50px;
 }
+
 #login{
 	background-color:#eCC1C5;
 	color:#ffffff;
 	padding:10px;
 	text-align:center;
 }
+
 #cred{
 	margin:32px;
-}   
+	font-size: 16px;
+}  
 		
 #box{
-	border:#ffffff solid 2px;
+	border:#8A0ED7 solid 2px;
         border-radius:25px; 
 }
-
-
