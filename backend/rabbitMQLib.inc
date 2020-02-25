@@ -13,7 +13,7 @@ class rabbitMQServer
 	private $exchange;
 	private $queue;
 	private $routing_key = '*';
-	private $exchange_type = "topic";
+	private $exchange_type = "direct";
 	private $auto_delete = false;
 
 	function __construct($machine, $server = "rabbitMQ")
@@ -27,6 +27,7 @@ class rabbitMQServer
 		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
 		{
 			$this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
+			$this->routing_key = $this->machine[$server]["routing_key"];
 		}
 		if (isset( $this->machine[$server]["AUTO_DELETE"]))
 		{
