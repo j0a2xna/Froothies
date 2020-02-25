@@ -22,9 +22,9 @@
 
         $num = queryDB($type, $ingredient);
 
-        if($num == 1){
+        if(is_array($num)){
             print_r($row);
-            return $count;
+            return $num;
         }else{
             $request['type'] = 'fruit';
             $request['name'] = $ingredient;
@@ -46,7 +46,6 @@
             $query['pro']=$row['pro'];
             $query['fat']=$row['fat'];
             $query['carb']=$row['carb'];
-
             return $query;
         }else{
             return $count;
