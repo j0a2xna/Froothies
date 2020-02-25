@@ -1,7 +1,7 @@
 <?php
     require_once('md_cred.php');
     require_once('path.inc');
-    require_once('rabbitMQLib.inc')
+    require_once('rabbitMQLib.inc');
 
 
     $client = new rabbitMQClient("RMQ_server.ini","RMQ_Server");
@@ -13,7 +13,7 @@
 
     if(isset($_POST['add'])){
         $type = $_POST['type'];
-        addIngr($ingredient, $type)
+        addIngr($ingredient, $type);
     }
 
     function addIngr($ingredient, $type){
