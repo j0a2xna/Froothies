@@ -5,7 +5,6 @@
 	require_once('../backend/get_host_info.inc');
 	require_once('../backend/rabbitMQLib.inc');
 
-	$error= "ready?";
 	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 	$username = '';
@@ -22,12 +21,6 @@
 	}	
 	if(isset($_POST['login'])){
 		$request['type'] = 'login';
-		$response = $client->send_request($request);
-		process_response($response);
-	}
-
-	if(isset($_POST['register'])){
-		$request['type']='register';
 		$response = $client->send_request($request);
 		process_response($response);
 	}
@@ -58,7 +51,7 @@
 	<div align="center">	
 		<div id="dialog">					
 			<div id="login">		
-				<b>Login</b>
+				<b>Log in</b>
 			</div>
 			<div id="cred">
 				<form name="" action="" method="POST">
@@ -68,14 +61,12 @@
 					Password: 
 					<input type="password" name="password" id="box" autocomplete="off"/>
 				</br></br>
-					<input type="Submit" value="Submit" name="login"/>
-					<input type="Submit" name="register" value="Register"/>
+					<input type="Submit" value="Log in" name="login"/>
 				<br/>
 				</form>
 			
-					<div style="font-size:11px;color#000000;margin-top:10px">
-						Error:	<?php echo $error.PHP_EOL; ?>
-		
+					<div style="font-size:12px;color:#000000;margin-top:10px">
+						Not a member? <a href="register.html">Create an account!</a>
 					</div>
 			</div>
 		</div>
