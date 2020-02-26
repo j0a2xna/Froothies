@@ -1,12 +1,11 @@
 <?php
 	session_start();
 
-	require_once('path.inc');
-	require_once('get_host_info.inc');
-	require_once('rabbitMQLib.inc');
+	require_once('../backend/path.inc');
+	require_once('../backend/get_host_info.inc');
+	require_once('../backend/rabbitMQLib.inc');
 
-	$error= "ready?";
-	$client = new rabbitMQClient("/backend/testRabbitMQ.ini","testServer");
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 	$username = '';
 	$password = '';
@@ -18,33 +17,21 @@
 
    		$request['username'] = $username;
 		$request['password'] = $password;
-		
-		echo "here 1".PHP_EOL;
+
 	}	
 	if(isset($_POST['login'])){
-		echo "in login".PHP_EOL;
 		$request['type'] = 'login';
 		$response = $client->send_request($request);
 		process_response($response);
 	}
 
-	if(isset($_POST['register'])){
-		echo "in register".PHP_EOL;
-		$request['type']='register';
-		$response = $client->send_request($request);
-		process_response($response);
-	}
-
 	function process_response($response){
-		echo "Received response".PHP_EOL;
 		var_dump($response);
 		if($response == "login"){
-			echo "Successfully Logged in\n".PHP_EOL;
 			session_start();
-			session_register("username");
-			$_SESSION['userid']=$username;
-			echo $_SESSION['userid'];
-			header("location: welcome.php");
+#			session_register("username");
+#			$_SESSION['userid']=$username;
+			header('location: welcome.html');
 		}elseif($response == "fail"){
 				echo "sorry username/password incorrect\n".PHP_EOL;
 		}elseif($response == "registered"){
@@ -64,7 +51,7 @@
 	<div align="center">	
 		<div id="dialog">					
 			<div id="login">		
-				<b>Login</b>
+				<b>Log in</b>
 			</div>
 			<div id="cred">
 				<form name="" action="" method="POST">
@@ -74,14 +61,12 @@
 					Password: 
 					<input type="password" name="password" id="box" autocomplete="off"/>
 				</br></br>
-					<input type="Submit" value="Submit" name="login"/>
-					<input type="Submit" name="register" value="Register"/>
+					<input type="Submit" value="Log in" name="login"/>
 				<br/>
 				</form>
 			
-					<div style="font-size:11px;color#000000;margin-top:10px">
-						Error:	<?php echo $error.PHP_EOL; ?>
-		
+					<div style="font-size:12px;color:#000000;margin-top:10px">
+						Not a member? <a href="register.html">Create an account!</a>
 					</div>
 			</div>
 		</div>
