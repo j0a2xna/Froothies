@@ -1,6 +1,6 @@
 <?php
     require_once('../backend/path.inc');
-    require_once('../backend/get_host_info.inc');
+    require_once('get_host_info.inc');
     require_once('../backend/rabbitMQLib.inc');
 
     $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
@@ -28,11 +28,11 @@
 
         foreach($search_result[0] as $category){
             echo $category . "\n"
-        }
+        };
 
     }
 
-    
+
 
 
 ?>
