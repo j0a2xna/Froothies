@@ -28,7 +28,7 @@
 
         foreach($search_result[0] as $category){
             echo $category . "\n"
-        }
+        };
 
     }
 
