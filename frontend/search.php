@@ -27,8 +27,8 @@
         $search_result['carb'] = $response['carb'];
 
         foreach($search_result[0] as $category){
-            echo $category . "\n"
-        };
+            echo $category . "\n";
+        }
 
     }
 
