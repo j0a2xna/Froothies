@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-#PPG.COM
-index.php --> landing page for PPG.COM, rabbitmqclient
+index.php --> landing page for froothies.COM, rabbitmqclient
 mysqlserver.php --> mysql server, processes request from rabbitmqclient
 loginDB.php --> mysql credentials
 testRabbitMQ.ini --> connection to broker
