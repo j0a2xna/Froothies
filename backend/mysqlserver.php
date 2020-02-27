@@ -6,7 +6,7 @@
 	require_once('rabbitMQLib.inc');
 
 
-	$db_host='192.168.56.5';
+	$db_host='localhost';
         $db_username='nemo';
         $db_password='dory123';
         $db_name='reef';
@@ -22,7 +22,7 @@
 
 function doLogin($username, $password){
 
-	$db_host='192.168.56.5';
+	$db_host='localhost';
 	$db_username='nemo';
 	$db_password='dory123';
 	$db_name='reef';
@@ -57,7 +57,7 @@ function doRegister($username, $password){
 		$send = "taken";
 		return $send;
 	}else{
-		$db_host='192.168.56.5';
+		$db_host='localhost';
  	        $db_username='nemo';
        		$db_password='dory123';
 	        $db_name='reef';
