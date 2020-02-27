@@ -80,7 +80,7 @@
             
     }        
 
-    $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 

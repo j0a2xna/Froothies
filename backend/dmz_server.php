@@ -39,7 +39,7 @@
 
     
 
-    $server = new rabbitMQServer("RMQ_server.ini","RMQ_Server");
+    $server = new rabbitMQServer("RMQ_Server.ini","RMQ_Server");
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
