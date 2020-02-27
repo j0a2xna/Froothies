@@ -14,7 +14,7 @@
 
     if(isset($_POST['add'])){
         $type = $_POST['type'];
-        addIngr($ingredient, $type); 
+        addIngr($ingredient, $type);
     }
 
     function addIngr($ingredient, $type){
