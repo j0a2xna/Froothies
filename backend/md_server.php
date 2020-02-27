@@ -7,6 +7,7 @@
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
 
     $ingredient = '';
+    $types = array("fruit", "veggies", "protein", "base");
     $query = array();
     $request = array();
     $response = array();
