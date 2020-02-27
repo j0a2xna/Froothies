@@ -6,6 +6,7 @@
 
     $APP_ID = '9e081409';
     $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
+    $url = '';
     $ch = curl_init();
 
     function requestProcessor($request){
@@ -17,6 +18,10 @@
         }
         
         $url = "https://api.edamam.com/api/food-database/parser?ingr='$food'&category=generic-foods&category-label=food&app_id='$APP_ID'&app_key='$APP_KEY'";
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
 
         $jsonData = curl_exec($ch);
 
@@ -32,10 +37,8 @@
 
     }
 
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
     
+
     $server = new rabbitMQServer("RMQ_server.ini","RMQ_Server");
     $server->process_requests('requestProcessor');
     $server->send_request($response);
