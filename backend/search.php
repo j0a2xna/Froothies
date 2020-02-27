@@ -3,7 +3,7 @@
     require_once('get_host_info.inc');
     require_once('rabbitMQLib.inc');
 
-    $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+    $client = new rabbitMQClient("RMQ_server.ini", "RMQ_Server");
 
     $search_query = "";
     $search_result = array();
@@ -13,7 +13,7 @@
 
         $request['type'] = 'search';
         $request['name'] = $search_query;
-        $response = $client->send_request($response);
+        $response = $client->send_request($request);
         process_response($response);
     }
 
