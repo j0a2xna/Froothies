@@ -4,7 +4,7 @@
     require_once('rabbitMQLib.inc');
 
 
-    $client = new rabbitMQClient("RMQ_server.ini","RMQ_Server");
+    $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
 
     $ingredient = '';
     $types = array("fruit", "veggies", "protein", "base");
