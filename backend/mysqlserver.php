@@ -57,7 +57,7 @@ function doRegister($username, $password){
 		$send = "taken";
 		return $send;
 	}else{
-		$db_host='localhost';
+			$db_host='localhost';
  	        $db_username='nemo';
        		$db_password='dory123';
 	        $db_name='reef';

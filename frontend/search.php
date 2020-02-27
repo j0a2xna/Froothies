@@ -1,7 +1,7 @@
 <?php
-    require_once('path.inc');
+    require_once('../backend/path.inc');
     require_once('get_host_info.inc');
-    require_once('rabbitMQLib.inc');
+    require_once('../backend/rabbitMQLib.inc');
 
     $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 
@@ -26,18 +26,10 @@
         $search_result['fat'] = $response['fat'];
         $search_result['carb'] = $response['carb'];
 
-       formatResult($search_result);
+        foreach($search_result[0] as $category){
+            echo $category . "\n";
+        }
 
-    }
-
-    function formatResult($search_result){
-        echo "<tr>";
-        echo "<td><b>{$search_result['name']}</b></td>";
-        echo "<td> Calories: {$search_result['cal']}g</td>";
-        echo "<td> Protein: {$search_result['pro']}g</td>";
-        echo "<td> Fat: {$search_result['fat']}g</td>";
-        echo "<td> Carbohydrates: {$search_result['carb']}g</td>";
-        echo "</tr>";
     }
 
 
@@ -50,8 +42,6 @@
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="submit" name="search_query" value="SEARCH">
         </form>
-
-
     </body>
 
 </html>
