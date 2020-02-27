@@ -70,7 +70,7 @@
         $name = $request['name'];
         $type = $request['type'];
         if($request['type']=="search"){
-            foreach table in $types{
+            foreach ($types as $table){
                 return queryDB($table, $name);
             }
 
@@ -78,8 +78,8 @@
             return addIngr($name,$type);
         }
             
-    }
-                
+    }        
+
     $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
     $server->process_requests('requestProcessor');
     $server->send_request($response);
