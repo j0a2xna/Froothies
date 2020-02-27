@@ -48,7 +48,8 @@
 <head></head>
     <body>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="submit" name="search_query" value="SEARCH">
+            <input type="text" name="search_query">
+            <input type="submit" name="search" value="SEARCH">
         </form>
 
 
