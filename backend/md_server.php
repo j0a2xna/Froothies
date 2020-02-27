@@ -7,7 +7,6 @@
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
 
     $ingredient = '';
-    $types = array("fruit", "veggies", "protein", "base");
     $query = array();
     $request = array();
     $response = array();
@@ -67,6 +66,7 @@
 
     function requestProcessor($request){
         var_dump($request);
+        $types = array("fruit", "veggies", "protein", "base");
         $name = $request['name'];
         $type = $request['type'];
         if($request['type']=="search"){
