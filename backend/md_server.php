@@ -24,13 +24,12 @@
     function addIngr($ingredient, $type){
         $ingredient = $_POST['ingrediant'];
         echo "add Ingr";
-        $num = queryDB($type, $ingredient);
-
-        if(is_array($num)){
-            print_r($row);
-            return $num;
+        if($type == "search"){
+            $request['name'] = $ingredient;
+            $response = $client->send_request($response);
+            process_response($response);
         }else{
-            $request['type'] = 'fruit';
+            $request['type'] = $type;
             $request['name'] = $ingredient;
             $response = $client->send_request($response);
             process_response($response);
@@ -46,6 +45,11 @@
         $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
+        if($result == FALSE){
+            $type = "search";
+            return addIngr($name, $type);          
+        }
+
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
         $query = array();
