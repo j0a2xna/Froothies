@@ -17,6 +17,11 @@
         addIngr($ingredient, $type);
     }
 
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
+    $server->process_requests('requestProcessor');
+    $server->send_request($response);
+
+
     function addIngr($ingredient, $type){
         $ingredient = $_POST['ingrediant'];
         echo "add Ingr";
@@ -38,6 +43,7 @@
         $result = mysqli_query($mydb,$sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
+        $query = array();
 
         if($count == 1){
             $query['type']=$type;
@@ -67,12 +73,17 @@
 
     function requestProcessor($request){
         var_dump($request);
+
         $types = array("fruit", "veggies", "protein", "base");
+
         $name = $request['name'];
         $type = $request['type'];
+
+        echo "request reached";
+
         if($request['type']=="search"){
             foreach ($types as $table){
-                return queryDB($table, $name);
+                queryDB($table, $name);
             }
             echo "inside search request";
         }else{
@@ -81,9 +92,7 @@
             
     }        
 
-    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
-    $server->process_requests('requestProcessor');
-    $server->send_request($response);
+    
 
 
 ?>
