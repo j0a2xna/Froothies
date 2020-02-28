@@ -72,13 +72,28 @@ function doRegister($username, $password){
 
 		$sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
 		$result =  mysqli_query($mydb,$sql);
-	        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		if(mysqli_query($mydb, $sql)){
+                        echo "user created successfully".PHP_EOL;
+                }else{
+                        "Error creating user: " . mysqli_error($mydb) . PHP_EOL;
+                }
+//		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
+		//create a username table with columns recipe name, fruit, veggies, protein, and base
+		$sql2 = "CREATE TABLE `".$username."`(recipeName VARCHAR(255) NOT NULL, fruits VARCHAR(255), veggies VARCHAR(255), protein VARCHAR(255), base VARCHAR(255), PRIMARY KEY(recipeName))";
+	//	$result2 = mysqli_query($mydb,$sql2);
+//		$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+		
+		//test query against database
+		if(mysqli_query($mydb, $sql2)){
+			echo "table created successfully".PHP_EOL;
+		}else{
+			"Error creating table: " . mysqli_error($mydb) . PHP_EOL;
+		}
 		if((doLogin($username, $password)) == "login"){
 			$send = "registered";
 			return $send;
 		}
-
 	}
 
 }
