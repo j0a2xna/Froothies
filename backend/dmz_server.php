@@ -46,6 +46,6 @@
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
-
+    exit();
 
 ?>
