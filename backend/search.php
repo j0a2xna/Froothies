@@ -3,7 +3,7 @@
     require_once('get_host_info.inc');
     require_once('rabbitMQLib.inc');
 
-    $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+    $client = new rabbitMQClient("AMD_Server.ini", "AMD_Server");
 
     $search_query = "";
     $search_result = array();
@@ -13,7 +13,7 @@
 
         $request['type'] = 'search';
         $request['name'] = $search_query;
-        $response = $client->send_request($response);
+        $response = $client->send_request($request);
         process_response($response);
     }
 
@@ -26,10 +26,18 @@
         $search_result['fat'] = $response['fat'];
         $search_result['carb'] = $response['carb'];
 
-        foreach($search_result[0] as $category){
-            echo $category . "\n";
-        }
+       formatResult($search_result);
 
+    }
+
+    function formatResult($search_result){
+        echo "<tr>";
+        echo "<td><b>{$search_result['name']}</b></td>";
+        echo "<td> Calories: {$search_result['cal']}g</td>";
+        echo "<td> Protein: {$search_result['pro']}g</td>";
+        echo "<td> Fat: {$search_result['fat']}g</td>";
+        echo "<td> Carbohydrates: {$search_result['carb']}g</td>";
+        echo "</tr>";
     }
 
 
@@ -40,8 +48,11 @@
 <head></head>
     <body>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="submit" name="search_query" value="SEARCH">
+            <input type="text" name="search_query">
+            <input type="submit" name="search" value="SEARCH">
         </form>
+
+
     </body>
 
 </html>

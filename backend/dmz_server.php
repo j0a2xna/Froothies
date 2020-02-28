@@ -4,14 +4,7 @@
     require_once('rabbitMQLib.inc');
     #require_once('RMQ_server.ini');
 
-    $APP_ID = '9e081409';
-    $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
-    $ch = curl_init();
-
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-
+ 
 
     function requestProcessor($request){
         var_dump($request);
@@ -20,8 +13,16 @@
         }else{
             $food = 'apple';
         }
+
+        $APP_ID = '9e081409';
+        $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
+        $ch = curl_init();
         
         $url = "https://api.edamam.com/api/food-database/parser?ingr='$food'&category=generic-foods&category-label=food&app_id='$APP_ID'&app_key='$APP_KEY'";
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
 
         $jsonData = curl_exec($ch);
 
@@ -37,7 +38,9 @@
 
     }
 
-    $server = new rabbitMQServer("RMQ_server.ini","RMQ_Server");
+    
+
+    $server = new rabbitMQServer("RMQ_Server.ini","RMQ_Server");
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
