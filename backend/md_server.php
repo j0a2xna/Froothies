@@ -97,9 +97,11 @@
 
         if($request['type']=="search"){
             foreach ($types as $table){
-                queryDB($table, $name);
+                $query = queryDB($table, $name);
+                echo "query result: . $query .";
             }
             echo "inside search request";
+            
         }else{
             return addIngr($name,$type);
         }
