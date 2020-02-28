@@ -19,7 +19,7 @@
 
     function addIngr($ingredient, $type){
         $ingredient = $_POST['ingrediant'];
-
+        echo "add Ingr";
         $num = queryDB($type, $ingredient);
 
         if(is_array($num)){
@@ -74,7 +74,7 @@
             foreach ($types as $table){
                 return queryDB($table, $name);
             }
-
+            echo "inside search request";
         }else{
             return addIngr($name,$type);
         }
