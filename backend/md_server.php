@@ -45,7 +45,7 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT name, calories, protein, fat, carbs from `".$type."` WHERE name = '$name'";
+        $sql = "SELECT * from `".$type."` WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             return addIngr($name, $type);          
