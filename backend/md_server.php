@@ -26,7 +26,7 @@
 
     function addIngr($ingredient, $type){
         $client = RMQ();
-        echo "add Ingr";
+        echo "add Ingr \n";
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($request);
@@ -45,10 +45,9 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT * from '$type' WHERE name = '$name'";
+        $sql = "SELECT * from `".$type."` WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
-            $type = "fruit";
             return addIngr($name, $type);          
         }
 
@@ -70,7 +69,7 @@
         }
     }
 
-    function processs_response($response){
+    function process_response($response){
         var_dump($response);
         $type = $response['type'];
         $name = $response['name'];
@@ -88,8 +87,6 @@
 
     function requestProcessor($request){
         var_dump($request);
-
-        $types = array("fruit", "veggies", "protein", "base");
 
         $name = $request['name'];
         $type = $request['type'];
