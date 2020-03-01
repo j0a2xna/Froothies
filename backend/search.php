@@ -6,11 +6,11 @@
     $client = new rabbitMQClient("AMD_Server.ini", "AMD_Server");
 
     $search_query = "";
-    $type = $_POST['allrecipes'];
     $search_result = array();
 
     if(isset($_POST['search_query'])){
         $search_query = $_POST['search_query'];
+        $type = $_POST['type'];
         $request['type'] = $type;
         $request['name'] = $search_query;
         $response = $client->send_request($request);
@@ -49,16 +49,17 @@
 <html>
 <head></head>
     <body>
-        <select name="type" value ="allrecipes"> ALL RECIPES
-            <option value="fruit" name="fruit" id="type"> FRUIT
-            <option value="veggies" name="veggies" id="type"> VEGGIES
-            <option value="protein" name="protein" id="type"> PROTEIN
-            <option value="base" name="base" id="type"> BASE
-        </select> <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <input type="text" name="search_query">
-            <input type="submit" name="search" value="SEARCH">
-        </form>
-
+        <select name="type" id="type"> 
+            <option value="recipes" name="recipes"> ALL RECIPES
+            <option value="fruit" name="fruit"> FRUIT
+            <option value="veggies" name="veggies"> VEGGIES
+            <option value="protein" name="protein"> PROTEIN
+            <option value="base" name="base"> BASE
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <input type="text" name="search_query">
+                <input type="submit" name="search" value="SEARCH">
+            </form>
+        </select>
 
     </body>
 
