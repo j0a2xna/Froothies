@@ -49,17 +49,19 @@
 <html>
 <head></head>
     <body>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <select name="type" id="type"> 
             <option value="recipes" name="recipes"> ALL RECIPES
             <option value="fruit" name="fruit"> FRUIT
             <option value="veggies" name="veggies"> VEGGIES
             <option value="protein" name="protein"> PROTEIN
             <option value="base" name="base"> BASE
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <input type="text" name="search_query">
-                <input type="submit" name="search" value="SEARCH">
-            </form>
         </select>
+            
+        <input type="text" name="search_query">
+        <input type="submit" name="search" value="SEARCH">
+    </form>
+        
 
     </body>
 

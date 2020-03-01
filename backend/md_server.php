@@ -4,7 +4,6 @@
     require_once('rabbitMQLib.inc');
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
-
     $ingredient = '';
     $types = array("fruit", "veggies", "protein", "base");
     $query = array();
@@ -20,8 +19,14 @@
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
+    function RMQ(){
+        $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
+
+        return $client;
+    }
 
     function addIngr($ingredient, $type){
+        $client = RMQ();
         echo "add Ingr";
         $request['type'] = $type;
         $request['name'] = $ingredient;
