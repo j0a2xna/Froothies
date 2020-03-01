@@ -17,7 +17,7 @@
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor');
-    $server->send_request($response);
+    $server->send_request($query);
 
     function RMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
@@ -33,6 +33,7 @@
         $response = $client->send_request($request);
         return process_response($response);
     }
+
     function connectDB(){
         $db_host = 'localhost';
         $db_username = 'admin';
@@ -49,7 +50,6 @@
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
-            $type = "fruit";
             return addIngr($name, $type);          
         }
 
@@ -83,6 +83,8 @@
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
+
+        return $response;
     }
 
     function requestProcessor($request){
@@ -99,7 +101,8 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                return addIngr($name, $type);
+                $query = addIngr($name, $type);
+                return $query;
             }
             echo "query result: . $query .";
         }else{
@@ -108,6 +111,8 @@
         }
             
     }        
+
+    $server->send_request($query);
 
     
     exit();
