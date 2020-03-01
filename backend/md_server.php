@@ -21,7 +21,6 @@
 
     function RMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
-
         return $client;
     }
 
@@ -83,11 +82,8 @@
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
-<<<<<<< HEAD
-
         $server->send_request($response);
-=======
->>>>>>> parent of 34ef862... fixing returns
+
     }
 
     function requestProcessor($request){
@@ -114,11 +110,6 @@
             
     }        
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 34ef862... fixing returns
-    
     exit();
 
 ?>
