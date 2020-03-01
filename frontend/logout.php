@@ -1,8 +1,6 @@
 <?php
     session_start();
-    if($_SERVER["QUERY_STRING"]){
-        session_destroy();
-    }
+    session_destroy();
 ?>
 
 <html>
