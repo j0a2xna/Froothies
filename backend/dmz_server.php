@@ -38,6 +38,8 @@
         $response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
         $response['fat'] = $array['parsed'][0]['food']['nutrients']['FAT'];
         $response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
+
+        return $response;
     }
 
     
