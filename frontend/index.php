@@ -30,7 +30,7 @@
 		if($response == "login"){
 			session_start();
 #			session_register("username");
-#			$_SESSION['userid']=$username;
+			$_SESSION['userid']=$_POST['username'];
 			header('location: welcome.php');
 		}elseif($response == "fail"){
 				echo "sorry username/password incorrect\n".PHP_EOL;
