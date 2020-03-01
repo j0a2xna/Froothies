@@ -34,15 +34,21 @@
             $response = $client->send_request($response);
             process_response($response);
         }
-
     }
-    function queryDB($type, $name){
+    function connectDB(){
         $db_host = 'localhost';
         $db_username = 'admin';
         $db_password = 'adminpassword';
         $db_name = 'ingr';
 
         $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
+
+        return $mydb;
+
+    }
+    function queryDB($type, $name){
+        
+        $mydb = connectDB();
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
