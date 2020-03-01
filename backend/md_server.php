@@ -17,7 +17,7 @@
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor');
-    $server->send_request($query);
+    $server->send_request($response);
 
     function RMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
@@ -84,7 +84,7 @@
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
 
-        return $response;
+        $server->send_request($response);
     }
 
     function requestProcessor($request){
@@ -101,8 +101,7 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                $query = addIngr($name, $type);
-                return $query;
+                return addIngr($name, $type);
             }
             echo "query result: . $query .";
         }else{
@@ -112,7 +111,6 @@
             
     }        
 
-    $server->send_request($query);
 
     
     exit();
