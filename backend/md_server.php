@@ -31,7 +31,7 @@
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($response);
-        process_response($response);
+        $client->process_response($response);
     }
     function connectDB(){
         $db_host = 'localhost';
