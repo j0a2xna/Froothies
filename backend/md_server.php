@@ -96,6 +96,7 @@
         echo "request reached";
 
         if(isset($request['type'])){
+            $query = array();
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
