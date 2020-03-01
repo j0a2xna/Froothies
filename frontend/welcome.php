@@ -1,13 +1,6 @@
 <?php
 
 session_start();
-
-if (isset($_POST['login'])) {
-	$_SESSION['username'] = $_POST['username'];
-}
-
-echo $_SESSION['username'] . PHP_EOL;
-
 ?>
 
 <!DOCTYPE html>

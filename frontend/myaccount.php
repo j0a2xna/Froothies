@@ -2,6 +2,9 @@
 //start the session
 session_start();
 
+#$_SESSION['username'] = $_POST['username'];
+echo $_SESSION['userid'];
+
 //db configuration
 $db_host = 'localhost';
 $db_username = 'nemo';
@@ -36,7 +39,6 @@ if(mysqli_num_rows($result) > 0){
 }else{
 	echo "You have not created any recipes";
 }
-
 
 ?>
 

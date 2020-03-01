@@ -1,7 +1,10 @@
 <?php
+$server = "localhost";
+$user= "nemo";
+$password = "dory123";
+$db ="testdb";
 
-
-connect= mysql_connect("localhost","root","Tania123");
+$connect= mysql_connect("$server","$user", "$password", "$db");
 if($connect){
 	$query= "CREATE DATABASE comments";
 	if(mysql_query($query)){
