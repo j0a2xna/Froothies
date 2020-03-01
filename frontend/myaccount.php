@@ -1,6 +1,10 @@
 <?php
 //start the session
 session_start();
+$username = $_SESSION['userid'];
+
+#$_SESSION['username'] = $_POST['username'];
+#echo $_SESSION['userid'];
 
 //db configuration
 $db_host = 'localhost';
@@ -13,30 +17,53 @@ $conn = mysqli_connect($db_host, $db_username, $db_password, $db_name);
 if(!$conn){
 	die ("Failed to connect" . mysqli_connect_error());
 }else{
-	echo "Successful connection";
+	#echo "Successful connection" . PHP_EOL;
 }
 
 //*****************************************************//
 
-$username=$_SESSION['username'];
-
-$_SESSION['username'] = $_POST['username'];
-
-echo $_SESSION['username'];
-
 // select columns from the table
-$sql = "SELECT recipeName, fruits, veggies, protein, base FROM '$username'";
+$sql = "SELECT recipeName, fruits, veggies, protein, base FROM $username";
 $result = mysqli_query($conn, $sql);
 
-//display all the recipes in the user's database
+//display all the recipes in the user's database. one per table
 if(mysqli_num_rows($result) > 0){
-	while($row = mysqli_fetch_assoc($result)){		
-		echo "Recipe Name". $row["recipeName"] . " - Fruits: " . $row["fruits"] . " Veggies: " . $row["veggies"] . " Protein: " . $row["protein"] . " Base: " . $row["base"] . "<br>";
+	echo "<h1>Welcome $username!!</h1>";
+	while($row = mysqli_fetch_assoc($result)){
+		echo "<table>";
+		echo "<tr>";
+     		echo "<td>Name: </td>";
+		echo "<td>".$row["recipeName"]."</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>Fruits: </td>";
+                echo "<td>".$row["fruits"]."</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+                echo "<td>Veggies: </td>";
+                echo "<td>".$row["veggies"]."</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+                echo "<td>Protein: </td>";
+                echo "<td>".$row["protein"]."</td>";
+                echo "</tr>";
+
+		echo "<tr>";
+                echo "<td>Base</td>";
+                echo "<td>".$row["base"]."</td>";
+                echo "</tr>";
+
+
+     		echo "</table>";
+		
+		echo "******************************************";
 	}
 }else{
 	echo "You have not created any recipes";
 }
-
 
 ?>
 
@@ -46,15 +73,6 @@ if(mysqli_num_rows($result) > 0){
 	</head>
     <body>
         <div class="myRecipes">
-            <h1>My Recipes</h1>
-            Recipe Name
-            <br><input type="text" placeholder="name.." id="repName"><br><br>
-            Ingredients
-            <br><textarea name="" id="repIng" cols="20" rows="10"></textarea><br><br>
-            Instructions 
-            <br><textarea name="" id="repInst" cols="20" rows="10"></textarea>
-	    <br><br><button type="button">Add recipe</button>
-	    <?php echo "$username" ?>
         </div>
        
     </body>
