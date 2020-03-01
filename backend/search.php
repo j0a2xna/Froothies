@@ -17,8 +17,9 @@
         process_response($response);
     }
 
-    function process_response($search_result, $response){
+    function process_response($response){
         var_dump($response);
+        $search_result = array();
         $search_result['type'] = $response['type'];
         $search_result['name'] = $response['name'];
         $search_result['cal'] = $response['cal'];

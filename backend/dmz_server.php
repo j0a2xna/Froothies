@@ -21,7 +21,7 @@
         $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
         $ch = curl_init();
         
-        $url = "https://api.edamam.com/api/food-database/parser?ingr='.$food.'&category=generic-foods&category-label=food&app_id='$APP_ID'&app_key='$APP_KEY'";
+        $url = "https://api.edamam.com/api/food-database/parser?ingr=`.$food.`&category=generic-foods&category-label=food&app_id=`.$APP_ID.`&app_key=`.$APP_KEY.`";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
