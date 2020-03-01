@@ -6,7 +6,7 @@ session_start();
 $db_host = 'localhost';
 $db_username = 'nemo';
 $db_password = 'dory123';
-$db_name = 'profile';
+$db_name = 'reef';
 
 //test db connection
 $conn = mysqli_connect($db_host, $db_username, $db_password, $db_name);
@@ -20,17 +20,21 @@ if(!$conn){
 
 $username=$_SESSION['username'];
 
+$_SESSION['username'] = $_POST['username'];
+
+echo $_SESSION['username'];
+
 // select columns from the table
-$sql = "SELECT id, publicationDate, title, ingredients, instructions FROM recipes";
+$sql = "SELECT recipeName, fruits, veggies, protein, base FROM '$username'";
 $result = mysqli_query($conn, $sql);
 
-//display all the recipes in the database
+//display all the recipes in the user's database
 if(mysqli_num_rows($result) > 0){
-	while($row = mysqli_fetch_assoc($result)){
-		echo "id: " . $row["id"] . " - Publication Date: " . $row["publicationDate"] . " Recipe Title: " . $row["title"] . " Ingredients: " . $row["ingredients"] . " Instructions: " . $row["instructions"] . "<br>";
+	while($row = mysqli_fetch_assoc($result)){		
+		echo "Recipe Name". $row["recipeName"] . " - Fruits: " . $row["fruits"] . " Veggies: " . $row["veggies"] . " Protein: " . $row["protein"] . " Base: " . $row["base"] . "<br>";
 	}
 }else{
-	echo "0 results";
+	echo "You have not created any recipes";
 }
 
 
