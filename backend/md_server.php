@@ -30,7 +30,7 @@
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($request);
-        return process_response($response);
+        process_response($response);
     }
     function connectDB(){
         $db_host = 'localhost';
@@ -79,7 +79,7 @@
         #$fat = $response['fat'];
         #$carb = $response['carb'];
         $array = $response;
-
+        echo "BIG BOY .$array.";
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
