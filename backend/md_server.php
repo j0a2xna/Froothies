@@ -33,7 +33,6 @@
         $response = $client->send_request($request);
         return process_response($response);
     }
-
     function connectDB(){
         $db_host = 'localhost';
         $db_username = 'admin';
@@ -50,6 +49,7 @@
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
+            $type = "fruit";
             return addIngr($name, $type);          
         }
 
@@ -83,8 +83,11 @@
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
+<<<<<<< HEAD
 
         $server->send_request($response);
+=======
+>>>>>>> parent of 34ef862... fixing returns
     }
 
     function requestProcessor($request){
@@ -111,7 +114,10 @@
             
     }        
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 34ef862... fixing returns
     
     exit();
 
