@@ -1,78 +1,58 @@
 <?php
-$server = "localhost";
-$user= "nemo";
-$password = "dory123";
-$db ="testdb";
+        $servername= "localhost";
+        $user = "nemo";
+        $password = "dory123";
+        $db = "form";
 
-$connect= mysql_connect("$server","$user", "$password", "$db");
-if($connect){
-	$query= "CREATE DATABASE comments";
-	if(mysql_query($query)){
-		$query1 = "CREATE TABLE data (NAME varchar(20), Comment varchar (500)";
-		mysql_select_db("comments",$connect);
-		
-		  if(mysql_query($query1)){
-			echo "Everything went fine.";
-		}
-		  else {
-			die("Failed to create table");
-	}else {
-		die ("Failed to create database;";
-		
-} else{
-	die ("Failed to connect to database");
-	
-if($_POST){
-   $name =$_POST ["name"];
-   $comment =$_POST ["comment"];
-   $connect=mysql_connect("localhost", "root","Tania123");
-   
-   if ($connect){
-		mysql_select_db("comments",$connect);
-		$query=" INSERT INTO data(Name,Comment) VALUES (\"" . $name . "\",\"" . $comment . "\")";
-		if (mysql_query($query)){
-			echo "Success" ;
-		} else {
-		die ("Failed: ");
-		}
-	}else {
-		die ("Failed to connect to mysql");
-	}
-}		
-$connect=mysql_connect("localhost", "root","Tania123");
-   if )$connect) {
-	   mysql_select_db ("comments", $connect);
-	   $query2 = "SELECT * FROM data";
-	   $result = mysql_query($query2);
-	   while ( $row = mysql_fetch_array ($result)) {
-			echo $row['Name'] . "<br>". $row['Comment'];
-		
-	   
-  } else {
-       die ("Failed to connect" . mysql_error());
-	  }
-   
+        $connect = mysqli_connect($servername, $user, $password, $db);
+
+        if (!$connect){
+                die("Connecting Failed: " . mysqli_connect_error());
+        }
+
+        if(isset($_POST['submit'])){
+
+                $name = $_POST['name'];
+                $comment = $_POST['comment'];
+
+                $sql = "INSERT INTO commentTable (name,comment) VALUES ('$name','$comments')";
+
+                if (mysqli_query($connect, $sql)){
+                        echo "New table created successfully";
+                }
+                else
+                {
+                     echo "Error: " . mysqli_error($connect);
+                }
+
+        }
+        mysqli_close($connect);
+
 ?>
 
-<html>
+<!DOCTYPE html>
+<meta charset="UTF-8">
 
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="style1.css">
+  
 </head>
 
-<body>
 
-	<form action= "" method = "POST">
-	Name: <br>
-	<input type= "text" name ="name" ><br>
-	Comment: <br>
-	<textarea name ="comment" rows = "10" cols = "40"></textarea><br><br>
-	<input type ="submit" value= "Post Comment" >
-	</form>
-	<br><br><br>  
-</body>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 
+<div  class="data"> 
+		<br><br><label>Enter your Name<br><br></label>
+        <input type="text" name="username" placeholder="Enter here"><br><br>
+
+          <label>Enter your comments?<br><br></label>
+
+		 <textarea name="comments" rows="5" cols="30" placeholder="Please enter here"></textarea>
+        
+    <button type="submit" name="submit" id="submit" value="submit"><b>Submit</b></button><br></center>
+</div>
+</form>
 <div class="rate">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
@@ -86,4 +66,8 @@ $connect=mysql_connect("localhost", "root","Tania123");
     <label for="star1" title="text">1 star</label>
   </div>
 </html>
+
+
+
+		
 
