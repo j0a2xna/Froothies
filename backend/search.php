@@ -50,13 +50,11 @@
 <head></head>
     <body>
         <select name="type" value ="allrecipes"> ALL RECIPES
-            <option value="fruit" name="fruit" id="type">
-            <option value="veggies" name="veggies" id="type">
-            <option value="protein" name="protein" id="type">
-            <option value="base" name="base" id="type">
-        </select>
-
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <option value="fruit" name="fruit" id="type"> FRUIT
+            <option value="veggies" name="veggies" id="type"> VEGGIES
+            <option value="protein" name="protein" id="type"> PROTEIN
+            <option value="base" name="base" id="type"> BASE
+        </select> <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
         </form>
