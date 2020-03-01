@@ -22,18 +22,11 @@
 
 
     function addIngr($ingredient, $type){
-        //$ingredient = $_POST['ingrediant'];
         echo "add Ingr";
-        if($type == "search"){
-            $request['name'] = $ingredient;
-            $response = $client->send_request($response);
-            process_response($response);
-        }else{
-            $request['type'] = $type;
-            $request['name'] = $ingredient;
-            $response = $client->send_request($response);
-            process_response($response);
-        }
+        $request['type'] = $type;
+        $request['name'] = $ingredient;
+        $response = $client->send_request($response);
+        process_response($response);
     }
     function connectDB(){
         $db_host = 'localhost';
@@ -51,7 +44,7 @@
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
-            $type = "search";
+            $type = "fruit";
             return addIngr($name, $type);          
         }
 
@@ -67,6 +60,7 @@
             $query['fat']=$row['fat'];
             $query['carb']=$row['carb'];
             return $query;
+
         }else{
             return FALSE;
         }
@@ -96,18 +90,15 @@
 
         echo "request reached";
 
-        if($request['type']=="search"){
-            foreach ($types as $table){
-                $query = queryDB($table, $name);
-                if($query == FALSE){
-                    echo "Sorry not found. Let's add it. link to form";
-                    return addIngr($name, $type);
-                }
-                echo "query result: . $query .";
+        if(isset($request['type'])){
+            $query = queryDB($type, $name);
+            if($query == FALSE){
+                echo "Sorry not found. Let's add it. link to form";
+                return addIngr($name, $type);
             }
-            echo "inside search request";
-            
+            echo "query result: . $query .";
         }else{
+            $type = "fruit";
             return addIngr($name,$type);
         }
             
