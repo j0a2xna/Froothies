@@ -45,7 +45,7 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT name, cal, pro, fat, carb from `".$type."` WHERE name = '$name'";
+        $sql = "SELECT name, calories, protein, fat, carbs from `".$type."` WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             return addIngr($name, $type);          
@@ -72,12 +72,13 @@
 
     function process_response($response){
         var_dump($response);
-        $type = $response['type'];
-        $name = $response['name'];
-        $cal = $response['cal'];
-        $pro = $response['pro'];
-        $fat = $response['fat'];
-        $carb = $response['carb'];
+        #$type = $response['type'];
+       # $name = $response['name'];
+        #$cal = $response['cal'];
+        #$pro = $response['pro'];
+        #$fat = $response['fat'];
+        #$carb = $response['carb'];
+        $array = $response;
 
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
