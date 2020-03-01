@@ -3,7 +3,6 @@
     require_once('path.inc');
     require_once('rabbitMQLib.inc');
 
-
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
 
     $ingredient = '';
@@ -17,27 +16,48 @@
         addIngr($ingredient, $type);
     }
 
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
+    $server->process_requests('requestProcessor');
+    $server->send_request($response);
+
+
     function addIngr($ingredient, $type){
-        $ingredient = $_POST['ingrediant'];
-
-        $num = queryDB($type, $ingredient);
-
-        if(is_array($num)){
-            print_r($row);
-            return $num;
+        //$ingredient = $_POST['ingrediant'];
+        echo "add Ingr";
+        if($type == "search"){
+            $request['name'] = $ingredient;
+            $response = $client->send_request($response);
+            process_response($response);
         }else{
-            $request['type'] = 'fruit';
+            $request['type'] = $type;
             $request['name'] = $ingredient;
             $response = $client->send_request($response);
             process_response($response);
         }
+    }
+    function connectDB(){
+        $db_host = 'localhost';
+        $db_username = 'admin';
+        $db_password = 'adminpassword';
+        $db_name = 'ingr';
+
+        $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
+
+        return $mydb;
 
     }
     function queryDB($type, $name){
+        $mydb = connectDB();
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
+        if($result == FALSE){
+            $type = "search";
+            return addIngr($name, $type);          
+        }
+
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
+        $query = array();
 
         if($count == 1){
             $query['type']=$type;
@@ -48,7 +68,7 @@
             $query['carb']=$row['carb'];
             return $query;
         }else{
-            return $count;
+            return FALSE;
         }
     }
 
@@ -61,29 +81,39 @@
         $fat = $response['fat'];
         $carb = $response['carb'];
 
+        $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
     }
 
     function requestProcessor($request){
         var_dump($request);
+
         $types = array("fruit", "veggies", "protein", "base");
+
         $name = $request['name'];
         $type = $request['type'];
+
+        echo "request reached";
+
         if($request['type']=="search"){
             foreach ($types as $table){
-                return queryDB($table, $name);
+                $query = queryDB($table, $name);
+                if($query == FALSE){
+                    echo "Sorry not found. Let's add it. link to form";
+                    return addIngr($name, $type);
+                }
+                echo "query result: . $query .";
             }
-
+            echo "inside search request";
+            
         }else{
             return addIngr($name,$type);
         }
             
     }        
 
-    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
-    $server->process_requests('requestProcessor');
-    $server->send_request($response);
-
+    
+    exit();
 
 ?>

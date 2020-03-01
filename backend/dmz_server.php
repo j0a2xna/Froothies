@@ -4,7 +4,6 @@
     require_once('rabbitMQLib.inc');
     #require_once('RMQ_server.ini');
 
- 
 
     function requestProcessor($request){
         var_dump($request);
@@ -13,7 +12,11 @@
         }else{
             $food = 'apple';
         }
+        return fetchData($food);
 
+    }
+
+    function fetchData($food){
         $APP_ID = '9e081409';
         $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
         $ch = curl_init();
@@ -35,7 +38,6 @@
         $response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
         $response['fat'] = $array['parsed'][0]['food']['nutrients']['FAT'];
         $response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
-
     }
 
     
@@ -44,6 +46,6 @@
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
-
+    exit();
 
 ?>

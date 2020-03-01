@@ -1,3 +1,56 @@
+<?php
+
+
+connect= mysql_connect("localhost","root","");
+if($connect){
+	$query= "CREATE DATABASE comments";
+	if(mysql_query($query)){
+		$query1 = "CREATE TABLE data (NAME varchar(20), Comment varchar (500)";
+		mysql_select_db("comments",$connect);
+		
+		  if(mysql_query($query1)){
+			echo "Everything went fine.";
+		}
+		  else {
+			die("Failed to create table");
+	}else {
+		die ("Failed to create database;";
+		
+} else{
+	die ("Failed to connect to database");
+	
+if($_POST){
+   $name =$_POST ["name"];
+   $comment =$_POST ["comment"];
+   $connect=mysql_connect("localhost", "root","");
+   
+   if ($connect){
+		mysql_select_db("comments",$connect);
+		$query=" INSERT INTO data(Name,Comment) VALUES (\"" . $name . "\",\"" . $comment . "\")";
+		if (mysql_query($query)){
+			echo "Success" ;
+		} else {
+		die ("Failed: ");
+		}
+	}else {
+		die ("Failed to connect to mysql");
+	}
+}		
+$connect=mysql_connect("localhost", "root","");
+   if )$connect) {
+	   mysql_select_db ("comments", $connect);
+	   $query2 = "SELECT * FROM data";
+	   $result = mysql_query($query2);
+	   while ( $row = mysql_fetch_array ($result)) {
+			echo $row['Name'] . "<br>". $row['Comment'];
+		
+	   
+  } else {
+       die ("Failed to connect" . mysql_error());
+	  }
+   
+?>
+
 <html>
 
 <head>
@@ -6,7 +59,18 @@
 </head>
 
 <body>
-  <div class="rate">
+
+	<form action= "" method = "POST">
+	Name: <br>
+	<input type= "text" name ="name" ><br>
+	Comment: <br>
+	<textarea name ="comment" rows = "10" cols = "40"></textarea><br><br>
+	<input type ="submit" value= "Post Comment" >
+	</form>
+	<br><br><br>  
+</body>
+
+<div class="rate">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
     <input type="radio" id="star4" name="rate" value="4" />
@@ -18,41 +82,5 @@
     <input type="radio" id="star1" name="rate" value="1" />
     <label for="star1" title="text">1 star</label>
   </div>
-<br><br><br>  
-<textarea id="title" type="text "rows="10" cols="20" onkeyup="Allow()" ></textarea>
-<input type="submit" value="POST COMMENT" onclick="insert()" /></form>
-<div id="display"></div>
-
-<script type="text/javascript">
-
-var titles = [];
-var titleInput = document.getElementById("title");
-var messageBox = document.getElementById("display");
-
-function Allow()
-{
-if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="")
-{
-user.title.value="";
-alert("Please Enter only alphabets");
-}
-
-window.location.reload()
-}
-
-function insert () {
-titles.push(titleInput.value);
-clearAndShow();
-}
-
-function clearAndShow ()
-{
-titleInput.value = "";
-messageBox.innerHTML = "";
-messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>";
-}
-
-</script>
-</body>
-
 </html>
+
