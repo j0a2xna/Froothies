@@ -22,7 +22,7 @@
 
 
     function addIngr($ingredient, $type){
-        $ingredient = $_POST['ingrediant'];
+        //$ingredient = $_POST['ingrediant'];
         echo "add Ingr";
         if($type == "search"){
             $request['name'] = $ingredient;
@@ -47,7 +47,6 @@
 
     }
     function queryDB($type, $name){
-        
         $mydb = connectDB();
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
@@ -69,7 +68,7 @@
             $query['carb']=$row['carb'];
             return $query;
         }else{
-            return $count;
+            return FALSE;
         }
     }
 
@@ -82,6 +81,7 @@
         $fat = $response['fat'];
         $carb = $response['carb'];
 
+        $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
     }
@@ -99,6 +99,10 @@
         if($request['type']=="search"){
             foreach ($types as $table){
                 $query = queryDB($table, $name);
+                if($query == FALSE){
+                    echo "Sorry not found. Let's add it. link to form";
+                    return addIngr($name, $type);
+                }
                 echo "query result: . $query .";
             }
             echo "inside search request";
