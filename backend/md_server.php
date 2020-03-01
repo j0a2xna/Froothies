@@ -30,8 +30,8 @@
         echo "add Ingr";
         $request['type'] = $type;
         $request['name'] = $ingredient;
-        $response = $client->send_request($response);
-        $client->process_response($response);
+        $response = $client->send_request($request);
+        return process_response($response);
     }
     function connectDB(){
         $db_host = 'localhost';
