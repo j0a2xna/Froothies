@@ -1,7 +1,7 @@
 <?php
 
 
-connect= mysql_connect("localhost","root","");
+connect= mysql_connect("localhost","root","Tania123");
 if($connect){
 	$query= "CREATE DATABASE comments";
 	if(mysql_query($query)){
@@ -22,7 +22,7 @@ if($connect){
 if($_POST){
    $name =$_POST ["name"];
    $comment =$_POST ["comment"];
-   $connect=mysql_connect("localhost", "root","");
+   $connect=mysql_connect("localhost", "root","Tania123");
    
    if ($connect){
 		mysql_select_db("comments",$connect);
@@ -36,7 +36,7 @@ if($_POST){
 		die ("Failed to connect to mysql");
 	}
 }		
-$connect=mysql_connect("localhost", "root","");
+$connect=mysql_connect("localhost", "root","Tania123");
    if )$connect) {
 	   mysql_select_db ("comments", $connect);
 	   $query2 = "SELECT * FROM data";
