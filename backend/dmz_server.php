@@ -40,6 +40,8 @@
         #$response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
         $response = $array;
 
+        echo "THIS IS AN ARRAY ? .$response. or is it this one .$array.";
+
         return $response;
     }
 
