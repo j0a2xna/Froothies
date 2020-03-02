@@ -21,13 +21,12 @@
 
     function RMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
-
         return $client;
     }
 
     function addIngr($ingredient, $type){
         $client = RMQ();
-        echo "add Ingr";
+        echo "add Ingr \n";
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($request);
@@ -49,7 +48,6 @@
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
-            $type = "fruit";
             return addIngr($name, $type);          
         }
 
@@ -60,10 +58,11 @@
         if($count == 1){
             $query['type']=$type;
             $query['name']=$row['name'];
-            $query['cal']=$row['cal'];
-            $query['pro']=$row['pro'];
+            $query['cal']=$row['calories'];
+            $query['pro']=$row['protein'];
             $query['fat']=$row['fat'];
-            $query['carb']=$row['carb'];
+            $query['carb']=$row['carbs'];
+            echo "IS THIS A QUERY .$query.";
             return $query;
 
         }else{
@@ -71,30 +70,27 @@
         }
     }
 
-    function processs_response($response){
+    function process_response($response){
         var_dump($response);
-        $type = $response['type'];
-        $name = $response['name'];
-        $cal = $response['cal'];
-        $pro = $response['pro'];
-        $fat = $response['fat'];
-        $carb = $response['carb'];
-
+        #$type = $response['type'];
+        #$name = $response['name'];
+        #$cal = $response['cal'];
+        #$pro = $response['pro'];
+        #$fat = $response['fat'];
+        #$carb = $response['carb'];
+        $array = array();
+        $array = $response;
+        echo "BIG BOY .$array.";
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
-<<<<<<< HEAD
-
         $server->send_request($response);
-=======
->>>>>>> parent of 34ef862... fixing returns
+        return $response;
+
     }
 
     function requestProcessor($request){
         var_dump($request);
-
-        $types = array("fruit", "veggies", "protein", "base");
-
         $name = $request['name'];
         $type = $request['type'];
 
@@ -104,21 +100,15 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                return addIngr($name, $type);
             }
             echo "query result: . $query .";
         }else{
             $type = "fruit";
-            return addIngr($name,$type);
+            //return addIngr($name,$type);
         }
             
     }        
 
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 34ef862... fixing returns
     
-    exit();
 
 ?>

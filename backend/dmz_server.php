@@ -21,23 +21,26 @@
         $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
         $ch = curl_init();
         
-        $url = "https://api.edamam.com/api/food-database/parser?ingr='$food'&category=generic-foods&category-label=food&app_id='$APP_ID'&app_key='$APP_KEY'";
+        $url = "https://api.edamam.com/api/food-database/parser?ingr=`.$food.`&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e";
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_HEADER, 1);
 
         $jsonData = curl_exec($ch);
 
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
+        #$response['name'] = $array['parsed'][0]['food']['label'];
+        #$response['cal'] = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
+        #$response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
+        #$response['fat'] = $array['parsed'][0]['food']['nutrients']['FAT'];
+        #$response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
+        $response = array();
+        $response = $array;
         curl_close($ch);
 
-        $response['name'] = $array['parsed'][0]['food']['label'];
-        $response['cal'] = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
-        $response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
-        $response['fat'] = $array['parsed'][0]['food']['nutrients']['FAT'];
-        $response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
+        echo "THIS IS AN ARRAY ? .$response. or is it this one .$array.";
 
         return $response;
     }
@@ -48,6 +51,6 @@
     $server->process_requests('requestProcessor');
     $server->send_request($response);
 
-    exit();
+
 
 ?>
