@@ -6,9 +6,6 @@ $username = $_SESSION['userid'];
 #$_SESSION['username'] = $_POST['username'];
 #echo $_SESSION['userid'];
 
-#$_SESSION['username'] = $_POST['username'];
-echo $_SESSION['userid'];
-
 //db configuration
 $db_host = 'localhost';
 $db_username = 'nemo';
