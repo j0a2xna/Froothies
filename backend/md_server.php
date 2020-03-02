@@ -78,12 +78,14 @@
         #$pro = $response['pro'];
         #$fat = $response['fat'];
         #$carb = $response['carb'];
+        $array = array();
         $array = $response;
         echo "BIG BOY .$array.";
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
         $server->send_request($response);
+        return $response;
 
     }
 
@@ -100,7 +102,7 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                return addIngr($name, $type);
+                //return addIngr($name, $type);
             }
             echo "query result: . $query .";
         }else{
