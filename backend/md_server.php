@@ -30,7 +30,7 @@
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($request);
-        process_response($response);
+        return process_response($response);
     }
     function connectDB(){
         $db_host = 'localhost';
@@ -45,7 +45,7 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT * from `".$type."` WHERE name = '$name'";
+        $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             return addIngr($name, $type);          
@@ -73,7 +73,7 @@
     function process_response($response){
         var_dump($response);
         #$type = $response['type'];
-       # $name = $response['name'];
+        #$name = $response['name'];
         #$cal = $response['cal'];
         #$pro = $response['pro'];
         #$fat = $response['fat'];
@@ -91,23 +91,20 @@
 
     function requestProcessor($request){
         var_dump($request);
-
         $name = $request['name'];
         $type = $request['type'];
 
         echo "request reached";
 
         if(isset($request['type'])){
-            $query = array();
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                //return addIngr($name, $type);
             }
             echo "query result: . $query .";
         }else{
             $type = "fruit";
-            return addIngr($name,$type);
+            //return addIngr($name,$type);
         }
             
     }        
