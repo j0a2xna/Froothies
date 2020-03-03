@@ -34,7 +34,8 @@
         $request['type'] = $type;
         $request['name'] = $ingredient;
         $response = $client->send_request($request);
-        return process_response($response);
+        $query = process_response($response);
+        return $query;
     }
     function connectDB(){
         $db_host = 'localhost';
@@ -53,7 +54,8 @@
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             echo "result is FALSE";
-            $query = addIngr($type, $name);          
+            $query = addIngr($type, $name); 
+            return $query;
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -71,7 +73,7 @@
                 $response = $query;
                 $server->send_request($response);
                 return $query;
-    
+
             }else{
                 echo "end of queryDB";
                 $server = sRMQ(); 
@@ -79,9 +81,7 @@
                 $server->send_request($response);
                 return FALSE;
             }
-        
         }
-
         
     }
 
@@ -115,6 +115,7 @@
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
             }
+            $server->send_request($query);
             echo "query result: .$query[0].";
         }else{
             $type = "fruit";
