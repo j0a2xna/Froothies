@@ -63,16 +63,17 @@
         if($count == 1){
             $query['type']=$type;
             $query['name']=$row['name'];
+            $test = $query['name'];
             $query['cal']=$row['calories'];
             $query['pro']=$row['protein'];
             $query['fat']=$row['fat'];
             $query['carb']=$row['carbs'];
-            echo "IS THIS A QUERY .$query.";
+            echo "IS THIS A QUERY .$test.";
             return $query;
 
         }else{
-            echo "end of queryDB .$query.";
-            $server = sRMQ();
+            echo "end of queryDB";
+            $server = sRMQ(); 
             $server->send_request($response);
             return FALSE;
         }
@@ -108,7 +109,7 @@
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
             }
-            echo "query result: . $query .";
+            echo "query result: .$query.";
         }else{
             $type = "fruit";
             //return addIngr($name,$type);
