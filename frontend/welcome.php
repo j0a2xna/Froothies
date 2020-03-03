@@ -159,7 +159,7 @@ if(isset($_SESSION['userid'])){
             <a href="#vegan">Vegan</a>
             <a href="#healthy">Healthy</a>
             <a href="#protin">Protein</a>
-            <a href="#cnc">Contact Us</a>
+            <a href="../backend/form.php">Contact Us</a>
 	    <div class="contact"><a href="myaccount.php">My Account</a><a href="logout.php">Logout</a></div>  
         </div>
         <div class="menu1">
