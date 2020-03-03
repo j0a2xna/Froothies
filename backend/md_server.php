@@ -57,27 +57,29 @@
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
-            
+            if($count > 0){
+                $query['type']=$type;
+                $query['name']=$row['name'];
+                $test = $query['name'];
+                $query['cal']=$row['calories'];
+                $query['pro']=$row['protein'];
+                $query['fat']=$row['fat'];
+                $query['carb']=$row['carbs'];
+                echo "IS THIS A QUERY .$test.";
+                return $query;
+    
+            }else{
+                echo "end of queryDB";
+                $server = sRMQ(); 
+                $response = "NONE FOUND";
+                $server->send_request($response);
+                return FALSE;
+            }
+        
         }
 
-        if($count > 0){
-            $query['type']=$type;
-            $query['name']=$row['name'];
-            $test = $query['name'];
-            $query['cal']=$row['calories'];
-            $query['pro']=$row['protein'];
-            $query['fat']=$row['fat'];
-            $query['carb']=$row['carbs'];
-            echo "IS THIS A QUERY .$test.";
-            return $query;
 
-        }else{
-            echo "end of queryDB";
-            $server = sRMQ(); 
-            $response = "NONE FOUND";
-            $server->send_request($response);
-            return FALSE;
-        }
+        
     }
 
     function process_response($response){
