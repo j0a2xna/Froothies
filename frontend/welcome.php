@@ -1,6 +1,11 @@
 <?php
-
+//start session and see if user is logged in
 session_start();
+if(isset($_SESSION['userid'])){
+	
+}else{
+	header("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +46,7 @@ session_start();
             };
 </script>
 
-        <title>Welcome IT490</title>
+        <title>Welcome to Froothies</title>
 
 <style>
     
