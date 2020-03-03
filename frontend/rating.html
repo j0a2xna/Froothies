@@ -4,7 +4,7 @@
         $password = "dory123";
         $db = "reef";
 
-        $connect = mysqli_connect($servername, $user, $password, $db);
+        $connect = mysqli_connect( $servername, $user, $password, $db);
 
         if (!$connect){
                 die("Connecting Failed: " . mysqli_connect_error());
@@ -15,7 +15,7 @@
                 $name = $_POST['name'];
                 $comment = $_POST['comment'];
 
-                $sql = "INSERT INTO commentTable (name,comment) VALUES ('$name','$comments')";
+                $sql = "INSERT INTO commentTable (name,comment) VALUES ('$name','$comment')";
 
                 if (mysqli_query($connect, $sql)){
                         echo "New table created successfully";
