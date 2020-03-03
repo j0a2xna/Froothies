@@ -12,7 +12,7 @@
 
     if(isset($_POST['add'])){
         $type = $_POST['type'];
-        addIngr($ingredient, $type);
+        addIngr($type, $ingredient);
     }
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
@@ -49,11 +49,11 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT * from `.$type.` WHERE name = '$name'";
+        $sql = "SELECT * from $type WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             echo "result is FALSE";
-            $query = addIngr($name, $type);          
+            $query = addIngr($type, $name);          
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
