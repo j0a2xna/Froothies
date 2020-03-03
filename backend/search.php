@@ -33,7 +33,7 @@
         $search_result['fat'] = $response['fat'];
         $search_result['carb'] = $response['carb'];
 
-       formatResult($search_result);
+       return formatResult($search_result);
 
     }
 
