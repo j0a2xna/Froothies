@@ -28,7 +28,7 @@
         return $server;
     }
 
-    function addIngr($ingredient, $type){
+    function addIngr($type, $ingredient){
         $client = cRMQ();
         echo "add Ingr \n";
         $request['type'] = $type;
@@ -49,7 +49,7 @@
     }
     function queryDB($type, $name){
         $mydb = connectDB();
-        $sql = "SELECT * from '$type' WHERE name = '$name'";
+        $sql = "SELECT * from `.$type.` WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             echo "result is FALSE";
@@ -80,12 +80,12 @@
 
     function process_response($response){
         var_dump($response);
-        #$type = $response['type'];
-        #$name = $response['name'];
-        #$cal = $response['cal'];
-        #$pro = $response['pro'];
-        #$fat = $response['fat'];
-        #$carb = $response['carb'];
+        $type = $response['type'];
+        $name = $response['name'];
+        $cal = $response['cal'];
+        $pro = $response['pro'];
+        $fat = $response['fat'];
+        $carb = $response['carb'];
         $array = array();
         $array = $response;
         echo "BIG BOY .$array.";
