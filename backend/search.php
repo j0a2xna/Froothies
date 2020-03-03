@@ -13,13 +13,16 @@
         $type = $_POST['type'];
         $request['type'] = $type;
         $request['name'] = $search_query;
+        echo "hehehe";
         $response = $client->send_request($request);
+        echo "haha";
         process_response($response);
+        echo "this aint it sis";
     }
 
     function process_response($response){
         var_dump($response);
-        echo "received request in search";
+        echo "received request in search".PHP_EOL;
         $search_result = array();
         $search_result['type'] = $response['type'];
         $test = $search_result['name'];
@@ -65,7 +68,8 @@
         <input type="text" name="search_query">
         <input type="submit" name="search" value="SEARCH">
     </form>
-        
+    <div>
+    </div>
 
     </body>
 
