@@ -19,8 +19,10 @@
 
     function process_response($response){
         var_dump($response);
+        echo "received request in search";
         $search_result = array();
         $search_result['type'] = $response['type'];
+        echo "$search_result['type']";
         $search_result['name'] = $response['name'];
         $search_result['cal'] = $response['cal'];
         $search_result['pro'] = $response['pro'];
