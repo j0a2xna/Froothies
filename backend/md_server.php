@@ -29,7 +29,7 @@
     }
 
     function addIngr($ingredient, $type){
-        $client = RMQ();
+        $client = cRMQ();
         echo "add Ingr \n";
         $request['type'] = $type;
         $request['name'] = $ingredient;
