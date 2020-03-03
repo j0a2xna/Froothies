@@ -60,7 +60,7 @@
             
         }
 
-        if($count == 1){
+        if($count > 0){
             $query['type']=$type;
             $query['name']=$row['name'];
             $test = $query['name'];
@@ -74,6 +74,7 @@
         }else{
             echo "end of queryDB";
             $server = sRMQ(); 
+            $response = "NONE FOUND";
             $server->send_request($response);
             return FALSE;
         }

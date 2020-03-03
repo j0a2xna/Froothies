@@ -33,7 +33,7 @@
 
     function formatResult($search_result){
         echo "<tr>";
-        echo "<td><b>{$search_result['type']}</b></td>";
+        echo "<td><b>HUH{$search_result['type']}</b></td>";
         echo "<td><b>{$search_result['name']}</b></td>";
         echo "<td> Calories: {$search_result['cal']}g</td>";
         echo "<td> Protein: {$search_result['pro']}g</td>";
