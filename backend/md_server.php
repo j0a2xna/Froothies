@@ -17,15 +17,19 @@
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor');
-    $server->send_request($response);
+    
 
-    function RMQ(){
+    function cRMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
         return $client;
     }
+    function sRMQ(){
+        $server = new rabbitMQClient("AMD_Server.ini","AMD_Server");
+        return $server;
+    }
 
     function addIngr($ingredient, $type){
-        $client = RMQ();
+        $client = cRMQ();
         echo "add Ingr \n";
         $request['type'] = $type;
         $request['name'] = $ingredient;
@@ -48,12 +52,13 @@
         $sql = "SELECT * from '$type' WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
-            return addIngr($name, $type);          
+            echo "result is FALSE";
+            $query = addIngr($name, $type);          
+        }else{
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $count = mysqli_num_rows($result);
+            
         }
-
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $count = mysqli_num_rows($result);
-        $query = array();
 
         if($count == 1){
             $query['type']=$type;
@@ -66,6 +71,9 @@
             return $query;
 
         }else{
+            echo "end of queryDB .$query.";
+            $server = sRMQ();
+            $server->send_request($response);
             return FALSE;
         }
     }
@@ -84,7 +92,6 @@
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
-        $server->send_request($response);
         return $response;
 
     }
