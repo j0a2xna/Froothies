@@ -1,4 +1,53 @@
 <?php
+session_start();
+$username = $_SESSION['userid'];
+
+$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+if (isset($_SESSION['userid'])){
+	$request['username'] = $username;
+	$response = $client -> send_request($request);
+	process_response($response);
+}
+
+function process_response($response){
+	$row = $response;
+	while($row){
+		echo "<table>";
+                echo "<tr>";
+                echo "<td>Name: </td>";
+                echo "<td>".$row["recipeName"]."</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Fruits: </td>";
+                echo "<td>".$row["fruits"]."</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Veggies: </td>";
+                echo "<td>".$row["veggies"]."</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>Protein: </td>";
+                echo "<td>".$row["protein"]."</td>";
+                echo "</tr>";
+
+		echo "<tr>";
+                echo "<td>Base</td>";
+                echo "<td>".$row["base"]."</td>";
+                echo "</tr>";
+
+                echo "</table>";
+               
+                echo "******************************************";
+	}
+}
+
+
+
+
+
+/*
 //start the session
 session_start();
 $username = $_SESSION['userid'];
@@ -21,7 +70,7 @@ if (isset($_SESSION['userid'])){
 		#echo "Successful connection" . PHP_EOL;
 	}
 
-//*****************************************************//
+//*****************************************************
 
 	// select columns from the table
 	$sql = "SELECT recipeName, fruits, veggies, protein, base FROM $username";
@@ -74,7 +123,13 @@ if (isset($_SESSION['userid'])){
 else{
 	header("Location: index.php");
 }
+ */
+
+
 ?>
+
+
+
 
 <html>
 	<head>
