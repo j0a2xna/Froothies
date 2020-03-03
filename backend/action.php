@@ -77,8 +77,8 @@
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
-                float: right;
-            }
+                float: none;
+}
 
         </style>
    </header>
@@ -86,7 +86,7 @@
 <h2>Great! Now you can add your Favourite Fruits/Veggies.</h2>
 </center>
 <div class="container">
-  <form action="./action.php">
+  <form action="/welcome.html">
     <div class="row">
       <div class="col-25">
         <label name=username>UserName</label>
@@ -103,47 +103,27 @@
         <input type="text" id="email" name="email" placeholder="Your email..">
       </div>
     </div>
-      <!--<div class="row">
-      <div class="col-25">
-        <label for="country">Country</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-           <option value="country">--Select one--</option> 
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-      </div>
-    </div>-->
+      
       <div class="row">
-      <div class="col-25">
-        <label name="fruits">Name of Fruit</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fruits" name="fruits" placeholder="Add fruit..">
-      </div>
-    </div>
+        <div class="col-25">
+            <label name="page">Select page would you like to go.</label>
+        </div>
+            <div class="col-75">
+                <select id="page" name="page">
+                    <option value="page">--Select one--</option> 
+                    <option value="home">Home</option>
+                    <option value="logout">Logout</option>
+                    <option value="form">Previous Page</option>
+                </select>
+            </div>
+        </div>
+      
       <div class="row">
-      <div class="col-25">
-        <label name="veggies">Name of Veggies</label>
+            <input type="submit" value="Previous Page">
+            <input type="submit" value="Home">
+            <input type="submit" value="Logout">
       </div>
-      <div class="col-75">
-        <input type="text" id="veggies" name="vveggies" placeholder="Add veggies..">
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-25">
-        <label for="comments">Any comments?</label>
-      </div>
-      <div class="col-75">
-        <textarea id="comments" name="comments" placeholder="Please leave your comments here.." style="height:200px"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
+      
   </form>
 </div>
 
