@@ -66,6 +66,10 @@
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY .$test.";
+                
+                $server = sRMQ(); 
+                $response = $query;
+                $server->send_request($response);
                 return $query;
     
             }else{
@@ -77,7 +81,6 @@
             }
         
         }
-
 
         
     }
@@ -112,7 +115,7 @@
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
             }
-            echo "query result: .$query.";
+            echo "query result: .$query[0].";
         }else{
             $type = "fruit";
             //return addIngr($name,$type);
