@@ -34,18 +34,22 @@
 
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
-        $response['name'] = $array['parsed'][0]['food']['label'];
-        $test = $array['parsed'][0]['food']['label'];
-        $help = $array['parsed'][1]['food']['label'];
-        $response['cal'] = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
-        $response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
-        $response['fat'] = $array['parsed'][0]['food']['nutrients']['FAT'];
-        $response['carb'] = $carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
-        //$response = array();
-        $response = $array;
+        $name = $array['parsed'][0]['food']['label'];
+		$cal = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
+		$pro = $array['parsed'][0]['food']['nutrients']['PROCNT'];
+		$fat = $array['parsed'][0]['food']['nutrients']['FAT'];
+		$carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
+        
+        $response['name'] = $name;
+        $response['cal'] = $cal;
+        $response['pro'] = $pro;
+        $response['fat'] = $fat;
+        $response['carb'] = $carb;
+
+
         curl_close($ch);
 
-        echo "THIS IS AN ARRAY ? .$test. or $help";
+        echo "THIS IS AN ARRAY ? .$name. or $cal";
 
         return $response;
     }
