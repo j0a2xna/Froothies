@@ -4,8 +4,7 @@
     require_once('rabbitMQLib.inc');
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
-    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
-    $server->process_requests('requestProcessor');
+    
 
     $ingredient = '';
     $types = array("fruit", "veggies", "protein", "base");
@@ -78,14 +77,15 @@
 
     function process_response($response){
         var_dump($response);
-        $type = $response['type'];
-        $name = $response['name'];
-        $cal = $response['cal'];
-        $pro = $response['pro'];
-        $fat = $response['fat'];
-        $carb = $response['carb'];
         $array = array();
         $array = $response;
+            $type = $response['type'];
+            $name = $response['name'];
+            $cal = $response['cal'];
+            $pro = $response['pro'];
+            $fat = $response['fat'];
+            $carb = $response['carb'];
+        
         echo "BIG BOY .$array.";
         $mydb = connectDB();
         $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
@@ -111,7 +111,8 @@
             
     }        
 
-    
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
+    $server->process_requests('requestProcessor'); 
     $server->send_request($query);
     exit();
 
