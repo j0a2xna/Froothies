@@ -67,8 +67,8 @@
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY .$test.";
                 
-                $server = sRMQ(); 
-                $server->send_request($query);
+                //$server = sRMQ(); 
+                //$server->send_request($query);
                 return $query;
 
             }else{
@@ -117,9 +117,12 @@
             $type = "fruit";
             //return addIngr($name,$type);
         }
+        return $query;
             
     }        
 
     
+    $server->send_request($query);
+    exit();
 
 ?>
