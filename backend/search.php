@@ -21,6 +21,7 @@
     }
 
     function process_response($response){
+        echo "response received from md";
         var_dump($response);
         $search_result = array();
         $search_result['type'] = $response['type'];

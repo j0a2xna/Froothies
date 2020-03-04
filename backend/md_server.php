@@ -45,6 +45,7 @@
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             echo "result is FALSE";
+            $query = FALSE;
             return $query;
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -52,7 +53,7 @@
 
             if($count > 0){
                 $query['type']=$type;
-                $query['name']=$row['name'];
+                $query['name']=$name;
                 $test = $query['name'];
                 $query['cal']=$row['calories'];
                 $query['pro']=$row['protein'];
@@ -61,7 +62,6 @@
                 echo "IS THIS A QUERY . $test .";
                 return $query;
             }
-    
         }
         
     }
