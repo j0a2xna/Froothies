@@ -1,13 +1,18 @@
 <?php
-session_start();
-$username = $_SESSION['userid'];
+	session_start();
 
-$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
-if (isset($_SESSION['userid'])){
-	$request['username'] = $username;
-	$response = $client -> send_request($request);
-	process_response($response);
-}
+	require_once('../backend/path.inc');
+	require_once('../backend/get_host_info.inc');
+	require_once('../backend/rabbitMQLib.inc');
+	
+	$username = $_SESSION['userid'];
+
+	$client = new rabbitMQClient("testRMQ.ini", "testServer");
+	if(isset($_SESSION['userid'])){
+		$request['username'] = $username;
+		$response = $client -> send_request($request);
+		process_response($response);
+	}
 
 function process_response($response){
 	$row = $response;
