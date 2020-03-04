@@ -100,10 +100,9 @@
             //if($query == FALSE){
                 //echo "Sorry not found. Let's add it. link to form";
                 //$query = addIngr($type, $name);
-            //}
-
-            return $query;
+            //}    
         } 
+        return $query;
     }        
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
