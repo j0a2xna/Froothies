@@ -5,13 +5,6 @@
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
     
-
-    $ingredient = '';
-    $types = array("fruit", "veggies", "protein", "base");
-    $query = array();
-    $request = array();
-    $response = array();
-
     if(isset($_POST['add'])){
         $type = $_POST['type'];
         addIngr($type, $ingredient);
