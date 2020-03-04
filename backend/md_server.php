@@ -107,9 +107,10 @@
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     echo "wua";
-    $query = $server->process_requests('requestProcessor'); 
+    $server->process_requests('requestProcessor'); 
     echo "jua";
     $server->send_request($query);
+    $server->process_msg($query);
     
 
     exit();
