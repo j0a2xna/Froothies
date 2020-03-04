@@ -4,6 +4,7 @@
     require_once('rabbitMQLib.inc');
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     
     if(isset($_POST['add'])){
         $type = $_POST['type'];
@@ -97,21 +98,18 @@
             $query = queryDB($type, $name);
             echo "we're back here";
 
-            //if($query == FALSE){
-                //echo "Sorry not found. Let's add it. link to form";
+            if($query == FALSE){
+                echo "Sorry not found. Let's add it. link to form";
                 //$query = addIngr($type, $name);
-            //}    
+            }    
         } 
         return $query;
     }        
-
-    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
+    
     echo "wua";
-    $server->process_requests('requestProcessor'); 
+    $query = $server->process_requests('requestProcessor'); 
     echo "jua";
     $server->send_request($query);
-    $server->process_msg($query);
-    
 
     exit();
 
