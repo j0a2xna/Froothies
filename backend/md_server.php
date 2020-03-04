@@ -49,6 +49,7 @@
         $mydb = connectDB();
         $sql = "SELECT * from $type WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
+        echo "result is $result";
         if($result == FALSE){
             echo "result is FALSE";
             $query = addIngr($type, $name); 

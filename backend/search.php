@@ -39,11 +39,11 @@
 
     function formatResult($search_result){
         echo "<tr>";
-        echo "<td><b>HUH{$search_result['type']}</b></td>";
-        echo "<td><b>{$search_result['name']}</b></td>";
-        echo "<td> Calories: {$search_result['cal']}g</td>";
-        echo "<td> Protein: {$search_result['pro']}g</td>";
-        echo "<td> Fat: {$search_result['fat']}g</td>";
+        echo "<td><b>{$search_result['type']}</b></td></br>";
+        echo "<td><b>{$search_result['name']}</b></td></br>";
+        echo "<td> Calories: {$search_result['cal']}g</td></br>";
+        echo "<td> Protein: {$search_result['pro']}g</td></br>";
+        echo "<td> Fat: {$search_result['fat']}g</td></br>";
         echo "<td> Carbohydrates: {$search_result['carb']}g</td>";
         echo "</tr>";
     }
