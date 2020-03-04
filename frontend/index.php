@@ -31,7 +31,7 @@
 			session_start();
 #			session_register("username");
 			$_SESSION['userid']=$_POST['username'];
-			header('location: welcome.php');
+			header('location: ../frontend/welcome.php');
 		}elseif($response == "fail"){
 				echo "sorry username/password incorrect\n".PHP_EOL;
 		}elseif($response == "registered"){
