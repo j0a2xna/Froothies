@@ -34,7 +34,7 @@
 
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
-        $test = $respons['name'];
+        $test = $response['name'];
         $response['name'] = $array[0][0]['food']['label'];
         $response['cal'] = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
         $response['pro'] = $array['parsed'][0]['food']['nutrients']['PROCNT'];
