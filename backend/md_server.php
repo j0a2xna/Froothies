@@ -45,9 +45,11 @@
         $result = mysqli_query($mydb,$sql);
         if($result == FALSE){
             echo "result is FALSE";
+            return $query;
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
+
             if($count > 0){
                 $query['type']=$type;
                 $query['name']=$row['name'];
@@ -57,12 +59,9 @@
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY . $test .";
-                //return $query;
-
-            }else{
-                echo "end of queryDB";
                 return $query;
             }
+    
         }
         
     }
@@ -91,14 +90,16 @@
         $name = $request['name'];
         $type = $request['type'];
 
-        echo "request reached";
+        echo "request reached  ";
 
         if(isset($request['type'])){
             $query = queryDB($type, $name);
+
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
                 $query = addIngr($type, $name);
             }
+
             return $query;
         } 
     }        
