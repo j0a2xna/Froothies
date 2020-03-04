@@ -1,7 +1,7 @@
 <?php
     require_once('loginDB.php');
 
-	$name = 'apple';
+	$name = 'kiwi';
 
 
     $sql ="SELECT * from fruit WHERE name = '$name'";
@@ -13,7 +13,7 @@
 	}else{
 	       	$APP_ID = '9e081409';
    		 $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
-   		 $url = 'https://api.edamam.com/api/food-database/parser?ingr=apple&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e';
+   		 $url = "https://api.edamam.com/api/food-database/parser?ingr=$name&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e";
    		 $ch = curl_init();
 
 

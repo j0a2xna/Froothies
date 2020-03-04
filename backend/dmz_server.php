@@ -35,6 +35,7 @@
 
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
+
         $name = $array['parsed'][0]['food']['label'];
 		$cal = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
 		$pro = $array['parsed'][0]['food']['nutrients']['PROCNT'];
@@ -49,9 +50,8 @@
         $response['carb'] = $carb;
 
 
-        curl_close($ch);
-
         echo "THIS IS AN ARRAY ? .$name. or $cal";
+        curl_close($ch);
 
         return $response;
     }
