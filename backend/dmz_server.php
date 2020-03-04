@@ -13,7 +13,7 @@
         }else{
             $food = 'apple';
         }
-        return fetchData($food);
+        return fetchData($food, $type);
 
     }
 
