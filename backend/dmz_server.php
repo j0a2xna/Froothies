@@ -9,6 +9,7 @@
         var_dump($request);
         if(isset($request['name'])){
             $food = $request['name'];
+            $type = $request['type'];
         }else{
             $food = 'apple';
         }
@@ -16,12 +17,12 @@
 
     }
 
-    function fetchData($food){
+    function fetchData($food, $type){
         $APP_ID = '9e081409';
         $APP_KEY = 'c122653d4096a00999bf36f4e1d4958e';
         $ch = curl_init();
         
-        $url = "https://api.edamam.com/api/food-database/parser?ingr='$food'&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e";
+        $url = "https://api.edamam.com/api/food-database/parser?ingr=$food&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e";
 
         echo "Im in Fetch data, before execute, `. this is the url: .$url.";
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -41,6 +42,7 @@
 		$carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
         
         $response['name'] = $name;
+        $response['type'] = $type;
         $response['cal'] = $cal;
         $response['pro'] = $pro;
         $response['fat'] = $fat;
