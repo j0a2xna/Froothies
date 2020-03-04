@@ -49,12 +49,8 @@
         $mydb = connectDB();
         $sql = "SELECT * from $type WHERE name = '$name'";
         $result = mysqli_query($mydb,$sql);
-        echo "result is $result".PHP_EOL;
-
         if($result == FALSE){
             echo "result is FALSE";
-            $query = addIngr($type, $name); 
-            return $query;
         }else{
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $count = mysqli_num_rows($result);
@@ -71,7 +67,8 @@
 
             }else{
                 echo "end of queryDB";
-                return FALSE;
+                $query = addIngr($type, $name); 
+                return $query;
             }
         }
         
@@ -107,7 +104,7 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                
+
             }
         }
         return $query;
