@@ -14,6 +14,7 @@
         $request['type'] = $type;
         $request['name'] = $search_query;
         echo "hehehe";
+        
         $response = $client->send_request($request);
         echo "haha";
         process_response($response);

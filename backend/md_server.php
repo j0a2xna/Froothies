@@ -60,6 +60,7 @@
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY . $test .";
+                echo "am i still here";
                 return $query;
             }
         }
@@ -94,11 +95,12 @@
 
         if(isset($request['type'])){
             $query = queryDB($type, $name);
+            echo "we're back here";
 
-            if($query == FALSE){
-                echo "Sorry not found. Let's add it. link to form";
-                $query = addIngr($type, $name);
-            }
+            //if($query == FALSE){
+                //echo "Sorry not found. Let's add it. link to form";
+                //$query = addIngr($type, $name);
+            //}
 
             return $query;
         } 
@@ -107,6 +109,6 @@
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor'); 
     $server->send_request($query);
-    exit();
+    //exit();
 
 ?>
