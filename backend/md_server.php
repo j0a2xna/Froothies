@@ -100,9 +100,11 @@
 
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-                //$query = addIngr($type, $name);
+                $query = addIngr($type, $name);
             }    
-        } 
+        }
+        $server = sRMQ();
+        $server->send_request($query);
         return $query;
     }        
     
