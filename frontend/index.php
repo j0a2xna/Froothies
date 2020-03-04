@@ -66,7 +66,7 @@
 				</form>
 			
 					<div style="font-size:12px;color:#000000;margin-top:10px">
-						Not a member? <a href="register.php">Create an account!</a>
+						Not a member? <a href="../frontend/register.php">Create an account!</a>
 					</div>
 			</div>
 		</div>
