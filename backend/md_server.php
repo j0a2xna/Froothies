@@ -66,16 +66,10 @@
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY .$test.";
-                
-                //$server = sRMQ(); 
-                //$server->send_request($query);
                 return $query;
 
             }else{
                 echo "end of queryDB";
-                $server = sRMQ(); 
-                $response = "NONE FOUND";
-                $server->send_request($response);
                 return FALSE;
             }
         }
@@ -112,10 +106,6 @@
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
             }
-            echo "query result: .$query[0].";
-        }else{
-            $type = "fruit";
-            //return addIngr($name,$type);
         }
         return $query;
             
