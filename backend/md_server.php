@@ -4,7 +4,6 @@
     require_once('rabbitMQLib.inc');
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
-    $query = "";
     
     if(isset($_POST['add'])){
         $type = $_POST['type'];
@@ -108,9 +107,8 @@
     }        
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
-    $server->process_requests('requestProcessor'); 
+    $query = $server->process_requests('requestProcessor'); 
     $server->send_request($query);
-    echo "wya";
-    //exit();
+    exit();
 
 ?>

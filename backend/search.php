@@ -16,9 +16,10 @@
         echo "hehehe";
         $response = $client->send_request($request);
         echo "haha";
-        process_response($response);
         echo "this aint it sis";
+        process_response($response);
     }
+    
 
     function process_response($response){
         echo "response received from md";
