@@ -3,13 +3,7 @@
 	require_once('get_host_info.inc');
 	require_once('rabbitMQLib.inc');
 	
-	$server = new rabbitMQServer("testRMQ.ini","testServer");
-	$server->process_requests('requestProcessor');
-	$server->send_request($row);
-
-	function requestProcessor($request){
-		$username = $request['username'];
-
+	function connectDB(){
 		//db config
 		$db_host = 'localhost';
 		$db_username = 'nemo';
@@ -24,12 +18,24 @@
 			#echo "Successful connection" . PHP_EOL;
 		}
 
+		return $conn;
+	}
+
+	function requestProcessor($request){
+		$username = $request['username'];
+		$conn = connectDB();
 		$sql = "SELECT recipeName, fruits, veggies, protein, base FROM $username";
 		$result = mysqli_query($conn, $sql);
-
+		/*
 		if(mysqli_num_rows($result) > 0){
 			$row = mysqli_fetch_assoc($result);
 			return $row;
 		}
+		*/
+
 	}
+
+	$server = new rabbitMQServer("testRMQ.ini","testServer");
+	$server->process_requests('requestProcessor');
+	$server->send_request($row);
 ?>
