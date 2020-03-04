@@ -16,12 +16,12 @@
         $type = $_POST['type'];
         addIngr($type, $ingredient);
     }
-    
 
     function cRMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
         return $client;
     }
+
     function sRMQ(){
         $server = new rabbitMQClient("AMD_Server.ini","AMD_Server");
         return $server;
@@ -36,6 +36,7 @@
         $query = process_response($response);
         return $query;
     }
+
     function connectDB(){
         $db_host = 'localhost';
         $db_username = 'admin';
@@ -43,8 +44,8 @@
         $db_name = 'ingr';
         $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
         return $mydb;
-
     }
+
     function queryDB($type, $name){
         $mydb = connectDB();
         $sql = "SELECT * from $type WHERE name = '$name'";
@@ -62,12 +63,11 @@
                 $query['pro']=$row['protein'];
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
-                echo "IS THIS A QUERY .$test.";
+                echo "IS THIS A QUERY . $test .";
                 return $query;
 
             }else{
                 echo "end of queryDB";
-                $query = addIngr($type, $name); 
                 return $query;
             }
         }
@@ -104,7 +104,7 @@
             $query = queryDB($type, $name);
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
-
+                $query = addIngr($type, $name);
             }
         }
         return $query;

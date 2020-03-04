@@ -26,7 +26,7 @@
         $search_result = array();
         $search_result['type'] = $response['type'];
         $test = $search_result['name'];
-        echo "this is from search .$test.";
+        echo "this is from search . $test .";
         $search_result['name'] = $response['name'];
         $search_result['cal'] = $response['cal'];
         $search_result['pro'] = $response['pro'];
