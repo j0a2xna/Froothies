@@ -27,7 +27,6 @@ class rabbitMQServer
 		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
 		{
 			$this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
-			$this->routing_key = $this->machine[$server]["routing_key"];
 		}
 		if (isset( $this->machine[$server]["AUTO_DELETE"]))
 		{

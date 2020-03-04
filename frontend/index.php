@@ -30,8 +30,8 @@
 		if($response == "login"){
 			session_start();
 #			session_register("username");
-#			$_SESSION['userid']=$username;
-			header('location: welcome.html');
+			$_SESSION['userid']=$_POST['username'];
+			header('location: welcome.php');
 		}elseif($response == "fail"){
 				echo "sorry username/password incorrect\n".PHP_EOL;
 		}elseif($response == "registered"){
@@ -45,7 +45,7 @@
 <html>
 	<head>
 	<title> Login </title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="../frontend/style.css">
 	</head>
 	<body>
 	<div align="center">	
@@ -66,7 +66,7 @@
 				</form>
 			
 					<div style="font-size:12px;color:#000000;margin-top:10px">
-						Not a member? <a href="register.html">Create an account!</a>
+						Not a member? <a href="register.php">Create an account!</a>
 					</div>
 			</div>
 		</div>

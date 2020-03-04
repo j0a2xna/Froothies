@@ -1,58 +1,75 @@
 <?php
-	#include('session.php');
-	require_once('path.inc');
-        require_once('get_host_info.inc');
-        require_once('rabbitMQLib.inc');
-        require_once('loginDB.php');
-
+	require_once('../backend/path.inc');
+	require_once('../backend/get_host_info.inc');
+	require_once('../backend/rabbitMQLib.inc');
 
 	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
+	$username = '';
+	$password = '';
+	$request = array();
+
+
 	if(isset($_POST['username'])){
-		$username = mysqli_real_escape_string($mydb,$_POST['username']);
-		$password = mysqli_real_escape_string($mydb,$_POST['password']);
-		$email = mysqli_real_escape_string($mydb,$_POST['email']);
-		$sql = "INSERT into users ('username','password','email') VALUES ('$username', '$password', '$email')";
+		$username = $_POST['username'];
+		$password = $_POST['password'];
 
-		$result = mysqli_query($mydb,$sql);
-		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);  
-		$active = $row['active'];
-                $count = mysqli_num_rows($result);
+   		$request['username'] = $username;
+		$request['password'] = $password;
 
-		if($count == 1){	
-			echo "you have successfully registered";
-		}
-
+	}	
+	if(isset($_POST['register'])){
+		$request['type'] = 'register';
+		$response = $client->send_request($request);
+		process_response($response);
 	}
+
+	function process_response($response){
+		var_dump($response);
+		if($response == "registered"){
+			$suc_register = "You were successfuly registered. Please log in.";
+			echo "<script type='text/javascript'>
+				alert('$suc_register');
+				window.location = 'index.php';
+			     </script>";
+		}else{
+			$bad_register = "Sorry. Username taken. Try again.";
+			echo "<script type='text/javascript'>
+				alert('$bad_register');
+				window.location = 'register.php';
+			      </script>";
+		}
+	}	
 ?>
 <html>
 	<head>
-	<title> Register </title>
+	<title> Login </title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div align="center">
-			<div style = "width:300px; border:solid 1px #000000;" align="left">
-				<div style ="background-color:#eCC1C5;color:#ffffff;padding:10px;text-align:center;">
-					<b>Login</b>
-				</div>
-			<div style="margin:32px">
-				<form name="login" action="" method="POST">
+	<div align="center">	
+		<div id="dialog">					
+			<div id="register">		
+				<b>Register</b>
+			</div>
+			<div id="cred">
+				<form name="" action="" method="POST">
 					Username: 
-					<input type="text" name="username" class="box" autocomplete="off"/>
+					<input type="text" name="username" id="box" autocomplete="off" required/>
 				</br></br>
 					Password: 
-					<input type="password" name="password" class="box" autocomplete="off"/>
+					<input type="password" name="password" id="box" autocomplete="off" required/>
 				</br></br>
-					<input type="Submit" value="Submit"/>
-					<button name="Register" value="Register"/>Register</button>
-				<br/>
+					Email address:
+					<input type="email" name="email" id="box" autocomplete="off" required/>
+				</br></br>
+					<input type="Submit" value="Register" name="register"/>
 				</form>
-			
-				<div style="font-size:11px;color#000000;margin-top:10px">
-					Error:	<?php echo $error.PHP_EOL; ?>
-		
-				</div>
+					<div style="font-size:12px;color:#000000;margin-top:10px">
+						Already have an account? <a href="index.php">Log in here!</a>
+					</div>
 			</div>
 		</div>
+	</div>
 	</body>
-
+</html>
