@@ -106,9 +106,9 @@
                 echo "Sorry not found. Let's add it. link to form";
                 $query = addIngr($type, $name);
             }
+            return $query;
         }
-        return $query;
-            
+        return;      
     }        
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
