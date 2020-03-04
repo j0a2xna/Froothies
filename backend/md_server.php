@@ -108,6 +108,8 @@
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $query = $server->process_requests('requestProcessor'); 
     $server->send_request($query);
+
+    
     exit();
 
 ?>

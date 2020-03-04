@@ -13,7 +13,7 @@
         $type = $_POST['type'];
         $request['type'] = $type;
         $request['name'] = $search_query;
-        echo "hehehe";
+        echo "hehehe".PHP_EOL;
         $response = $client->send_request($request);
         echo "haha";
         echo "this aint it sis";
@@ -22,7 +22,6 @@
     
 
     function process_response($response){
-        echo "response received from md";
         var_dump($response);
         $search_result = array();
         $search_result['type'] = $response['type'];
