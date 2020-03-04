@@ -22,7 +22,6 @@
 
     function process_response($response){
         var_dump($response);
-        echo "received request in search".PHP_EOL;
         $search_result = array();
         $search_result['type'] = $response['type'];
         $test = $search_result['name'];

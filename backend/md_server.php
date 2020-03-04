@@ -57,7 +57,7 @@
                 $query['fat']=$row['fat'];
                 $query['carb']=$row['carbs'];
                 echo "IS THIS A QUERY . $test .";
-                return $query;
+                //return $query;
 
             }else{
                 echo "end of queryDB";
@@ -100,8 +100,7 @@
                 $query = addIngr($type, $name);
             }
             return $query;
-        }
-        return;      
+        } 
     }        
 
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
