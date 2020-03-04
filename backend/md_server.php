@@ -4,6 +4,9 @@
     require_once('rabbitMQLib.inc');
 
     $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
+    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
+    $server->process_requests('requestProcessor');
+
     $ingredient = '';
     $types = array("fruit", "veggies", "protein", "base");
     $query = array();
@@ -14,9 +17,6 @@
         $type = $_POST['type'];
         addIngr($type, $ingredient);
     }
-
-    $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
-    $server->process_requests('requestProcessor');
     
 
     function cRMQ(){
@@ -42,9 +42,7 @@
         $db_username = 'admin';
         $db_password = 'adminpassword';
         $db_name = 'ingr';
-
         $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
-
         return $mydb;
 
     }
@@ -70,8 +68,7 @@
                 echo "IS THIS A QUERY .$test.";
                 
                 $server = sRMQ(); 
-                $response = $query;
-                $server->send_request($response);
+                $server->send_request($query);
                 return $query;
 
             }else{
@@ -115,7 +112,6 @@
             if($query == FALSE){
                 echo "Sorry not found. Let's add it. link to form";
             }
-            $server->send_request($query);
             echo "query result: .$query[0].";
         }else{
             $type = "fruit";
