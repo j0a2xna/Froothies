@@ -156,9 +156,17 @@ if(isset($_SESSION['userid'])){
     <header>
         <div class="menu">
             <a class="active" href="#all">All</a>
-            <a href="#vegan">Vegan</a>
-            <a href="#healthy">Healthy</a>
-            <a href="#protin">Protein</a>
+            <form action="../backend/search.php" method="post">
+                <select name="type" id="type"> 
+                    <option value="recipes" name="recipes"> ALL RECIPES
+                    <option value="fruit" name="fruit"> FRUIT
+                    <option value="veggies" name="veggies"> VEGGIES
+                    <option value="protein" name="protein"> PROTEIN
+                    <option value="base" name="base"> BASE
+                </select>
+            <input type="text" name="search_query">
+            <input type="submit" name="search" value="SEARCH">
+        </form>
             <a href="../backend/form.php">Contact Us</a>
 	    <div class="contact"><a href="myaccount.php">My Account</a><a href="logout.php">Logout</a></div>  
         </div>
