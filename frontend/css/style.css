@@ -1,6 +1,6 @@
 body{
       	background-color:#ffffff;
-	background-image: url("/var/www/froothies/assets/fruits-bg.png");
+	background-image: url("../froothies/assets/fruits-bg.png");
         font-family:Times,Helvetica,serif;
         font-size:20px;
 	text-align: center;
@@ -33,5 +33,5 @@ body{
 #box{
 	border:#8A0ED7 solid 2px;
 	border-radius:25px; 
-	padding: 10px;
+	padding: 3px 2px 2px 10px;
 }

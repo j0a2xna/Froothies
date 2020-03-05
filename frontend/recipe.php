@@ -12,8 +12,8 @@
       $recipe=$_POST['recipe'];
       $fruit=$_POST['fruit'];
       $vegetable=$_POST['veggies'];
-      $protein=$_POST ['protein'];
-      $base=$_POST ['base'];
+      $protein=$_POST['protein'];
+      $base=$_POST['base'];
 
       $request = array();
       $request['username'] = $username;
