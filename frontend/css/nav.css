@@ -1,36 +1,36 @@
 /* css for nav bar from w3 schools example*/
 .navbar {
-  width: 100%;
-  background-color: #da829f;
-  overflow: auto;
+width: 100%;
+background-color: #da829f;
+overflow: auto;
 }
 
 .navbar a {
-  float: left;
-  text-align: center;
-  padding: 12px;
-  color: #000;
-  text-decoration: none;
-  font-size: 17px;
+float: left;
+text-align: center;
+padding: 12px;
+color: #000;
+text-decoration: none;
+font-size: 17px;
 }
 
 .navbar a:hover {
-  background-color:  #cdd963;
+background-color:  #cdd963;
 }
 
 .active {
-  background-color: #876fa1;
+background-color: #876fa1;
 }
 .sel{
-    padding: 10px;
-    margin: auto 0;
+    padding: 3px;
+    margin:10 0 0;
     text-align: center;
     position: justified;
 }
 
 @media screen and (max-width: 500px) {
-  .navbar a {
+.navbar a {
     float: none;
     display: block;
-  }
+}
 }

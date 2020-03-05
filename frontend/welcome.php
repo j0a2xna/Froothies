@@ -51,7 +51,7 @@ if(isset($_SESSION['userid'])){
 
 <div class="navbar">
   <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
-            <form action="../backend/search.php" method="post">
+            
                 <select name="type" id="type" class="sel"> 
                     <option value="recipes" name="recipes"> ALL RECIPES
                     <option value="fruit" name="fruit"> FRUIT
@@ -59,6 +59,7 @@ if(isset($_SESSION['userid'])){
                     <option value="protein" name="protein"> PROTEIN
                     <option value="base" name="base"> BASE
                 </select>
+            <form action="../backend/search.php" method="post">
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
             <a href="../frontend/myaccount.php"><i class="fa fa-fw fa-envelope"></i> My Account</a>
