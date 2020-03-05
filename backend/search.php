@@ -22,7 +22,7 @@
     
 
     function process_response($response){
-        var_dump($response);
+        //var_dump($response);
         $search_result = array();
         $search_result['type'] = $response['type'];
         $search_result['name'] = $response['name'];
