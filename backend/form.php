@@ -1,37 +1,25 @@
 <?php
-        $servername= "localhost";
-        $user = "nemo";
-        $password = "dory123";
-        $db = "form";
+        require_once('../backend/path.inc');
+        require_once('../backend/get_host_info.inc');
+        require_once('../backend/rabbitMQLib.inc');
 
-        $connect = mysqli_connect($servername, $user, $password, $db);
+        $username = 'username';
 
-        if (!$connect){
-                die("Connecting Failed: " . mysqli_connect_error());
+        $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+
+        if(isset($_POST['username'])){
+                $request['username'] = $username;
+                $response = $client->send_request($request);
+                process_requests($response);
         }
 
-        if(isset($_POST['submit'])){
 
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $fruits = $_POST['fruits'];
-                $veggies = $_POST['veggies'];
-                $comments = $_POST['comments'];
-
-                $sql = "INSERT INTO addFruit (username, email, fruits, veggies, comments) VALUES ('$username', '$email', '$fruits', '$veggies', '$comments')";
-
-                if (mysqli_query($connect, $sql)){
-                        echo "New record created successfully";
-                }
-                else
-                {
-                        echo "Error: " .$sql . "<br>" . mysqli_error($connect);
-                }
-
-        }
-        mysqli_close($connect);
-
+    function requestProcessor($request){
+                $row=$response;
+                echo "Added.";
+    }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -43,7 +31,7 @@
     <title>Froothies</title>
 
     <link href="home.css" type="text/css" rel="stylesheet" />
-    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="home_style.css" type="text/css" rel="stylesheet" />
     <link href="form.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -58,7 +46,7 @@
     </div>
       <nav class="horizontalNavigation">
          <ul>
-            <li><a href="welcome.html">Home</a></li>
+            <li><a href="welcome.php">Home</a></li>
             <li><a href="#">Fruits</a></li>
             <li><a href="#">Veggies</a></li>
             <li><a href="#">Protin</a></li>
