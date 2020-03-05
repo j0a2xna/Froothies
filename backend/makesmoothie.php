@@ -15,11 +15,6 @@
 
 		#test connection
 		$conn = mysqli_connect($db_host, $db_username, $db_password, $db);
-		if(!$conn){
-				die ("Failed to connect" . mysqli_connect_error());
-		}else{
-				#echo "Successful connection" . PHP_EOL;
-		}
 		return $conn;
 	}
 
@@ -44,7 +39,7 @@
 		#****************************#
 		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
-		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result2 = mysqli_query($conn2,$sql2);
 
 		$response = "SUCCESS.";
