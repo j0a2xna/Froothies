@@ -15,10 +15,6 @@
       $protein=$_POST ['protein'];
       $base=$_POST ['base'];
 
-      $fill = TRUE;
-    }
-	 
-    if($fill){
       $request = array();
       $request['username'] = $username;
       $request['recipe'] = $recipe;
@@ -30,6 +26,7 @@
       $response = $client->send_request($request);
       echo "$response";
     }
+
       
 ?>
 
