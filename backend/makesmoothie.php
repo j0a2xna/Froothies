@@ -42,7 +42,7 @@
 		#*****************************#
 			#connect to reef[db] $username[table] to insert info given by the user
 		#****************************#
-		$db_name2 = 'reef';
+		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
 		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result2 = mysqli_query($conn2,$sql2);
