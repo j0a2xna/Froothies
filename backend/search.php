@@ -25,8 +25,6 @@
         var_dump($response);
         $search_result = array();
         $search_result['type'] = $response['type'];
-        $test = $search_result['name'];
-        echo "this is from search . $test .";
         $search_result['name'] = $response['name'];
         $search_result['cal'] = $response['cal'];
         $search_result['pro'] = $response['pro'];
@@ -38,7 +36,7 @@
     }
 
     function formatResult($search_result){
-        echo "<tr>";
+        echo "<br><br><br><tr>";
         echo "<td><b>{$search_result['type']}</b></td></br>";
         echo "<td><b>{$search_result['name']}</b></td></br>";
         echo "<td> Calories: {$search_result['cal']}g</td></br>";
@@ -54,23 +52,24 @@
 
 ?>
 <html>
-<head></head>
-    <body>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <select name="type" id="type"> 
-            <option value="recipes" name="recipes"> ALL RECIPES
-            <option value="fruit" name="fruit"> FRUIT
-            <option value="veggies" name="veggies"> VEGGIES
-            <option value="protein" name="protein"> PROTEIN
-            <option value="base" name="base"> BASE
-        </select>
-            
-        <input type="text" name="search_query">
-        <input type="submit" name="search" value="SEARCH">
-    </form>
-    <div>
+    <head>
+        <link rel="stylesheet" href="../frontend/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+    </head>
+    <div class="navbar">
+    <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
+    <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
+            <form action="../backend/search.php" method="post" id="form">
+                <select name="type" id="type" class="sel"> 
+                        <option value="recipes" name="recipes"> ALL RECIPES
+                        <option value="fruit" name="fruit"> FRUIT
+                        <option value="veggies" name="veggies"> VEGGIES
+                        <option value="protein" name="protein"> PROTEIN
+                        <option value="base" name="base"> BASE
+                </select>
+                <input type="text" name="search_query">
+                <input type="submit" name="search" value="SEARCH">
+            </form>
     </div>
-
-    </body>
-
 </html>
