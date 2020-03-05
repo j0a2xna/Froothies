@@ -50,9 +50,9 @@ if(isset($_SESSION['userid'])){
     <link rel="stylesheet" href="../frontend/css/nav.css">
 
 <div class="navbar">
-  <a class="active" href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
-  <form action="../backend/search.php" method="post">
-                <select name="type" id="type"> 
+  <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+            <form action="../backend/search.php" method="post">
+                <select name="type" id="type" class="sel"> 
                     <option value="recipes" name="recipes"> ALL RECIPES
                     <option value="fruit" name="fruit"> FRUIT
                     <option value="veggies" name="veggies"> VEGGIES
@@ -61,7 +61,7 @@ if(isset($_SESSION['userid'])){
                 </select>
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
-        </form>
+         </form>
   <a href="../frontend/myaccount.php"><i class="fa fa-fw fa-envelope"></i> My Account</a>
   <a href="../frontend/logout.php"><i class="fa fa-fw fa-user"></i> Log Out</a>
 </div>
