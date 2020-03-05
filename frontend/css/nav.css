@@ -50,3 +50,12 @@ background-color: #876fa1;
 #form{
     text-align: center;
 }
+.search{
+    text-align: left;
+    align-content: center;
+    border: #d65d8b dashed 4px;
+    background-color: white;
+    width: 97%;
+    margin: 0;
+    padding: 10px;
+}

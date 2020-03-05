@@ -16,7 +16,7 @@
     }
 
     function sRMQ(){
-        $server = new rabbitMQClient("AMD_Server.ini","AMD_Server");
+        $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
         return $server;
     }
 

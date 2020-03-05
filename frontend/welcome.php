@@ -10,6 +10,7 @@ if(isset($_SESSION['userid'])){
 
 <html lang="en" xmlns="http://srlwebmail.com/index.php" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
+
     <head>
 <meta charset="utf-8"> <!-- utf-8 works for most cases -->
     <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
@@ -47,7 +48,8 @@ if(isset($_SESSION['userid'])){
 
         <title>Welcome to Froothies</title>
     <link rel="stylesheet" href="../frontend/css/nav.css">
-
+    <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+</head>
 <div class="navbar">
   <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
@@ -67,6 +69,9 @@ if(isset($_SESSION['userid'])){
 
 <div id="day">
             <h2> SMOOTHIE OF THE DAY </h2>
+</div>
+<div id="make">
+            <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
 </div>
 
 </body>

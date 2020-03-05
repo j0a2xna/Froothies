@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('path.inc');
     require_once('get_host_info.inc');
     require_once('rabbitMQLib.inc');
@@ -13,20 +14,15 @@
         $type = $_POST['type'];
         $request['type'] = $type;
         $request['name'] = $search_query;
-        echo "hehehe".PHP_EOL;
         $response = $client->send_request($request);
-        echo "haha";
-        echo "this aint it sis";
         process_response($response);
     }
     
 
     function process_response($response){
-        var_dump($response);
+        //var_dump($response);
         $search_result = array();
         $search_result['type'] = $response['type'];
-        $test = $search_result['name'];
-        echo "this is from search . $test .";
         $search_result['name'] = $response['name'];
         $search_result['cal'] = $response['cal'];
         $search_result['pro'] = $response['pro'];
@@ -38,14 +34,14 @@
     }
 
     function formatResult($search_result){
-        echo "<tr>";
+        echo "<div style='float:right;margin-bottom:25%;' class='search'><br><br><br><tr>";
         echo "<td><b>{$search_result['type']}</b></td></br>";
         echo "<td><b>{$search_result['name']}</b></td></br>";
         echo "<td> Calories: {$search_result['cal']}g</td></br>";
         echo "<td> Protein: {$search_result['pro']}g</td></br>";
         echo "<td> Fat: {$search_result['fat']}g</td></br>";
         echo "<td> Carbohydrates: {$search_result['carb']}g</td>";
-        echo "</tr>";
+        echo "</tr></div>";
     }
 
 
@@ -54,23 +50,24 @@
 
 ?>
 <html>
-<head></head>
-    <body>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <select name="type" id="type"> 
-            <option value="recipes" name="recipes"> ALL RECIPES
-            <option value="fruit" name="fruit"> FRUIT
-            <option value="veggies" name="veggies"> VEGGIES
-            <option value="protein" name="protein"> PROTEIN
-            <option value="base" name="base"> BASE
-        </select>
-            
-        <input type="text" name="search_query">
-        <input type="submit" name="search" value="SEARCH">
-    </form>
-    <div>
+    <head>
+        <link rel="stylesheet" href="../frontend/css/nav.css">
+        <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+    </head>
+    <div class="navbar">
+    <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
+    <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
+            <form action="../backend/search.php" method="post" id="form">
+                <select name="type" id="type" class="sel"> 
+                        <option value="recipes" name="recipes"> ALL RECIPES
+                        <option value="fruit" name="fruit"> FRUIT
+                        <option value="veggies" name="veggies"> VEGGIES
+                        <option value="protein" name="protein"> PROTEIN
+                        <option value="base" name="base"> BASE
+                </select>
+                <input type="text" name="search_query">
+                <input type="submit" name="search" value="SEARCH">
+            </form>
     </div>
-
-    </body>
-
 </html>
