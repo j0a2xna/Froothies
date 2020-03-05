@@ -18,7 +18,7 @@
 		if(!$conn){
 			die ("Failed to connect" . mysqli_connect_error());
 		}else{
-			#echo "Successful connection" . PHP_EOL;
+			echo "Successful connection" . PHP_EOL;
 		}
 		return $conn;
 	}
@@ -37,7 +37,7 @@
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
-		$sql = "INSERT INTO TABLE allrecipes VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql = "INSERT INTO allrecipes VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result = mysqli_query($conn,$sql);
 
 		#*****************************#
@@ -45,7 +45,7 @@
 		#****************************#
 		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
-		$sql2 = "INSERT INTO TABLE $username VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql2 = "INSERT INTO $username VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result2 = mysqli_query($conn2,$sql2);
 
 		$response = "SUCCESS.";
