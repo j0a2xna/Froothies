@@ -26,12 +26,14 @@
 		$conn = connectDB();
 		$sql = "SELECT recipeName, fruits, veggies, protein, base FROM $username";
 		$result = mysqli_query($conn, $sql);
-		/*
+		
 		if(mysqli_num_rows($result) > 0){
 			$row = mysqli_fetch_assoc($result);
+			# $row = mysqli_fetch_array($result);
+			echo $row["recipeName"];
 			return $row;
 		}
-		*/
+		
 
 	}
 
