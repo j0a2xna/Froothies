@@ -1,6 +1,6 @@
 body{
       	background-color:#ffffff;
-	background-image: url("../assets/fruits-bg.png");
+	background-image: url("../../assets/fruits-bg.png");
         font-family:Times,Helvetica,serif;
         font-size:20px;
 	text-align: center;
@@ -32,5 +32,6 @@ body{
 		
 #box{
 	border:#8A0ED7 solid 2px;
-        border-radius:25px; 
+		border-radius:25px; 
+		padding: 10px;
 }
