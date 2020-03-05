@@ -1,11 +1,8 @@
 <?php
-	session_start();
-
 	require_once('path.inc');
 	require_once('get_host_info.inc');
 	require_once('rabbitMQLib.inc');
 
-	$username = $_SESSION['userid'];
 
 	function connectDB($db_name){
 		#*****************************#
@@ -24,13 +21,12 @@
 				#echo "Successful connection" . PHP_EOL;
 		}
 		return $conn;
-
 	}
 
 
 	function requestProcessor($request){
-		$username = $_SESSION['userid'];
-
+	
+		$username = $request['username'];
 		$recipe_name = $request['Recipe'];
 		$fruits = $request['Fruit'];
 		$vegetables = $request['Vegetables'];
@@ -40,12 +36,7 @@
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
 		$sql = "INSERT INTO TABLE allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
-
-		if(mysqli_query($conn1, $sql1)){
-			echo "Inserted into table successfully.";
-		}else{
-				echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn1);
-		}
+		$result = mysqli_query($conn,$sql);
 		mysqli_close($conn);
 
 		#*****************************#
@@ -54,11 +45,8 @@
 		$db_name2 = 'reef';
 		$conn2 = connectDB($db_name2);
 		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
-		if(mysqli_query($conn2, $sql2)){
-			echo "Inserted data into table successfully".PHP_EOL;
-		}else{
-				echo "Error creating table: " . mysqli_error($conn2) . PHP_EOL;
-		}
+		$result2 = mysqli_query($conn2,$sql2);
+
 		$response = "SUCCESS.";
 		return $response;
 	}

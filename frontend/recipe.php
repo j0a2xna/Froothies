@@ -1,31 +1,35 @@
 <?php
+  session_start();
+  $username = $_SESSION['userid'];
 
   require_once('../backend/path.inc');
   require_once('../backend/get_host_info.inc');
   require_once('../backend/rabbitMQLib.inc');
   
-   $client = new rabbitMQClient("recipe.ini", "recipe_server");
+  $client = new rabbitMQClient("recipe.ini", "recipe_server");
+   
+    if(isset(_POST['submit'])){
+      $recipe=$_POST['Recipe'];
+      $fruit=$_POST['Fruit'];
+      $vegetable=$_POST['Vegetables'];
+      $protein=$_POST ['Protein'];
+      $base=$_POST ['Base'];
+    }
 	 
-	 $request = array();
-	 $recipe=$_POST['Recipe'];
-	 $fruit=$_POST['Fruit'];
-	 $vegetable=$_POST['Vegetables'];
-	 $protein=$_POST ['Protein'];
-	 $base=$_POST ['Base'];
 	 
-	
-	 $request['recipe'] = $recipe;
-	 $request['fruit'] = $fruit;
-	 $request['vegetable'] = $vegetable;
-	 $request['protein'] = $protein;
-	 $request['base'] = $base;
-	 
-   $response = $client-> send_request($request);
-   echo "$response";
+    $request = array();
+    $request['username'] = $username;
+    $request['recipe'] = $recipe;
+    $request['fruit'] = $fruit;
+    $request['vegetable'] = $vegetable;
+    $request['protein'] = $protein;
+    $request['base'] = $base;
+    
+    $response = $client->send_request($request);
+    echo "$response";
 	
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -48,7 +52,7 @@ h2 {
 <center><h2>Lets Make Some Froothies!!!!</h2></center><br><br>
 
 <body>
-<form action="/recipe.html" method= "post">
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method= "post">
 
   <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="Recipe"><br>
 
@@ -58,8 +62,8 @@ h2 {
   
   <h3>Protein:</label><br> <input type="text" id="ProteinName" name="Protein">  <button class="btn add" onclick="alert('Added!')">ADD</button><br>
   
-  <h3>Base:</label><br> <input type="text" id="BaseName" name="Base">  <button onclick="alert('Added!')">ADD</button><br>
-  
+  <h3>Base:</label><br> <input type="text" id="BaseName" name="Base"> 
+  <input type="Submit" value="ADD RECIPE" name="submit"/>
 </form> 
 
 
