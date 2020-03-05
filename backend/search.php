@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('path.inc');
     require_once('get_host_info.inc');
     require_once('rabbitMQLib.inc');
@@ -13,10 +14,7 @@
         $type = $_POST['type'];
         $request['type'] = $type;
         $request['name'] = $search_query;
-        echo "hehehe".PHP_EOL;
         $response = $client->send_request($request);
-        echo "haha";
-        echo "this aint it sis";
         process_response($response);
     }
     
@@ -71,7 +69,5 @@
                 <input type="text" name="search_query">
                 <input type="submit" name="search" value="SEARCH">
             </form>
-    </div>
-    <div class="search">
     </div>
 </html>
