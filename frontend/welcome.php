@@ -47,8 +47,103 @@ if(isset($_SESSION['userid'])){
 </script>
 
         <title>Welcome to Froothies</title>
-        <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
 
+<style>
+    
+    html,
+    body {
+        margin: 0 auto !important;
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    /*background-image: url(bc.jpg);
+        background-size: cover;*/
+    }
+    .dashRed { display : none; border:  2px dashed red;}
+    form
+    {
+        color: chocolate;
+        /*border-radius: 50px;
+        border:  solid pink;
+        outline: 3px solid blue;
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px; */
+    }
+
+    .data2 { position: absolute; z-index: 2;}
+    
+    .data h1 { color: red;}
+    .data button {margin-left: 1em; font-size: 25px; font-style: bold; background-color: yellow;}
+    .data table h2,h4 { margin-left: auto; }
+    .data table h3,h5 { margin-right: auto;}
+    .text-services {
+        padding-left: 1em;
+        padding-right: 1em;}
+    
+    .text-services h2 {
+        color: darkcyan;
+    }
+    
+    .menu {
+        background-color: #333;
+        overflow: hidden;
+    }
+    .menu1 {
+        background-color: #fff;
+        overflow: hidden;
+        text-align: right;
+        float: right;
+        font-size: 17px;
+        padding-right: 1em;
+    }
+
+    /* Style the links inside the navigation bar */
+    .menu a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .menu a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .menu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+    /*.menu .cnc {
+        text-align: right;
+        padding-right: 1em;
+    }*/
+    .contact a:hover{
+        font-size: 25px;
+        color: red;
+        text-decoration: underline;}
+    .cnc {
+        color: blue; 
+    }
+    .contact {
+        text-align: right;
+        float: right;
+    }
+    .img-container {
+        color: darkblue;
+        position: center;
+    }
+    .img-container h2 {
+        color: black;
+        
+    }
+</style>
 </head>
 
 <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #222222;">
@@ -71,15 +166,14 @@ if(isset($_SESSION['userid'])){
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
         </form>
-            
-	   <a href="myaccount.php">My Account</a><a href="logout.php">Logout</a>
-    </div>
+            <a href="../frontend/recipe.php">MAKE A SMOOTHIE</a>
+	    <div class="contact"><a href="myaccount.php">My Account</a><a href="logout.php">Logout</a></div>  
+        </div>
+        <div class="menu1">
+            <lable><b>Search here for more imformation: </b></lable><input type="text"  name="search" placeholder="Serach for more information">
+        </div>
         
     </header>
-
-    <div id="make">
-        <a href="../frontend/recipe.php">MAKE A SMOOTHIE</a>
-    </div>
     
 <div class="data" >
     <br>
