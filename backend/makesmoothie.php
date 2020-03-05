@@ -21,11 +21,11 @@
 
 	function requestProcessor($request){
 		$username = $request['username'];
-		$recipe_name = $request['Recipe'];
-		$fruits = $request['Fruit'];
-		$vegetables = $request['Vegetables'];
-		$protein = $request['Protein'];
-		$base = $request['Base'];
+		$recipe_name = $request['recipe'];
+		$fruits = $request['fruit'];
+		$vegetables = $request['veggies'];
+		$protein = $request['protein'];
+		$base = $request['base'];
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);

@@ -8,7 +8,7 @@
   
   $client = new rabbitMQClient("recipe.ini", "recipe_server");
    
-    if(isset(_POST['submit'])){
+    if(isset($_POST['submit'])){
       $recipe=$_POST['recipe'];
       $fruit=$_POST['fruit'];
       $vegetable=$_POST['veggies'];
