@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Spartan:600&display=swap');
-font-family: 'Spartan', sans-serif;
 body{
-      	background-color:#ffffff;
+    font-family: 'Spartan', sans-serif;
+    background-color:#ffffff;
 	background-image: url("../../assets/fruits-bg.png");
-        font-family:Times,Helvetica,serif;
-        font-size:20px;
+    font-size:20px;
 	text-align: center;
 }
 #dialog{
