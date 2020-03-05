@@ -20,6 +20,7 @@
 
 
 	function requestProcessor($request){
+		var_dump($request);
 		$username = $request['username'];
 		$recipe_name = $request['recipe'];
 		$fruit = $request['fruit'];
