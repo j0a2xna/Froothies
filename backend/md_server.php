@@ -69,6 +69,7 @@
 
     function process_response($response){
         var_dump($response);
+
             $type = $response['type'];
             $name = $response['name'];
             $cal = $response['cal'];
@@ -78,7 +79,7 @@
         
         echo "BIG BOY .$name.";
         $mydb = connectDB();
-        $sql = "INSERT INTO '$type'(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
+        $sql = "INSERT INTO $type(name, calories, protein, fat, carbs) VALUES ('$name', '$cal', '$pro', '$fat', '$carb')";
         $result = mysqli_query($mydb,$sql);
         return $response;
 

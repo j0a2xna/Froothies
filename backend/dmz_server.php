@@ -24,17 +24,15 @@
         
         $url = "https://api.edamam.com/api/food-database/parser?ingr=$food&category=generic-foods&category-label=food&app_id=9e081409&app_key=c122653d4096a00999bf36f4e1d4958e";
 
-        echo "Im in Fetch data, before execute, `. this is the url: .$url.";
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HEADER, 1);
 
         $jsonData = curl_exec($ch);
 
-        echo "Im in Fetch data, after execute";
-
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
+        curl_close($ch);
 
         $name = $array['parsed'][0]['food']['label'];
 		$cal = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
@@ -49,9 +47,7 @@
         $response['fat'] = $fat;
         $response['carb'] = $carb;
 
-
-        echo "THIS IS AN ARRAY ? .$name. or $cal";
-        curl_close($ch);
+        
 
         return $response;
     }
