@@ -22,8 +22,8 @@
 	function requestProcessor($request){
 		$username = $request['username'];
 		$recipe_name = $request['recipe'];
-		$fruits = $request['fruit'];
-		$vegetables = $request['veggies'];
+		$fruit = $request['fruit'];
+		$veggies = $request['veggies'];
 		$protein = $request['protein'];
 		$base = $request['base'];
 		
@@ -34,7 +34,7 @@
 		mysqli_close($conn);
 
 		#*****************************#
-			#connect to reef[db] $username[table] to insert info given by the user
+			#connect to users[db] $username[table] to insert info given by the user
 		#****************************#
 		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
