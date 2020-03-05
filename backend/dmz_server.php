@@ -26,14 +26,14 @@
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
 
 
         
         $jsonData = curl_exec($ch);
         var_dump($jsonData);
 
-        $jsonData = stripslashes(html_entity_decode($jsonData));
+        //$jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
         
         
