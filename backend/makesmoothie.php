@@ -29,9 +29,8 @@
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
-		$sql = "INSERT INTO TABLE allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql = "INSERT INTO TABLE allrecipes VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result = mysqli_query($conn,$sql);
-		mysqli_close($conn);
 
 		#*****************************#
 			#connect to users[db] $username[table] to insert info given by the user
