@@ -7,64 +7,58 @@
 
 	$username = $_SESSION['userid'];
 
+	function connectDB($db_name){
+		#*****************************#
+		#connect to allrecipes[db] allrecipes[table] to insert info given by the user
+		#****************************#
+		$db = $db_name;
+		$db_host='localhost';
+		$db_username='nemo';
+		$db_password='dory123';
+
+		#test connection
+		$conn = mysqli_connect($db_host, $db_username, $db_password, $db);
+		if(!$conn){
+				die ("Failed to connect" . mysqli_connect_error());
+		}else{
+				#echo "Successful connection" . PHP_EOL;
+		}
+		return $conn;
+
+	}
+
 
 	function requestProcessor($request){
 		$username = $_SESSION['userid'];
-		$recipeName = $request['Recipe'];
+
+		$recipe_name = $request['Recipe'];
 		$fruits = $request['Fruit'];
 		$vegetables = $request['Vegetables'];
 		$protein = $request['Protein'];
 		$base = $request['Base'];
 		
-		#*****************************#
-		#connect to allrecipes[db] allrecipes[table] to insert info given by the user
-		#****************************#
-		$db_host='localhost';
-		$db_username='nemo';
-		$db_password='dory123';
-		$db_name1='allrecipes';
-
-		#test connection
-		$conn1 = mysqli_connect($db_host, $db_username, $db_password, $db_name1);
-		if(!$conn1){
-				die ("Failed to connect" . mysqli_connect_error());
-		}else{
-				#echo "Successful connection" . PHP_EOL;
-		}
-
-		$sql1 = "INSERT INTO TABLE allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$db_name ='allrecipes';
+		$conn = connectDB($db_name);
+		$sql = "INSERT INTO TABLE allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 
 		if(mysqli_query($conn1, $sql1)){
 			echo "Inserted into table successfully.";
 		}else{
-				echo "ERROR: Could not able to execute $sql1. " . mysqli_error($conn1);
+				echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn1);
 		}
-
-		mysqli_close($conn1);
+		mysqli_close($conn);
 
 		#*****************************#
 			#connect to reef[db] $username[table] to insert info given by the user
-			#****************************#
-		$db_host='localhost';
-		$db_username='nemo';
-		$db_password='dory123';
-		$db_name2='reef';
-
-		#test connection
-		$conn2 = mysqli_connect($db_host, $db_username, $db_password, $db_name2);
-
-		if(!$conn2){
-				die ("Failed to connect" . mysqli_connect_error());
-		}else{
-				#echo "Successful connection" . PHP_EOL;
-		}
-
+		#****************************#
+		$db_name2 = 'reef';
+		$conn2 = connectDB($db_name2);
 		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		if(mysqli_query($conn2, $sql2)){
-				echo "Inserted data into table successfully".PHP_EOL;
-			}else{
-					echo "Error creating table: " . mysqli_error($conn2) . PHP_EOL;
-			}
+			echo "Inserted data into table successfully".PHP_EOL;
+		}else{
+				echo "Error creating table: " . mysqli_error($conn2) . PHP_EOL;
+		}
 		$response = "SUCCESS.";
 		return $response;
 	}
