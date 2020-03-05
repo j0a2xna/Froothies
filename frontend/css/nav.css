@@ -1,0 +1,30 @@
+/* css for nav bar from w3 schools example*/
+.navbar {
+  width: 100%;
+  background-color: #da829f;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: #000;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color:  #cdd963;
+}
+
+.active {
+  background-color: #876fa1;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
