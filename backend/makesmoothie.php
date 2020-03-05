@@ -38,7 +38,7 @@
 		#****************************#
 		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
-		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql2 = "INSERT INTO TABLE $username VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result2 = mysqli_query($conn2,$sql2);
 
 		$response = "SUCCESS.";
