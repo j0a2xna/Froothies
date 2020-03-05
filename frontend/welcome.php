@@ -46,26 +46,27 @@ if(isset($_SESSION['userid'])){
 </script>
 
         <title>Welcome to Froothies</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../frontend/css/nav.css">
 
 <div class="navbar">
   <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
-            
-                <select name="type" id="type" class="sel"> 
+  <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
+  <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
+        <form action="../backend/search.php" method="post" id="form">
+            <select name="type" id="type" class="sel"> 
                     <option value="recipes" name="recipes"> ALL RECIPES
                     <option value="fruit" name="fruit"> FRUIT
                     <option value="veggies" name="veggies"> VEGGIES
                     <option value="protein" name="protein"> PROTEIN
                     <option value="base" name="base"> BASE
-                </select>
-            <form action="../backend/search.php" method="post">
+            </select>
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
-            <a href="../frontend/myaccount.php"><i class="fa fa-fw fa-envelope"></i> My Account</a>
-            <a href="../frontend/logout.php"><i class="fa fa-fw fa-user"></i> Log Out</a>
-         </form>
-  
+        </form>
+</div>
+
+<div id="day">
+            <h2> SMOOTHIE OF THE DAY </h2>
 </div>
 
 </body>
