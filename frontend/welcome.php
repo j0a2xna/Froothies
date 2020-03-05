@@ -155,7 +155,6 @@ if(isset($_SESSION['userid'])){
     <div class="data" style="background-image: url(bc.jpg);"></div>
     <header>
         <div class="menu">
-            <a class="active" href="#all">All</a>
             <form action="../backend/search.php" method="post">
                 <select name="type" id="type"> 
                     <option value="recipes" name="recipes"> ALL RECIPES
@@ -167,7 +166,7 @@ if(isset($_SESSION['userid'])){
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
         </form>
-            <a href="../backend/form.php">Contact Us</a>
+            <a href="../frontend/recipe.php">MAKE A SMOOTHIE</a>
 	    <div class="contact"><a href="myaccount.php">My Account</a><a href="logout.php">Logout</a></div>  
         </div>
         <div class="menu1">
