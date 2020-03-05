@@ -15,31 +15,37 @@
 
 		#test connection
 		$conn = mysqli_connect($db_host, $db_username, $db_password, $db);
+		if(!$conn){
+			die ("Failed to connect" . mysqli_connect_error());
+		}else{
+			echo "Successful connection" . PHP_EOL;
+		}
 		return $conn;
 	}
 
 
 	function requestProcessor($request){
-	
+		var_dump($request);
 		$username = $request['username'];
-		$recipe_name = $request['Recipe'];
-		$fruits = $request['Fruit'];
-		$vegetables = $request['Vegetables'];
-		$protein = $request['Protein'];
-		$base = $request['Base'];
+		$recipe_name = $request['recipe'];
+		$fruit = $request['fruit'];
+		$veggies = $request['veggies'];
+		$protein = $request['protein'];
+		$base = $request['base'];
+
+		echo "recipe name: $recipe_name";
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
-		$sql = "INSERT INTO TABLE allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql = "INSERT INTO allrecipes VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result = mysqli_query($conn,$sql);
-		mysqli_close($conn);
 
 		#*****************************#
-			#connect to reef[db] $username[table] to insert info given by the user
+			#connect to users[db] $username[table] to insert info given by the user
 		#****************************#
 		$db_name2 = 'users';
 		$conn2 = connectDB($db_name2);
-		$sql2 = "INSERT INTO TABLE `".$username."` VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql2 = "INSERT INTO $username VALUES('$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result2 = mysqli_query($conn2,$sql2);
 
 		$response = "SUCCESS.";

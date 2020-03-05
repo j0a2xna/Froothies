@@ -1,11 +1,13 @@
 <?php
-	session_start();
+session_start();
+echo "here at least";
 
 	require_once('../backend/path.inc');
 	require_once('../backend/get_host_info.inc');
 	require_once('../backend/rabbitMQLib.inc');
 	
 	$username = $_SESSION['userid'];
+	echo "im a client my account";
 
 	$client = new rabbitMQClient("account.ini", "accountServer");
 	if(isset($_SESSION['userid'])){
@@ -14,10 +16,11 @@
 		process_response($response);
 	}
 
-function process_response($response){
-	$row = $response;
-	while($row){
-		echo "<table>";
+	function process_response($response){
+		echo "here if process respoinse dsLKD";
+		$row = $response;
+		while($row){
+			echo "<table>";
                 echo "<tr>";
                 echo "<td>Name: </td>";
                 echo "<td>".$row["recipeName"]."</td>";
@@ -46,10 +49,7 @@ function process_response($response){
                
                 echo "******************************************";
 	}
-}
-
-
-
+	}	
 
 
 /*

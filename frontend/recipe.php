@@ -8,18 +8,18 @@
   
   $client = new rabbitMQClient("recipe.ini", "recipe_server");
    
-    if(isset(_POST['submit'])){
+    if(isset($_POST['submit'])){
       $recipe=$_POST['recipe'];
       $fruit=$_POST['fruit'];
       $vegetable=$_POST['veggies'];
-      $protein=$_POST ['protein'];
-      $base=$_POST ['base'];
+      $protein=$_POST['protein'];
+      $base=$_POST['base'];
 
       $request = array();
       $request['username'] = $username;
       $request['recipe'] = $recipe;
       $request['fruit'] = $fruit;
-      $request['vegetable'] = $vegetable;
+      $request['veggies'] = $vegetable;
       $request['protein'] = $protein;
       $request['base'] = $base;
       
@@ -39,6 +39,10 @@
       .list{
         float: right;
       }
+      h1{
+        font-family: Helvetica;
+      }
+      
     </style>
     <script> 
       document.getElementById("add").onclick = function(){
@@ -47,22 +51,39 @@
         document.getElementById("smoothie").appendChild(li);
       }
     </script>
+    <link rel="stylesheet" href="../frontend/css/nav.css">
 </head>
+<div class="navbar">
+  <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
+  <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
+        <form action="../backend/search.php" method="post" id="form">
+            <select name="type" id="type" class="sel"> 
+                    <option value="recipes" name="recipes"> ALL RECIPES
+                    <option value="fruit" name="fruit"> FRUIT
+                    <option value="veggies" name="veggies"> VEGGIES
+                    <option value="protein" name="protein"> PROTEIN
+                    <option value="base" name="base"> BASE
+            </select>
+            <input type="text" name="search_query">
+            <input type="submit" name="search" value="SEARCH">
+        </form>
+</div>
 <center><h2>Lets Make Some Froothies!!!!</h2></center><br><br>
 
 <body>
   <div id="fDiv">
-      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method= "post">
+      <form action="" method= "post">
 
         <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
 
-        <h3>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add To Smoothie" id="add"/><br>
         <input type="Submit" value="ADD RECIPE" name="submit"/>
       </form> 
     </div>
