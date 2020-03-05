@@ -24,7 +24,6 @@
       $request['base'] = $base;
       
       $response = $client->send_request($request);
-      echo "$response";
     }
 
       
