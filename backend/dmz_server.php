@@ -34,6 +34,8 @@
         $array = json_decode($jsonData, true);
         curl_close($ch);
 
+        var_dump($array);
+
         $name = $array['parsed'][0]['food']['label'];
 		$cal = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
 		$pro = $array['parsed'][0]['food']['nutrients']['PROCNT'];
