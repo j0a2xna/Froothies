@@ -61,9 +61,10 @@ if(isset($_SESSION['userid'])){
                 </select>
             <input type="text" name="search_query">
             <input type="submit" name="search" value="SEARCH">
+            <a href="../frontend/myaccount.php"><i class="fa fa-fw fa-envelope"></i> My Account</a>
+            <a href="../frontend/logout.php"><i class="fa fa-fw fa-user"></i> Log Out</a>
          </form>
-  <a href="../frontend/myaccount.php"><i class="fa fa-fw fa-envelope"></i> My Account</a>
-  <a href="../frontend/logout.php"><i class="fa fa-fw fa-user"></i> Log Out</a>
+  
 </div>
 
 </body>
