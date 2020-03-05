@@ -19,7 +19,7 @@
       $request['username'] = $username;
       $request['recipe'] = $recipe;
       $request['fruit'] = $fruit;
-      $request['vegetable'] = $vegetable;
+      $request['veggies'] = $vegetable;
       $request['protein'] = $protein;
       $request['base'] = $base;
       
