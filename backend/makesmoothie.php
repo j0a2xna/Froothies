@@ -15,6 +15,11 @@
 
 		#test connection
 		$conn = mysqli_connect($db_host, $db_username, $db_password, $db);
+		if(!$conn){
+			die ("Failed to connect" . mysqli_connect_error());
+		}else{
+			#echo "Successful connection" . PHP_EOL;
+		}
 		return $conn;
 	}
 
@@ -27,6 +32,8 @@
 		$veggies = $request['veggies'];
 		$protein = $request['protein'];
 		$base = $request['base'];
+
+		echo "recipe name: $recipe_name";
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
