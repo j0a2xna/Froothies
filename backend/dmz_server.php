@@ -31,7 +31,6 @@
 
         
         $jsonData = curl_exec($ch);
-        var_dump($jsonData);
 
         //$jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
@@ -47,7 +46,7 @@
 		$fat = $array['parsed'][0]['food']['nutrients']['FAT'];
 		$carb = $array['parsed'][0]['food']['nutrients']['CHOCDF'];
         
-        $response['name'] = $name;
+        $response['name'] = $food;
         $response['type'] = $type;
         $response['cal'] = $cal;
         $response['pro'] = $pro;
