@@ -20,7 +20,6 @@
 
 
 	function requestProcessor($request){
-	
 		$username = $request['username'];
 		$recipe_name = $request['Recipe'];
 		$fruits = $request['Fruit'];

@@ -39,6 +39,10 @@
       .list{
         float: right;
       }
+      h1{
+        font-family: Helvetica;
+      }
+      
     </style>
     <script> 
       document.getElementById("add").onclick = function(){
@@ -52,17 +56,17 @@
 
 <body>
   <div id="fDiv">
-      <form action="<?php echo $_SERVER['PHP_SELF'];?>" method= "post">
+      <form action="" method= "post">
 
         <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
 
-        <h3>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <h1>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <h1>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <h1>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add To Smoothie" id="add"/><br>
         
-        <h3>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add To Smoothie" id="add"/><br>
+        <h1>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add To Smoothie" id="add"/><br>
         <input type="Submit" value="ADD RECIPE" name="submit"/>
       </form> 
     </div>
