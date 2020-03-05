@@ -36,7 +36,7 @@
     }
 
     function formatResult($search_result){
-        echo "<div id='search'><br><br><br><tr>";
+        echo "<div class='search'><br><br><br><tr>";
         echo "<td><b>{$search_result['type']}</b></td></br>";
         echo "<td><b>{$search_result['name']}</b></td></br>";
         echo "<td> Calories: {$search_result['cal']}g</td></br>";
@@ -71,5 +71,7 @@
                 <input type="text" name="search_query">
                 <input type="submit" name="search" value="SEARCH">
             </form>
+    </div>
+    <div class="search">
     </div>
 </html>
