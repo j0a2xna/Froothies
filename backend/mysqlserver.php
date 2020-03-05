@@ -61,27 +61,16 @@
 				$sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
 				$result =  mysqli_query($mydb,$sql);
 
-				if(mysqli_query($mydb, $sql)){
-						echo "user created successfully".PHP_EOL;
-				}else{
-						"Error creating user: " . mysqli_error($mydb) . PHP_EOL;
-				}
-
 				$db_name2='users';
 			   	$mydb2 = connectDB($db_name2);
-				$sql2 = "CREATE TABLE `".$username."`(recipe_name VARCHAR(255) NOT NULL, fruit VARCHAR(255), veggies VARCHAR(255), protein VARCHAR(255), base VARCHAR(255), PRIMARY KEY(recipeName))";
+				$sql2 = "CREATE TABLE $username(recipe_name VARCHAR(255) NOT NULL, fruit VARCHAR(255), veggies VARCHAR(255), protein VARCHAR(255), base VARCHAR(255), PRIMARY KEY(recipeName))";
 				$result2 = mysqli_query($mydb2, $sql2);
 			
-			//test query against database
-			if(mysqli_query($mydb2, $sql2)){
-				echo "table created successfully".PHP_EOL;
-			}else{
-				"Error creating table: " . mysqli_error($mydb) . PHP_EOL;
-			}
-			if((doLogin($username, $password)) == "login"){
-				$send = "registered";
-				return $send;
-			}
+
+				if((doLogin($username, $password)) == "login"){
+					$send = "registered";
+					return $send;
+				}
 		}
 
 	}
