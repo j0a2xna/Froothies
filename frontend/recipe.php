@@ -20,7 +20,8 @@
 	 $request['protein'] = $protein;
 	 $request['base'] = $base;
 	 
-	 $client-> send_request($request);
+   $response = $client-> send_request($request);
+   echo "$response";
 	
 ?>
 

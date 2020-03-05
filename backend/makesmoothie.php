@@ -65,6 +65,8 @@
 			}else{
 					echo "Error creating table: " . mysqli_error($conn2) . PHP_EOL;
 			}
+		$response = "SUCCESS.";
+		return $response;
 	}
 
 	$server = new rabbitMQServer("recipe.ini","recipe_server");
