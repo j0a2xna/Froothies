@@ -35,7 +35,7 @@
 
 	}
 
-	$server = new rabbitMQServer("testRMQ.ini","testServer");
+	$server = new rabbitMQServer("account.ini","accountServer");
 	$server->process_requests('requestProcessor');
 	$server->send_request($row);
 ?>

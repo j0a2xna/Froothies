@@ -30,7 +30,7 @@
         <body>
                 <div class="message">
                         <h1>Successfully logged out. We'll miss you!</h1>
-                        <h4><a href="index.php">Go back to Log In</a></h4>
+                        <h4><a href="../frontend/index.php">Go back to Log In</a></h4>
                 </div>
         </body>
 </html>

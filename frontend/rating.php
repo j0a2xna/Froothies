@@ -1,8 +1,8 @@
 <?php
 
-	require_once('path.inc');
-    	require_once('get_host_info.inc');
-   	require_once('rabbitMQLib.inc');
+	require_once('../backend/path.inc');
+    	require_once('../backend/get_host_info.inc');
+   	require_once('../backend/rabbitMQLib.inc');
 
         $servername= "localhost";
         $user = "nemo";
@@ -40,7 +40,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="style1.css">
+  <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
   
 </head>
 

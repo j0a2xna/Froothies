@@ -7,7 +7,7 @@
 	
 	$username = $_SESSION['userid'];
 
-	$client = new rabbitMQClient("testRMQ.ini", "testServer");
+	$client = new rabbitMQClient("account.ini", "accountServer");
 	if(isset($_SESSION['userid'])){
 		$request['username'] = $username;
 		$response = $client -> send_request($request);

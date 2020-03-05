@@ -1,6 +1,10 @@
 <?php
 
-     $client = new rabbitMQClient("testRabbitMQ.ini", "testdb");
+  require_once('../backend/path.inc');
+  require_once('../backend/get_host_info.inc');
+  require_once('../backend/rabbitMQLib.inc');
+  
+   $client = new rabbitMQClient("recipe.ini", "recipe_server");
 	 
 	 $request = array();
 	 $recipe=$_POST['Recipe'];
