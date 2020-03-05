@@ -70,6 +70,9 @@ if(isset($_SESSION['userid'])){
 <div id="day">
             <h2> SMOOTHIE OF THE DAY </h2>
 </div>
+<div id="make">
+            <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
+</div>
 
 </body>
 </html>
