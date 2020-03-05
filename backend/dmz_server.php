@@ -28,13 +28,18 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HEADER, 1);
 
+
+        
         $jsonData = curl_exec($ch);
+        var_dump($jsonData);
 
         $jsonData = stripslashes(html_entity_decode($jsonData));
         $array = json_decode($jsonData, true);
+        
+        
         curl_close($ch);
 
-        var_dump($array);
+        
 
         $name = $array['parsed'][0]['food']['label'];
 		$cal = $array['parsed'][0]['food']['nutrients']['ENERC_KCAL'];
