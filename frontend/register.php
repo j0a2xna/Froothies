@@ -66,7 +66,7 @@
 					<input type="Submit" value="Register" name="register"/>
 				</form>
 					<div style="font-size:12px;color:#000000;margin-top:10px">
-						Already have an account? <a href="index.php">Log in here!</a>
+						Already have an account? <a href="../frontend/index.php">Log in here!</a>
 					</div>
 			</div>
 		</div>

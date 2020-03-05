@@ -64,25 +64,23 @@ function doRegister($username, $password){
 
 	        $mydb = new mysqli($db_host, $db_username, $db_password, $db_name);
 
-	        if($mydb->errno != 0){
-               		 echo "failed to connect.".$mydb->error . PHP_EOL;
-	        }else{
-        	        echo "we in register function.".PHP_EOL;
-	        }
+				if($mydb->errno != 0){
+						echo "failed to connect.".$mydb->error . PHP_EOL;
+				}else{
+						echo "we in register function.".PHP_EOL;
+				}
 
-		$sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
-		$result =  mysqli_query($mydb,$sql);
-		if(mysqli_query($mydb, $sql)){
+				$sql = "INSERT INTO users (username,password) VALUES ('$username','$password')";
+				$result =  mysqli_query($mydb,$sql);
+
+				if(mysqli_query($mydb, $sql)){
                         echo "user created successfully".PHP_EOL;
                 }else{
                         "Error creating user: " . mysqli_error($mydb) . PHP_EOL;
                 }
-//		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-		//create a username table with columns recipe name, fruit, veggies, protein, and base
-		$sql2 = "CREATE TABLE `".$username."`(recipeName VARCHAR(255) NOT NULL, fruits VARCHAR(255), veggies VARCHAR(255), protein VARCHAR(255), base VARCHAR(255), PRIMARY KEY(recipeName))";
-	//	$result2 = mysqli_query($mydb,$sql2);
-//		$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
+		$sql2 = "CREATE TABLE `".$username."`(recipe_name VARCHAR(255) NOT NULL, fruit VARCHAR(255), veggies VARCHAR(255), protein VARCHAR(255), base VARCHAR(255), PRIMARY KEY(recipeName))";
+
 		
 		//test query against database
 		if(mysqli_query($mydb, $sql2)){
