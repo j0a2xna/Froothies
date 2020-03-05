@@ -63,7 +63,7 @@
 
 				$db_name2='users';
 			   	$mydb2 = connectDB($db_name2);
-				$sql2 = "CREATE TABLE `.$username.`(recipe_name VARCHAR(20), fruit VARCHAR(20), veggies VARCHAR(20), protein VARCHAR(20), base VARCHAR(20), PRIMARY KEY(recipe_name))";
+				$sql2 = "CREATE TABLE $username(recipe_name VARCHAR(20), fruit VARCHAR(20), veggies VARCHAR(20), protein VARCHAR(20), base VARCHAR(20), PRIMARY KEY(recipe_name))";
 				$result2 = mysqli_query($mydb2, $sql2);
 			
 
