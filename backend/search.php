@@ -34,7 +34,7 @@
     }
 
     function formatResult($search_result){
-        echo "<div style='float:right;margin-bottom:25%;' class='search'><br><br><br><tr>";
+        echo "<div style='float:right;' class='search'><br><br><br><tr>";
         echo "<td><b>{$search_result['type']}</b></td></br>";
         echo "<td><b>{$search_result['name']}</b></td></br>";
         echo "<td> Calories: {$search_result['cal']}g</td></br>";
