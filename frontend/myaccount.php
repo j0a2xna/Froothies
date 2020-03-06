@@ -1,13 +1,13 @@
 <?php
 session_start();
-echo "here at least";
+/*echo "here at least";*/
 
 	require_once('../backend/path.inc');
 	require_once('../backend/get_host_info.inc');
 	require_once('../backend/rabbitMQLib.inc');
 	
 	$username = $_SESSION['userid'];
-	echo "im a client my account";
+/*	echo "im a client my account"; */
 
 	$client = new rabbitMQClient("account.ini", "accountServer");
 	if(isset($_SESSION['userid'])){
@@ -17,8 +17,122 @@ echo "here at least";
 	}
 
 	function process_response($response){
-		echo "here if process respoinse dsLKD";
-		$row = $response;
+	#	echo "here if process respoinse dsLKD";
+		$username = $_SESSION['userid'];
+
+		echo "<h1> Welcome $username!!</h1>"; //need to make sure we're getitng the user's name here. :)
+		echo "<h2> Here are your recipes: </h2>";
+#		echo "type is " . gettype($response) . "<br>";
+		
+		//if user does not have any recipes in their account, ask them to go to makesmoothie.php
+		if($response == "[empty response]"){
+			echo 'OOPS! You have not created any recipes yet! <a href="../../backend/makesmoothie.php"> Go here to create one <3 </a>';
+		}
+		//for each row(array), get the value in the column
+		foreach($response as $test){
+                                echo "<h3>" . $test[0] . "</h3>" . "<br>";
+                                echo $test[1] . '<br>';
+                                echo $test[2] . '<br>';
+                                echo $test[3] . '<br>';
+                                echo $test[4] . '<br>';
+		}
+/*
+		echo "table in myaccount.php";
+		echo "<table>";
+                        echo "<tr>";
+                        echo "<td>Name: </td>";
+                        echo "<td>".$response["recipeName"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Fruits: </td>";
+                        echo "<td>".$response["fruits"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Veggies: </td>";
+                        echo "<td>".$response["veggies"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Protein: </td>";
+                        echo "<td>".$response["protein"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Base</td>";
+                        echo "<td>".$response["base"]."</td>";
+                        echo "</tr>";
+
+                        echo "</table>";
+
+                        echo "******************************************";
+ */
+
+/*
+		while($response = mysqli_fetch_assoc($result)){
+                               echo "<table>";
+                        echo "<tr>";
+                        echo "<td>Name: </td>";
+                        echo "<td>".$row["recipeName"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Fruits: </td>";
+                        echo "<td>".$row["fruits"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Veggies: </td>";
+                        echo "<td>".$row["veggies"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Protein: </td>";
+                        echo "<td>".$row["protein"]."</td>";
+                        echo "</tr>";
+
+                        echo "<tr>";
+                        echo "<td>Base</td>";
+                        echo "<td>".$row["base"]."</td>";
+                        echo "</tr>";
+
+                        echo "</table>";
+
+                        echo "******************************************";
+                        }
+ */
+/*		echo "<table>";
+                echo "<tr>";
+                echo "<td>Name: </td>";
+                echo "<td>".$response["recipeName"]."</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Fruits: </td>";
+                echo "<td>".$response["fruits"]."</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Veggies: </td>";
+                echo "<td>".$response["veggies"]."</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>Protein: </td>";
+                echo "<td>".$response["protein"]."</td>";
+                echo "</tr>";
+
+                echo "<tr>";
+                echo "<td>Base</td>";
+                echo "<td>".$response["base"]."</td>";
+                echo "</tr>";
+
+		echo "</table>";
+
+		accountData($response);
+ */		
+
+		/*$row = $response;
 		while($row){
 			echo "<table>";
                 echo "<tr>";
@@ -48,8 +162,18 @@ echo "here at least";
                 echo "</table>";
                
                 echo "******************************************";
-	}
+		}*/
 	}	
+
+	function accountData($array){
+		foreach($array as $key=>$value){
+			if(is_array($value)){
+				accountData($value);
+			}else{
+				echo $value, '<br>';
+			}
+		}
+	}
 
 
 /*
