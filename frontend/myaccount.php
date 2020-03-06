@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION['userid'])){
+
+}else{
+	header("Location: ../frontend/index.php");
+}
+
 /*echo "here at least";*/
 
 	require_once('../backend/path.inc');
@@ -26,7 +32,7 @@ session_start();
 		
 		//if user does not have any recipes in their account, ask them to go to makesmoothie.php
 		if($response == "[empty response]"){
-			echo 'OOPS! You have not created any recipes yet! <a href="../../backend/makesmoothie.php"> Go here to create one <3 </a>';
+			echo 'OOPS! You have not created any recipes yet! <a href="../frontend/welcome.php"> Go here to create one <3 </a>';
 		}
 		//for each row(array), get the value in the column
 		foreach($response as $test){
