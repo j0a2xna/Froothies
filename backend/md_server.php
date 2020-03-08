@@ -10,6 +10,7 @@
         addIngr($type, $ingredient);
     }
 
+    //i know i can use $GLOBALS[] but i like to isolate it a lil
     function cRMQ(){
         $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
         return $client;

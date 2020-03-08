@@ -26,6 +26,8 @@
       $response = $client->send_request($request);
     }
     if(isset($_POST['add'])){
+      //$types = ("fruit","veggies","protein","base");
+      //$btns = ('fruitADD', 'veggiesADD','proteinADD','baseADD');
       
       
     }
