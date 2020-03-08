@@ -104,6 +104,24 @@
 </div>
 <div id="make">
             <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
+            <div id="make">
+            <h2>MAKE A SMOOTHIE</h2>
+            <div id="fDiv">
+                <form action="../frontend/recipe.php" method= "post">
+
+                    <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
+
+                    <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruitADD"/><br>
+                    
+                    <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add" id="add" name="veggiesADD"/><br>
+                    
+                    <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add" id="add" name="proteinADD"/><br>
+                    
+                    <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add" id="add" name="baseADD"/><br>
+                    <input type="Submit" value="ADD RECIPE" name="submit"/>
+                </form> 
+            </div>
+</div>
 </div>
 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
