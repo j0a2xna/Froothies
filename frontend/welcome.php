@@ -107,34 +107,25 @@
 </div>
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 
-<div class="data" style="border: thin solid black" >
+<body>
+<div  class="data">
 
-	<h4> LEAVE A COMMENT <h4>
-        <br><label>Enter your Name<br><br></label>
-        <input type="text" name="name" placeholder="Enter here"><br><br>
+      <h2> Leave a Comment </h2>
 
-        <label>Enter your comments<br><br></label>
-       <textarea name="comment" rows="5" cols="30" placeholder="Please enter here"></textarea>
-        
-         <button type="submit" name="submit" id="submit" value="submit"><b>Submit</b></button><br></center>
+      <br><label>Enter your Name<br></label>
+      <input type="text" name="username" placeholder="Enter here"><br><br>
+
+      <label>Enter your comments<br><br></label>
+
+      <textarea name="comments" rows="5" cols="20" placeholder="Please enter here"></textarea>      
+    
+      <button type="submit" name="submit" id="submit" value="submit"><b>Submit</b></button><br></center>
+
 
 </div>
 
+  
 </form>
-<div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
-
 </body>
 </html>
-
 

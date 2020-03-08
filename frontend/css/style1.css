@@ -2,10 +2,31 @@
     margin: 0;
     padding: 0;
 }
+
+.data {
+    box-sizing: border-box;
+	width: 300px;
+	height: 400px;
+	padding: 50px;
+	border: 10px solid red;
+	box-sizing: border-box;
+	position: fixed; bottom:0;
+}
+
+
+.rate {
+
+  position: static;
+  left: 30px;
+  width: 200px;
+  height: 120px;
+  border: 3px solid red;
+}
 .rate {
     float: left;
     height: 46px;
-    padding: 0 10px;
+    padding: 0 5px;
+    left: 10px;
 }
 .rate:not(:checked) > input {
     position:absolute;
