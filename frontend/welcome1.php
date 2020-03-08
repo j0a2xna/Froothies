@@ -35,13 +35,6 @@
 
 
 
-//start session and see if user is logged in
-session_start();
-if(isset($_SESSION['userid'])){
-	
-}else{
-	header("Location: ../frontend/index.php");
-}
 ?>
 
 <html lang="en" xmlns="http://srlwebmail.com/index.php" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -85,6 +78,9 @@ if(isset($_SESSION['userid'])){
         <title>Welcome to Froothies</title>
     <link rel="stylesheet" href="../frontend/css/nav.css">
     <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
+
+
 </head>
 <div class="navbar">
   <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
@@ -107,22 +103,7 @@ if(isset($_SESSION['userid'])){
             <h2> SMOOTHIE OF THE DAY </h2>
 </div>
 <div id="make">
-            <h2>MAKE A SMOOTHIE</h2>
-            <div id="fDiv">
-                <form action="../frontend/recipe.php" method= "post">
-
-                    <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
-
-                    <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruitADD"/><br>
-                    
-                    <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add" id="add" name="veggiesADD"/><br>
-                    
-                    <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add" id="add" name="proteinADD"/><br>
-                    
-                    <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add" id="add" name="baseADD"/><br>
-                    <input type="Submit" value="ADD RECIPE" name="submit"/>
-                </form> 
-            </div>
+            <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
 </div>
 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
@@ -160,7 +141,5 @@ if(isset($_SESSION['userid'])){
  // </div>
 -->  
 </form>
-</body>
-</html>
 </body>
 </html>
