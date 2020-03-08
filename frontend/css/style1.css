@@ -5,19 +5,20 @@
 
 .data {
     box-sizing: border-box;
-	width: 300px;
-	height: 400px;
-	padding: 50px;
-	border: 10px solid red;
-	box-sizing: border-box;
-	position: fixed; bottom:0;
+    width: 280px;
+    height: 370px;
+    padding: 10px;
+    border: 10px solid red;
+    position: fixed; bottom: 0;
+    border: 3px solid red;
+    right: 0;
 }
 
 
 .rate {
 
   position: static;
-  left: 30px;
+  left: 300px;
   width: 200px;
   height: 120px;
   border: 3px solid red;
