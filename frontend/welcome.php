@@ -117,9 +117,9 @@ if(isset($_SESSION['userid'])){
 
 </div>
 <div id="make">
-            <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
+     <!--       <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
             <div id="make">
-            <h2>MAKE A SMOOTHIE</h2>
+            <h2>MAKE A SMOOTHIE</h2>-->
             <div id="fDiv">
                 <form action="../frontend/recipe.php" method= "post">
 
@@ -135,10 +135,9 @@ if(isset($_SESSION['userid'])){
                     <input type="Submit" value="ADD RECIPE" name="submit"/>
                 </form> 
             </div>
-</div>
+<!-- </div> -->
 </div>
 
-<!--
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
 
@@ -160,8 +159,6 @@ if(isset($_SESSION['userid'])){
 
 
 </div>
-
--->
 <!--div class="rate">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>

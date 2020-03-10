@@ -1,20 +1,17 @@
-*{
+/**{
     margin: 0;
     padding: 0;
-}
+}*/
 
 .data {
-    box-sizing: border-box;
-    width: 280px;
-    height: 370px;
-    padding: 10px;
-    border: 10px solid red;
-    position: fixed; bottom: 0;
-    border: 3px solid red;
-    right: 0;
+	margin: 30 500;
+	top: 30%;
+        left: 10%;
+    	border:#ced962 dashed 3px;
+    	background: white;
 }
 
-
+/*
 .rate {
 
   position: static;
@@ -59,4 +56,4 @@
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
-}
+}*/
