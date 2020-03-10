@@ -1,30 +1,51 @@
 <?php
-session_start();
-if(isset($_SESSION['userid'])){
-
-}else{
-	header("Location: ../frontend/index.php");
-}
-
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
         require_once('../backend/rabbitMQLib.inc');
 
-        $username = 'username';
+        $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
-        $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
+        $username = '';
+        $email = '';
+        $fruits = '';
+        $veggies = '';
+        $comments = '';
+        $request = array();
+
 
         if(isset($_POST['username'])){
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $fruits = $_POST['fruits'];
+                $veggies = $_POST['veggies'];
+                $comments = $_POST['comments'];
+
                 $request['username'] = $username;
+                $request['email'] = $email;
+
+        }
+        if(isset($_POST['submit'])){
+                $request['type'] = 'submit';
                 $response = $client->send_request($request);
-                process_requests($response);
+                process_response($response);
         }
 
-
-    function requestProcessor($request){
-                $row=$response;
-                echo "Added.";
-    }
+        function process_response($response){
+                var_dump($response);
+                if($response == "Your request is submitted."){
+                        $suc_register = "You were successfuly submitted your request.";
+                        echo "<script type='text/javascript'>
+                                alert('$suc_register');
+                                window.location = 'index.php';
+                             </script>";
+                }else{
+                        $bad_register = "Sorry. This Fruit/Vegge already have been added. Please try again.";
+                        echo "<script type='text/javascript'>
+                                alert('$bad_register');
+                                window.location = 'form.php';
+                              </script>";
+                }
+        }
 ?>
 
 
@@ -104,7 +125,7 @@ if(isset($_SESSION['userid'])){
       </div>
       <div class="col-75">
         <select id="country" name="country">
-           <option value="country">--Select one--</option> 
+           <option value="country">-Select one-</option> 
           <option value="australia">Australia</option>
           <option value="canada">Canada</option>
           <option value="usa">USA</option>
