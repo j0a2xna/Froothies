@@ -72,5 +72,35 @@
       
 ?>
 
+<html>
+        <head>
+                <title> Created Smoothie </title>
+                <style>
+                        body{
+                                background-image: url("/var/www/froothies/assets/fruits-bg.png");
+                                text-align: center;
+                        }
 
+                        div.message {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                border: 3px solid pink;
+                                border-style: dashed;
+                                border-radius: 15px;
+                                background-color:white;
+                                color:teal;
+                                font-family: Arial, Helvetica, sans-serif;
+                                padding:50px;
+                        }
+                </style>
+        </head>
+        <body>
+                <div class="message">
+                        <h1>You successfully created a smoothie.</h1>
+                        <h4><a href="../frontend/welcome.php">Go to home page</a></h4>
+                </div>
+        </body>
+</html>
 
