@@ -29,11 +29,16 @@
 		var_dump($response);
 		if($response == "login"){
 			session_start();
-#			session_register("username");
+			#			session_register("username");
+			// once they log in, get the username from the form (POST).
 			$_SESSION['userid']=$_POST['username'];
 			header('location: ../frontend/welcome.php');
 		}elseif($response == "fail"){
-				echo "sorry username/password incorrect\n".PHP_EOL;
+			$bad_login = "Incorrect username and password. Please try again";
+                        echo "<script type='text/javascript'>
+                                alert('$bad_login');
+                                window.location = '../frontend/index.php';
+                             </script>";
 		}elseif($response == "registered"){
 				echo "you have successfully registered\n".PHP_EOL;
 		}else{
