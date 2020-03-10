@@ -1,4 +1,11 @@
 <?php
+	//start session and see if user is logged in
+session_start();
+if(isset($_SESSION['userid'])){
+
+}else{
+        header("Location: ../frontend/index.php");
+}
         require_once('../backend/path.inc');
     	require_once('../backend/get_host_info.inc');
    	require_once('../backend/rabbitMQLib.inc');
@@ -34,14 +41,14 @@
 
 
 
-
+/**
 //start session and see if user is logged in
 session_start();
 if(isset($_SESSION['userid'])){
 	
 }else{
 	header("Location: ../frontend/index.php");
-}
+}**/
 ?>
 
 <html lang="en" xmlns="http://srlwebmail.com/index.php" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -108,6 +115,30 @@ if(isset($_SESSION['userid'])){
 </div>
 
 
+</div>
+<div id="make">
+            <h2><a href="../frontend/recipe.php"> MAKE A SMOOTHIE </a></h2>
+            <div id="make">
+            <h2>MAKE A SMOOTHIE</h2>
+            <div id="fDiv">
+                <form action="../frontend/recipe.php" method= "post">
+
+                    <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
+
+                    <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruitADD"/><br>
+                    
+                    <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add" id="add" name="veggiesADD"/><br>
+                    
+                    <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add" id="add" name="proteinADD"/><br>
+                    
+                    <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add" id="add" name="baseADD"/><br>
+                    <input type="Submit" value="ADD RECIPE" name="submit"/>
+                </form> 
+            </div>
+</div>
+</div>
+
+<!--
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
 
@@ -129,6 +160,8 @@ if(isset($_SESSION['userid'])){
 
 
 </div>
+
+-->
 <!--div class="rate">
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
