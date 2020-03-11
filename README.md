@@ -1,14 +1,47 @@
-index.php --> landing page for froothies.COM, rabbitmqclient
-mysqlserver.php --> mysql server, processes request from rabbitmqclient
-loginDB.php --> mysql credentials
-testRabbitMQ.ini --> connection to broker
-=======
-# Froothies
-Smoothie app.
+froothies.com 
 
-URL: 
+*** all requests are done through rabbitmq
+    .ini files:
+            testRabbitMQ.ibi
+            recipe.ini
+            account.ini
+            AMD_Server.ini
+            RMQ_Server.ini
+
+  frontend: php/html hosted on apache
+    front page: 
+                index.php, login and authentication, redirects to welcome page
+                register.php, registeration, redirects to login
+
+                welcome.php, user dashboard, links to user account page and recipe maker
+                            user ratings.php, and comments.php, search bar
+                
+                myaccount.php, requests users data from localdb
+
+                recipe.php, creates user smoothie recipe, adds to users data
+                
+                search.php, searches for ingredients and recipes
+    
+  backend: php hosted on mariadb
+                mysqlserver.php, connects to localdb, authenticates login and creates table for new users
+
+                myaccountserver.php, pulls users data from my account request
+
+                makesmoothie.php, takes users recipe and adds to localdb and users data
+
+                mdserver.php, dmz_server.php, takes search request and checks local db if not available requests from dmz_server, adds to local db and returns data to frontend
+
+
+
+    
+
+
+
+
+
+
+
 Contact Email: jy353@njit.edu
 trello: https://trello.com/b/y4qIl03S/it-490system-integration
 
->>>>>>> master
 
