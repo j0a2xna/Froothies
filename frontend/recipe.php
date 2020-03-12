@@ -25,6 +25,7 @@
       
       $response = $client->send_request($request);
     }
+
     if(isset($_POST['add'])){
       //$types = ("fruit","veggies","protein","base");
       //$btns = ('fruitADD', 'veggiesADD','proteinADD','baseADD');
@@ -69,6 +70,9 @@
       $ingredient['fat'] = $response['fat'];
       $ingredient['carb'] = $response['carb'];
 
+      //for calorie counter
+      //$GLOBAL{$caloriecounter} = $GLOBAL{$caloriecounter} + ingredient['cal'];
+
       return addResult($ingredient);
     }
 
@@ -80,6 +84,7 @@
       echo "<li>{$ingredient['pro']}</li>";
       echo "<li>{$ingredient['fat']}</li>";
       echo "<li>{$ingredient['carb']}</li>";
+      //echo "Total Calories: {$GLOVBAL{$caloriecounter}}";
       echo "</ul>";
     }
 
