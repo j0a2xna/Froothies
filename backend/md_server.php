@@ -104,6 +104,15 @@
         }
         return $query;
     }        
+    //client side of log.php
+    function errors(){
+        //return errors
+        //$error = Exception e
+        //$error['type']='php';
+        //$client = new rabbitMQClient("RMQ_log.ini", "logServer");
+        //$contents=$client->send_reqiest($error);
+
+    }
     
     $server = new rabbitMQServer("AMD_Server.ini","AMD_Server");
     $server->process_requests('requestProcessor'); 
