@@ -28,8 +28,22 @@
     if(isset($_POST['add'])){
       //$types = ("fruit","veggies","protein","base");
       //$btns = ('fruitADD', 'veggiesADD','proteinADD','baseADD');
-      
-      
+      $add['type']=$_POST['add'];
+      switch($add['type']){
+        case "fruit":
+          $name = $_POST['fruit'];
+          $type = $add['type'];
+        case "veggies":
+          $name = $_POST['veggies'];
+          $type = $add['type'];
+        case "protein":
+          $name = $_POST['protein'];
+          $type = $add['type'];
+        case "base":
+          $name = $_POST['base'];
+          $type = $add['type'];
+      }
+      //add($type,$name);
     }
 
     function RMQ(){

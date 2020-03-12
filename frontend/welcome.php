@@ -125,13 +125,13 @@ if(isset($_SESSION['userid'])){
 
                     <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
 
-                    <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruitADD"/><br>
+                    <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruit"/><br>
                     
-                    <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add" id="add" name="veggiesADD"/><br>
+                    <b>Veggies:</label><br> <input type="text" id="ingr" name="veggies"> <input type="button" value="Add" id="add" name="veggies"/><br>
                     
-                    <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add" id="add" name="proteinADD"/><br>
+                    <b>Protein:</label><br> <input type="text" id="ingr" name="protein"> <input type="button" value="Add" id="add" name="protein"/><br>
                     
-                    <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add" id="add" name="baseADD"/><br>
+                    <b>Base:</label><br> <input type="text" id="ingr" name="base"> <input type="button" value="Add" id="add" name="base"/><br>
                     <input type="Submit" value="ADD RECIPE" name="submit"/>
                 </form> 
             </div>
