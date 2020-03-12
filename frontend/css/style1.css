@@ -4,11 +4,29 @@
 }*/
 
 .data {
-	margin: 30 500;
-	top: 30%;
-        left: 10%;
-    	border:#ced962 dashed 3px;
+	
+/*	padding: 70px;
+	top: 80%;
+        left: 10%;*/
+    /*	border:#ced962 dashed 3px;
     	background: white;
+	position:fixed;
+	top:15%;
+	margin:30% 30%;
+	width:50%;
+	centre:0%;*/
+	
+	position: fixed;
+        top:15%;
+        right:45%;;
+        border:#ced962 dashed 3px;
+        background-color: #ffffff;
+        border-radius:5px;
+	padding: 70px 70px 70px 70px;
+        margin:30 30;
+	color: tomato;
+	
+
 }
 
 /*

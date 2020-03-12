@@ -48,10 +48,12 @@
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 
 <div  class="data"> 
-		<br><br><label>Enter your Name<br><br></label>
+	
+	<br><br><label>Enter your Name<br><br></label>
         <input type="text" name="name" placeholder="Enter here"><br><br>
 
-          <label>Enter your comments?<br><br></label>
+	  <label><font color="red">Enter your comments?<br><br></label>
+        </div>
 
 		 <textarea name="comment" rows="5" cols="30" placeholder="Please enter here"></textarea>
         
