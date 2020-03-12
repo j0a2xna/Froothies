@@ -111,6 +111,8 @@ if(isset($_SESSION['userid'])){
 </div>
 
 <div id="day">
+
+
             <h2> SMOOTHIE OF THE DAY </h2>
 </div>
 
@@ -140,7 +142,7 @@ if(isset($_SESSION['userid'])){
 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
-
+<link rel="../frontend/recommendSmoothie.php">
 <body>
 
 <div class = "data">
@@ -155,7 +157,7 @@ if(isset($_SESSION['userid'])){
 
       <textarea name="comments" rows="5" cols="20" placeholder="Please enter here"></textarea>      
     
-      <button type="submit" name="submit" id="submit" value="submit"><b>Submit</b></button><br></center>
+      <button type="submit" name="submit" value="submit"><b>Submit</b></button><br></center>
 
 
 </div>
