@@ -11,8 +11,6 @@
         require_once('../backend/get_host_info.inc');
         require_once('../backend/rabbitMQLib.inc');
 
-        $username=$_SESSION['username'];
-
         $client = new rabbitMQClient("form.ini","formServer");
 
         if(isset($_POST['username'])){
