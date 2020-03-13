@@ -1,6 +1,6 @@
 <?php
     session_start();
-    session_destroy();
+    session_destroy(); #terminate the current session when user logs out.
 ?>
 
 <html>
