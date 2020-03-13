@@ -94,7 +94,7 @@ if(isset($_SESSION['userid'])){
     <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
 </head>
 <div class="navbar">
-  <a href="../frontend/index.php"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="../frontend/welcome.php"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
   <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
         <form action="../backend/search.php" method="post" id="form">
