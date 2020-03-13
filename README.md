@@ -7,6 +7,7 @@ froothies.com
             account.ini
             AMD_Server.ini
             RMQ_Server.ini
+            recommend.ini
 
   frontend: php/html hosted on apache
     front page: 
@@ -21,6 +22,8 @@ froothies.com
                 recipe.php, creates user smoothie recipe, adds to users data
                 
                 search.php, searches for ingredients and recipes
+                
+                recommendSmoothie.php, requests smoothies data from localdb
     
   backend: php hosted on mariadb
                 mysqlserver.php, connects to localdb, authenticates login and creates table for new users
@@ -30,6 +33,8 @@ froothies.com
                 makesmoothie.php, takes users recipe and adds to localdb and users data
 
                 mdserver.php, dmz_server.php, takes search request and checks local db if not available requests from dmz_server, adds to local db and returns data to frontend
+                
+                recommendSmoothieServer.php, pulls random smoothie data
 
 
 
