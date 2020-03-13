@@ -113,7 +113,7 @@ if(isset($_SESSION['userid'])){
 <div id="day">
 
 
-            <h2> SMOOTHIE OF THE DAY </h2>
+           <a href="../frontend/recommendSmoothie.php"><h2>SMOOTHIE OF THE DAY </h2></a>
 </div>
 
 
@@ -124,7 +124,7 @@ if(isset($_SESSION['userid'])){
             <h2>MAKE A SMOOTHIE</h2>-->
             <div id="fDiv">
                 <form action="../frontend/recipe.php" method= "post">
-
+		    <b> Make a Smoothie </b><br>
                     <b>Give your Recipe a Name:</label></b> <input type="text" id="RecipeName" name="recipe"><br>
 
                     <b>Fruit:</label><br> <input type="text" id="ingr" name="fruit"> <input type="button" value="Add" id="add" name="fruit"/><br>
