@@ -1,79 +1,58 @@
+
 <?php
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
         require_once('../backend/rabbitMQLib.inc');
 
-        $servername= "localhost";
-        $user = "nemo";
-        $password = "dory123";
-        $db = "form";
+        function connectDB(){
 
-        $types = array("username", "email", "fruits", "veggies", "comments");
-         $query = array();
-        $request = array();
-        $response = array();
+                $servername= "localhost";
+                $user = "nemo";
+                $password = "dory123";
+                $db = "form";
 
-        $connect = mysqli_connect($servername, $user, $password, $db);
+                $connect = mysqli_connect($servername, $user, $password, $db);
 
-        if (!$connect){
-                die("Connecting Failed: " . mysqli_connect_error());
-        }
-
-        if(isset($_POST['submit'])){
-
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $fruits = $_POST['fruits'];
-                $veggies = $_POST['veggies'];
-                $comments = $_POST['comments'];
-
-                $sql = "INSERT INTO addFruit (username, email, fruits, veggies, comments) VALUES ('$username', '$email', '$fruits', '$veggies', '$comments')";
-if (mysqli_query($connect, $sql)){
-                        echo "New record created successfully";
+                if (!$connect){
+                        die("Connection Failed: " . mysqli_connect_error());
                 }
-                else
-                {
-                        echo "Error: " .$sql . "<br>" . mysqli_error($connect);
+                else {
                 }
+
+                return $connect;
         }
+function requestProcessor($request){
+                $username = $request['username'];
+                $connect = connectDB();
+                $sql = "SELECT addFruit, username, email, fruits, veggies, comments FROM $username";
+                $result = mysqli_query($connect, $sql);
 
-        function doRegister($username, $password){
-        if((doLogin($username, $email)) == "form"){
-$send = "taken";
-                return $send;
-        }else{
-                $servername='localhost';
-                $user='nemo';
-                $password='dory123';
-                $db='form';
 
-                $mydb = new mysqli($servername, $user, $password, $db);
+                if(mysqli_num_rows($result) > 0){
+                        $results = array();
+                        while($row = mysqli_fetch_array($result)){
+$results[] = $row;
+                        }
+                        print_r($results);
 
-                if($mydb->errno != 0){
-                         echo "failed to connect.".$mydb->error . PHP_EOL;
-                }else{
-                        echo "we in register function.".PHP_EOL;
+
+                        foreach($results as $test) {
+                                echo $test[0] . '<br>';
+                                echo $test[1] . '<br>';
+                                echo $test[2] . '<br>';
+                                echo $test[3] . '<br>';
+                                echo $test[4] . '<br>';
+                        }
+                        return $results;
                 }
-        }
-        }
 
-
-        function requestProcessor($request){
-                echo "received request".PHP_EOL;
-                var_dump($request);
-                if(!isset($request['type'])){
-                        return "ERROR: I aint got no type";
+                else{
+                        echo "<h1>OOPS!</h1>";
+                        echo "<h2> $username --> You have not added any fruits/veggies! </h2>";
                 }
-                switch ($request['type']){
-                        case "form":
-                                return doRegister($request['username'],$request['email'],$request['fruits'],$request['veggies'],$request['comments']);
-        }
+
 }
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
-$server->process_requests('requestProcessor');
-$server->send_request($send);
-exit();
-
-
-        mysqli_close($connect);
+        $server = new rabbitMQServer("form.ini","formServer");
+        $server->process_requests('requestProcessor');
+        $server->send_request($row);
 ?>
