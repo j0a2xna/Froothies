@@ -44,8 +44,15 @@ How do I run this?
 <li>./makesmoothie.php -> create a smoothie form in the welcome page</li>
 <li>./recommendSmoothieServer.php -> smoothie of the day from the welcome page</li>
 <li>./search.php -> search.php, dmz_server.php, loginDB.php, md_cred.php, md_server.php</li>
+<li>./makesmoothie.php -> create a smoothie form in the welcome page</li>
+<li> Create databases, tables, and database user as stated in the files. Grant all privileges to 'nemo' user</li>
 </ul>
 
+Needs attention
+<ul>
+<li> logging: https://github.com/jyoussef98/Froothies/tree/master/logs Need face to face testing </li>
+<li> Virtual machines: The code currently works on localhost as we were testing our changes individually. Once it's time to show our presentations, we'll change to our virtual machines' local IP addresses. Communication between the 4 virtual machines works as shown in class.</li>
+</ul>
 
 
 
