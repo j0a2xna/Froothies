@@ -37,11 +37,12 @@ froothies.com
                 recommendSmoothieServer.php, pulls random smoothie data
 
 
-
-    
-
-
-
+How do I run this?
+./mysqlserver.php -> log in, register
+./myaccountserver.php -> my account
+./makesmoothie.php -> create a smoothie form in the welcome page
+./recommendSmoothieServer.php -> smoothie of the day from the welcome page
+./search.php -> search.php, dmz_server.php, loginDB.php, md_cred.php, md_server.php
 
 
 
