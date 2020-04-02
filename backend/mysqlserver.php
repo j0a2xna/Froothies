@@ -6,7 +6,7 @@
 	require_once('rabbitMQLib.inc');
 
 
-	$db_host='localhost';
+	$db_host='10.0.0.31';
         $db_username='nemo';
         $db_password='dory123';
         $db_name='reef';
@@ -20,7 +20,7 @@
         }
 	function connectDB($db_name){
 		$db = $db_name;
-		$db_host='localhost';
+		$db_host='10.0.0.31';
 		$db_username='nemo';
 		$db_password='dory123';
 
