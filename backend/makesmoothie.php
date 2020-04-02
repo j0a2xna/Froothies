@@ -10,7 +10,7 @@
 		#connect to allrecipes[db] allrecipes[table] to insert info given by the user
 		#****************************#
 		$db = $db_name;
-		$db_host='localhost';
+		$db_host='10.0.0.31';
 		$db_username='nemo';
 		$db_password='dory123';
 

@@ -10,7 +10,7 @@ if(isset($_SESSION['userid'])){
     	require_once('../backend/get_host_info.inc');
    	require_once('../backend/rabbitMQLib.inc');
 
-        $servername= "localhost";
+        $servername= "10.0.0.31";
         $user = "nemo";
         $password = "dory123";
         $db = "reef";
