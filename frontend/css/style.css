@@ -81,3 +81,16 @@ body{
                                 font-family: Arial, Helvetica, sans-serif;
                                 padding:50px;
   }
+
+  /* for the recommendation form */
+  #recommend{
+		position: absolute;
+		top:15%;
+		left:3%;;
+		border:#ced962 dashed 3px;
+		background-color: #ffffff;
+			border-radius:5px; 
+		padding: 20px 20px 20px 20px;
+		margin:50 50;
+		  color: tomato;
+  }

@@ -16,13 +16,13 @@
 	width:50%;
 	centre:0%;*/
 	
-	position: fixed;
+	position: absolute;
         top:15%;
         right:45%;;
         border:#ced962 dashed 3px;
         background-color: #ffffff;
         border-radius:5px;
-	padding: 70px 70px 70px 70px;
+	padding: 40px 40px 40px 40px;
         margin:30 30;
 	color: tomato;
 	

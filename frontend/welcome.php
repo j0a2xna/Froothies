@@ -141,10 +141,11 @@ if(isset($_SESSION['userid'])){
 </div>
 
 <!-- div for the user form if they have a recommendation for a smoothie they want in the future -->
-<div class="container">
+<div id="recommend">
   <form action="../frontend/form.php" method="POST">
     <div class="row">
       <div class="col-25">
+        <h4>Have a recommendation? </h3>
         <label name=username>UserName</label>
       </div>
       <div class="col-75">
@@ -202,7 +203,7 @@ if(isset($_SESSION['userid'])){
     </div>
     </form>
     </div>
-
+</div>
 
 
 
@@ -213,8 +214,8 @@ if(isset($_SESSION['userid'])){
 
 <div class = "data">
 
-
-      <h2> Leave a Comment </h2>
+        <h3> Do you like our page?</h3>
+      <h3>Leave Us a Comment </h3>
 
       <br><label>Enter your Name<br></label>
       <input type="text" name="username" placeholder="Enter here"><br><br>
