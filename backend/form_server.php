@@ -60,7 +60,6 @@ $results[] = $row;
         $response = "SUCCESS.";
 		return $response;
 	}
-}
         $server = new rabbitMQServer("form.ini","formServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
