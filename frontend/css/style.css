@@ -85,7 +85,7 @@ body{
   /* for the recommendation form */
   #recommend{
 		position: absolute;
-		top:15%;
+		top:25%;
 		left:3%;;
 		border:#ced962 dashed 3px;
 		background-color: #ffffff;
