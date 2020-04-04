@@ -140,6 +140,12 @@ if(isset($_SESSION['userid'])){
 <!-- </div> -->
 </div>
 
+<!-- div for the user form if they have a recommendation for a smoothie they want in the future -->
+
+
+
+
+
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
 <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
 <link rel="../frontend/recommendSmoothie.php">
