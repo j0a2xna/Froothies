@@ -24,7 +24,7 @@
 function requestProcessor($request){
                 $username = $request['username'];
                 $connect = connectDB();
-                $sql = "SELECT addFruit, username, email, fruits, veggies, comments FROM $username";
+                $sql = "SELECT username, email, fruits, veggies, comments FROM addFruit";
                 $result = mysqli_query($connect, $sql);
 
 
