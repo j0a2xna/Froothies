@@ -11,6 +11,8 @@
         require_once('../backend/get_host_info.inc');
         require_once('../backend/rabbitMQLib.inc');
 
+        $username=$_SESSION['username'];
+
         $client = new rabbitMQClient("form.ini","formServer");
 
         if(isset($_POST['username'])){
@@ -102,7 +104,7 @@ echo "<h2> You can see all your recipes below </h2>";
 <h2>Great! Now you can add your Favourite Fruits/Veggies.</h2>
 </center>
 <div class="container">
-  <form action="./action.php">
+  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
     <div class="row">
       <div class="col-25">
         <label name=username>UserName</label>
@@ -145,7 +147,7 @@ echo "<h2> You can see all your recipes below </h2>";
         <label name="veggies">Name of Veggies</label>
       </div>
       <div class="col-75">
-        <input type="text" id="veggies" name="vveggies" placeholder="Add veggies..">
+        <input type="text" id="veggies" name="veggies" placeholder="Add veggies..">
       </div>
     </div>
     
@@ -158,7 +160,7 @@ echo "<h2> You can see all your recipes below </h2>";
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit">
+      <input type="submit" id="submit" name="submit" value="Submit">
     </div>
   </form>
 </div>
