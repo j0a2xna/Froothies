@@ -1,4 +1,4 @@
-#!/usr/bin/php
+
 <?php
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
@@ -22,13 +22,22 @@
                 return $connect;
         }
 function requestProcessor($request){
-                $username = $request['username'];
-                $connect = connectDB();
-                $sql = "SELECT username, email, fruits, veggies, comments FROM addFruit";
+        var_dump($request);
+		$username = $request['username'];
+		$email = $request['email'];
+		$fruits = $request['fruits'];
+		$veggies = $request['veggies'];
+		$comments = $request['comments'];
+
+		echo "recipe name: $recipe_name";
+    
+                $db_name ='addFruit';
+                $connect = connectDB($db_name);
+                $sql = "INSERT INTO addFruit VALUES('$username', '$email', '$fruits', '$veggies', '$comments') ";
                 $result = mysqli_query($connect, $sql);
 
 
-                if(mysqli_num_rows($result) > 0){
+                /*if(mysqli_num_rows($result) > 0){
                         $results = array();
                         while($row = mysqli_fetch_array($result)){
 $results[] = $row;
@@ -49,8 +58,10 @@ $results[] = $row;
                 else{
                         echo "<h1>OOPS!</h1>";
                         echo "<h2> $username --> You have not added any fruits/veggies! </h2>";
-                }
-
+                }*/
+        $response = "SUCCESS.";
+		return $response;
+	}
 }
         $server = new rabbitMQServer("form.ini","formServer");
         $server->process_requests('requestProcessor');
