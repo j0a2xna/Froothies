@@ -21,7 +21,7 @@
                 $response = $client -> send_request($request);
                 process_response($response);
         }
-
+/*
         function process_response($response){
                 $username = $_SESSION['username'];
                 echo '<div class="navbar">';
@@ -50,7 +50,7 @@ echo "<h2> You can see all your recipes below </h2>";
                                 echo "Comment " . $column[4] . '<br>';
                                 echo "</div>";
                 }
-        }
+        }*/
 ?>
 <!DOCTYPE html>
 <html>
