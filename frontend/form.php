@@ -1,29 +1,29 @@
 <?php
-
+/*
     session_start();
-        if(isset($_SESSION['username'])){
+        if(isset($_SESSION['userid'])){
 
         }else{
                 header("Location: ../frontend/index.php");
         }
-
+ */
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
         require_once('../backend/rabbitMQLib.inc');
 
-        $username=$_SESSION['username'];
+        $username=$_SESSION['userid'];
 
         $client = new rabbitMQClient("form.ini","formServer");
-
+/*
         if(isset($_POST['username'])){
 
                 $request['username'] = $username;
                 $response = $client -> send_request($request);
                 process_response($response);
         }
-/*
+
         function process_response($response){
-                $username = $_SESSION['username'];
+                $username = $_SESSION['userid'];
                 echo '<div class="navbar">';
                 echo '<a href="../frontend/welcome.php"><i class="fa fa-fw fa-home"></i> Home</a>';
                 echo '<a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>';
@@ -49,8 +49,8 @@ echo "<h2> You can see all your recipes below </h2>";
                                 echo "Veggies: " . $column[3] . '<br>';
                                 echo "Comment " . $column[4] . '<br>';
                                 echo "</div>";
-                }
-        }*/
+		}
+	}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -104,7 +104,7 @@ echo "<h2> You can see all your recipes below </h2>";
 <h2>Great! Now you can add your Favourite Fruits/Veggies.</h2>
 </center>
 <div class="container">
-  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+  <form action="" method="POST">
     <div class="row">
       <div class="col-25">
         <label name=username>UserName</label>

@@ -1,4 +1,4 @@
-
+#!/usr/bin/php
 <?php
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
