@@ -42,7 +42,7 @@ body{
 /*	float: right;
 	margin: 30% 30%;*/
 	/*position: fixed;*/
-	position: fixed;
+	position: absolute;
 	top:15%;
 	left:65%;;
 	border:#ced962 dashed 3px;
