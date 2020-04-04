@@ -44,7 +44,7 @@
     <title>Froothies</title>
 
     <link href="home.css" type="text/css" rel="stylesheet" />
-    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="home_style.css" type="text/css" rel="stylesheet" />
     <link href="form.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
