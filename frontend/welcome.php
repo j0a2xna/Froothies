@@ -141,7 +141,67 @@ if(isset($_SESSION['userid'])){
 </div>
 
 <!-- div for the user form if they have a recommendation for a smoothie they want in the future -->
-
+<div class="container">
+  <form action="../frontend/form.php" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label name=username>UserName</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="username" name="username" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label name="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="email" placeholder="Your email..">
+      </div>
+    </div>
+      <!--<div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+           <option value="country">-Select one-</option> 
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+    </div>-->
+      <div class="row">
+      <div class="col-25">
+        <label name="fruits">Name of Fruit</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fruits" name="fruits" placeholder="Add fruit..">
+      </div>
+    </div>
+      <div class="row">
+      <div class="col-25">
+        <label name="veggies">Name of Veggies</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="veggies" name="veggies" placeholder="Add veggies..">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="comments">Any comments?</label>
+      </div>
+      <div class="col-75">
+        <textarea id="comments" name="comments" placeholder="Please leave your comments here.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" id="submit" name="submit" value="Submit">
+    </div>
+    </form>
+    </div>
 
 
 
