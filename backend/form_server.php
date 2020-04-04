@@ -28,8 +28,6 @@ function requestProcessor($request){
 		$fruits = $request['fruits'];
 		$veggies = $request['veggies'];
 		$comments = $request['comments'];
-
-		echo "recipe name: $recipe_name";
     
                 $db_name ='addFruit';
                 $connect = connectDB($db_name);
