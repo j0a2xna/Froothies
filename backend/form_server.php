@@ -1,4 +1,4 @@
-
+#!/usr/bin/php
 <?php
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
@@ -6,7 +6,7 @@
 
         function connectDB(){
 
-                $servername= "localhost";
+                $servername= "10.0.0.31";
                 $user = "nemo";
                 $password = "dory123";
                 $db = "form";
