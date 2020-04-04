@@ -18,7 +18,7 @@
                 $veggies = $_POST['veggies'];
                 $comments = $_POST['comments'];
 
-                $sql = "INSERT INTO addFruit (username, email, fruits, veggies, comments) VALUES ('$username', '$email', '$fruits', '$veggies', '$comments')";
+                $sql = "INSERT INTO addFruit VALUES ('$username', '$email', '$fruits', '$veggies', '$comments')";
 
                 if (mysqli_query($connect, $sql)){
                         echo "New record created successfully";
