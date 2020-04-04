@@ -145,7 +145,7 @@ if(isset($_SESSION['userid'])){
   <form action="../frontend/form.php" method="POST">
     <div class="row">
       <div class="col-25">
-        <h4>Have a recommendation? </h3>
+        <h4>Recommend fruits and veggies</h3>
         <label name=username>UserName</label>
       </div>
       <div class="col-75">
@@ -160,19 +160,6 @@ if(isset($_SESSION['userid'])){
         <input type="text" id="email" name="email" placeholder="Your email..">
       </div>
     </div>
-      <!--<div class="row">
-      <div class="col-25">
-        <label for="country">Country</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-           <option value="country">-Select one-</option> 
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-      </div>
-    </div>-->
       <div class="row">
       <div class="col-25">
         <label name="fruits">Name of Fruit</label>
