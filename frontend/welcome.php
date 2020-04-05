@@ -1,4 +1,4 @@
-<?php
+/**<?php
 	//start session and see if user is logged in
 session_start();
 if(isset($_SESSION['userid'])){
@@ -6,38 +6,7 @@ if(isset($_SESSION['userid'])){
 }else{
         header("Location: ../frontend/index.php");
 }
-        require_once('../backend/path.inc');
-    	require_once('../backend/get_host_info.inc');
-   	require_once('../backend/rabbitMQLib.inc');
-
-        $servername= "10.0.0.31";
-        $user = "nemo";
-        $password = "dory123";
-        $db = "reef";
-
-        $connect = mysqli_connect ($servername, $user, $password, $db);
-
-        if (!$connect){
-                die("Connecting Failed: " . mysqli_connect_error());
-        }
-
-        if(isset($_POST['submit'])){
-
-                $name = $_POST['name'];
-                $comment = $_POST['comment'];
-
-                $sql = "INSERT INTO commentTable (name, comment) VALUES ('$name','$comment')";
-
-                if (mysqli_query($connect, $sql)){
-                        echo "Success";
-                }
-                else
-                {
-                     echo "Error: " . mysqli_error($connect);
-                }
-
-        }
-        mysqli_close($connect);
+   
 
 
 
@@ -194,7 +163,7 @@ if(isset($_SESSION['userid'])){
 
 
 
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+<form action="..//frontend/comment.php" method="POST">
 <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
 <link rel="../frontend/recommendSmoothie.php">
 <body>
