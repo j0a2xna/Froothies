@@ -173,6 +173,8 @@ if(isset($_SESSION['userid'])){
 
 <div class = "data">
 
+	<form action="../frontend/comment.php" method="POST">
+
         <h3> Do you like our page?</h3>
       <h3>Leave Us a Comment </h3>
 
@@ -184,7 +186,7 @@ if(isset($_SESSION['userid'])){
       <textarea name="comments" rows="5" cols="20" placeholder="Please enter here"></textarea>      
     
       <button type="submit" name="submit" value="submit"><b>Submit</b></button><br></center>
-
+</form>
 
 </div>
 <!--div class="rate">
