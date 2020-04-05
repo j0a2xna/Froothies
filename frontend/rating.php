@@ -1,80 +1,66 @@
 <?php
+    session_start();
+        if(isset($_SESSION['userid'])){
 
-	require_once('../backend/path.inc');
-    	require_once('../backend/get_host_info.inc');
-   	require_once('../backend/rabbitMQLib.inc');
-
-        $servername= "localhost";
-        $user = "nemo";
-        $password = "dory123";
-        $db = "reef";
-
-        $connect = mysqli_connect ($servername, $user, $password, $db);
-
-        if (!$connect){
-                die("Connecting Failed: " . mysqli_connect_error());
+        }else{
+                header("Location: ../frontend/index.php");
         }
+        require_once('../backend/path.inc');
+        require_once('../backend/get_host_info.inc');
+        require_once('../backend/rabbitMQLib.inc');
+
+        $username=$_SESSION['userid'];
+
+        $client = new rabbitMQClient("rating.ini","ratingServer");
 
         if(isset($_POST['submit'])){
+              $username = $_POST['username'];
+	      $smoothie=$_POST['smoothie'];
+	      $rating=$_POST['rating'];
+	    
 
-                $name = $_POST['name'];
-                $comment = $_POST['comment'];
 
-                $sql = "INSERT INTO commentTable (name, comment) VALUES ('$name','$comment')";
-
-                if (mysqli_query($connect, $sql)){
-                        echo "New rows and columns created successfully";
-                }
-                else
-                {
-                     echo "Error: " . mysqli_error($connect);
-                }
-
+                $request = array();
+                $request['username'] = $username;
+                $request['smoothie'] = $smoothie;
+		$request['rating'] = $rating;
+		
+		$response = $client->send_request($request);
         }
-        mysqli_close($connect);
-
 ?>
 
-<!DOCTYPE html>
-<meta charset="UTF-8">
+<html>
+        <head>
+                <title> Smoothie Ratings</title>
+                <style>
+                        body{
+                                background-image: url("/var/www/froothies/assets/fruits-bg.png");
+                                text-align: center;
+                        }
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
-  
-</head>
-
-
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-
-<div  class="data"> 
-	
-	<br><br><label>Enter your Name<br><br></label>
-        <input type="text" name="name" placeholder="Enter here"><br><br>
-
-	  <label><font color="red">Enter your comments?<br><br></label>
-        </div>
-
-		 <textarea name="comment" rows="5" cols="30" placeholder="Please enter here"></textarea>
-        
-    <button type="submit" name="submit" id="submit" value="submit"><b>Submit</b></button><br></center>
-</div>
-</form>
-<div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
+                        div.message {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                border: 3px solid pink;
+                                border-style: dashed;
+                                border-radius: 15px;
+                                background-color:white;
+                                color:teal;
+                                font-family: Arial, Helvetica, sans-serif;
+                                padding:50px;
+           padding:50px;
+                        }
+                </style>
+        </head>
+        <body>
+                <div class="rating">
+                        <h1>Thank you for rating. We appreciate your time</h1>
+                        <h4><a href="../frontend/welcome.php">Go to home page</a></h4>
+                </div>
+        </body>
 </html>
 
 
-
-		
-
+								   

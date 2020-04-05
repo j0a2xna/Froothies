@@ -23,7 +23,7 @@ if(isset($_SESSION['userid'])){
 }**/
 ?>
 
-<html lang="en" xmlns="http://srlwebmail.com/index.php" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 
     <head>
@@ -67,6 +67,7 @@ if(isset($_SESSION['userid'])){
 </head>
 <div class="navbar">
   <a href="../frontend/welcome.php"><i class="fa fa-fw fa-home"></i> Home</a>
+	<a href="../frontend/rating.php"><i class="fa fa-fw fa-home"></i> Rating</a>
   <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>
   <a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a>
         <form action="../backend/search.php" method="post" id="form">
@@ -173,6 +174,8 @@ if(isset($_SESSION['userid'])){
 
 <div class = "data">
 
+	<form action="../frontend/comment.php" method="POST">
+
         <h3> Do you like our page?</h3>
       <h3>Leave Us a Comment </h3>
 
@@ -184,7 +187,7 @@ if(isset($_SESSION['userid'])){
       <textarea name="comments" rows="5" cols="20" placeholder="Please enter here"></textarea>      
     
       <button type="submit" name="submit" value="submit"><b>Submit</b></button><br></center>
-
+</form>
 
 </div>
 <!--div class="rate">
