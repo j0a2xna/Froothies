@@ -1,5 +1,12 @@
 <?php
-	session_start();
+session_start();
+//if this user visits the page while logged in, show them the welcome page
+// if user visits this page while logged out, do nothing
+if(isset($_SESSION['userid'])){
+	header("Location: ../frontend/welcome.php");
+}else{
+//	header("Location: ../frontend/index.php");
+}
 
 	require_once('../backend/path.inc');
 	require_once('../backend/get_host_info.inc');
