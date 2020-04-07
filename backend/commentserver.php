@@ -22,7 +22,7 @@
         }
 function requestProcessor($request){
         var_dump($request);
-                $username = $request['username'
+                $username = $request['username'];
                 $comments = $request['comments'];
 
                 $db_name ='reef';

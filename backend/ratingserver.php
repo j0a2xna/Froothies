@@ -29,32 +29,39 @@
 
 		
 # select username and smoothie name from the recipes table
-                $sql1 = "SELECT username, recipe_name from allrecipes";
-                $result1 = mysqli_query($conn, $sql1);
- 
-# select username and smoothie name from the recipes table
-                $sql2 = " username, recipe_name from allrecipes";
-                $result2 = mysqli_query($conn, $sql2);
-
-
+       #         $sql1 = "SELECT username, recipe_name from allrecipes";
+	  
+  
+  #        $result1 = mysqli_query($conn, $sql1);
+ #
                 //as long as there is a row, insert it into the results array
-                if(mysqli_num_rows($result1) > 0){
-                        $results = array();
-                        while($row = mysqli_fetch_array($result)){
-                                $results[] = $row;
-                        }
-                        print_r($results); //prints array in cli
+#                if(mysqli_num_rows($result1) > 0){
+  #                      $results = array();
+ #                       while($row = mysqli_fetch_array($result)){
+   #                             $results[] = $row;
+    #                    }
+     #                   print_r($results); //prints array in cli
 
 
-                        foreach($results as $test) {
-                                echo $test[0] . '<br>';
-                                echo $test[1] . '<br>';
-                                echo $test[2] . '<br>';
-                                echo $test[3] . '<br>';
-                                echo $test[4] . '<br>';
-                        }
-			return $results; //return the array to myaccount.php ->process_response()
+      #                  foreach($results as $test) {
+       #                         echo $test[0] . '<br>';
+        #                        echo $test[1] . '<br>';
+         #                       echo $test[2] . '<br>';
+          #                      echo $test[3] . '<br>';
+           #                     echo $test[4] . '<br>';
+            #            }
+	#		return $results; 
 		}
+
+# Insert everything into the rating table
+      #          $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
+	#	$result2 = mysqli_query($conn, $sql2);
+
+		 
+			
+	
+
+
  	$server = new rabbitMQServer("rating.ini","ratingServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
