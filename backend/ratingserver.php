@@ -32,11 +32,6 @@
                 $sql1 = "SELECT username, recipe_name from allrecipes";
                 $result1 = mysqli_query($conn, $sql1);
  
-# select username and smoothie name from the recipes table
-                $sql2 = " username, recipe_name from allrecipes";
-                $result2 = mysqli_query($conn, $sql2);
-
-
                 //as long as there is a row, insert it into the results array
                 if(mysqli_num_rows($result1) > 0){
                         $results = array();
@@ -53,8 +48,37 @@
                                 echo $test[3] . '<br>';
                                 echo $test[4] . '<br>';
                         }
-			return $results; //return the array to myaccount.php ->process_response()
+			return $results; 
 		}
+
+# Insert everything into the rating table
+                $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
+		$result2 = mysqli_query($conn, $sql2);
+
+		$finddata= mysqli_query("SELECT * FROM rating");
+		while ($row = mysqli_fetch_array($finddata))
+		    {
+             		$id= $row ['id'];
+			$smoothie= $row ['smoothie'];
+			$rating= $row ['rating'];
+			$hits= $row ['hits'];
+			
+			echo "
+
+				<form action= "rating.php" method  ='POST'>
+				$smoothie: <select name = 'rating'>
+				    	<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<input type = 'hidden' value='$id' name ='smoothie'>
+				<input type ='submit' value= 'Rate'> Current Rating: "; echo $hits; echo ">
+				</form>
+			";
+
+
  	$server = new rabbitMQServer("rating.ini","ratingServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
