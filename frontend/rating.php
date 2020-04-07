@@ -14,14 +14,15 @@
         $client = new rabbitMQClient("rating.ini","ratingServer");
 
         if(isset($_POST['submit'])){
-              $username = $_POST['username'];
+         #     $username = $_POST['username'];
+	    
 	      $smoothie=$_POST['smoothie'];
 	      $rating=$_POST['rating'];
 	    
 
 
                 $request = array();
-                $request['username'] = $username;
+              #  $request['username'] = $username;
                 $request['smoothie'] = $smoothie;
 		$request['rating'] = $rating;
 		
@@ -56,7 +57,21 @@
         </head>
         <body>
                 <div class="rating">
-                        <h1>Thank you for rating. We appreciate your time</h1>
+                         <form action= "rating.php" method  ='POST'>
+				echo "hey '$userid',Enter the name of the smoothie you want to rate: 
+				 <textarea name="ratings"  placeholder="Please enter here"></textarea><br><br>
+ 
+					$smoothie: <select name = 'rating'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                </select>
+                                <input type = 'hidden' value='$id' name ='smoothie'>
+                                <input type ='submit' value= 'Rate'> Current Rating: "; echo $hits; echo ">
+                                </form>
+
                         <h4><a href="../frontend/welcome.php">Go to home page</a></h4>
                 </div>
         </body>
