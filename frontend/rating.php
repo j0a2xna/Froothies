@@ -11,17 +11,28 @@
 
         $username=$_SESSION['userid'];
 
-        $client = new rabbitMQClient("rating.ini","ratingServer");
+	$client = new rabbitMQClient("rating.ini","ratingServer");
+	if(isset($_SESSION['userid'])){
+		$request['username'] = $username;
+		$response = $client -> send_request($request);
+		process_response($response);
+	}
+
+	function process_response($response){
+		$username = $_SESSION['userid'];
+		echo "<h1> hello $username </h1>";
+	}
 
         if(isset($_POST['submit'])){
-              $username = $_POST['username'];
+         #     $username = $_POST['username'];
+	    
 	      $smoothie=$_POST['smoothie'];
 	      $rating=$_POST['rating'];
 	    
 
 
                 $request = array();
-                $request['username'] = $username;
+              #  $request['username'] = $username;
                 $request['smoothie'] = $smoothie;
 		$request['rating'] = $rating;
 		
@@ -55,8 +66,22 @@
                 </style>
         </head>
         <body>
-                <div class="rating">
-                        <h1>Thank you for rating. We appreciate your time</h1>
+                    <div class="rating">
+                     <form action= "rating.php" method  ='POST'>
+				<h4> Enter the name of the smoothie you want to rate: </h4>
+				 <textarea name="ratings"  placeholder="Please enter here"></textarea>
+ 
+                                     <select name = 'rating'>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                </select>
+                                <input type = 'hidden' value='$id' name ='smoothie'>
+				<input type ='submit' value= 'Rate'> Current Rating: "<phpo $hits; ?> "
+                                </form>
+
                         <h4><a href="../frontend/welcome.php">Go to home page</a></h4>
                 </div>
         </body>
