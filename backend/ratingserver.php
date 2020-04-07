@@ -53,7 +53,7 @@
                        }
 			return $results; 
 		}
-
+	}
  #Insert everything into the rating table
  /*               $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
 		$result2 = mysqli_query($conn, $sql2);
