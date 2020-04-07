@@ -29,6 +29,36 @@
 
 		
 # select username and smoothie name from the recipes table
+
+
+        $sql1 = "SELECT username, recipe_name from allrecipes";
+	  
+  
+          $result1 = mysqli_query($conn, $sql1);
+                 //as long as there is a row, insert it into the results array
+                if(mysqli_num_rows($result1) > 0){
+                        $results = array();
+                        while($row = mysqli_fetch_array($result)){
+                                $results[] = $row;
+                        }
+                        print_r($results); //prints array in cli
+
+
+                        foreach($results as $test) {
+                                echo $test[0] . '<br>';
+                                echo $test[1] . '<br>';
+                               echo $test[2] . '<br>';
+                              echo $test[3] . '<br>';
+                                echo $test[4] . '<br>';
+                       }
+			return $results; 
+		}
+	}
+ #Insert everything into the rating table
+ /*               $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
+		$result2 = mysqli_query($conn, $sql2);
+
+
                 $sql1 = "SELECT username, recipe_name from allrecipes";
                 $result1 = mysqli_query($conn, $sql1);
  
@@ -47,7 +77,11 @@
                         }
 			return $results; 
 		}
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
 # Insert everything into the rating table
                 $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
 		$result2 = mysqli_query($conn, $sql2);
@@ -60,10 +94,29 @@
 			$rating= $row ['rating'];
 			$hits= $row ['hits'];
 			
+<<<<<<< HEAD
 			
  */		
 
 
+=======
+			echo "
+
+				<form action= "rating.php" method  ='POST'>
+				$smoothie: <select name = 'rating'>
+				    	<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<input type = 'hidden' value='$id' name ='smoothie'>
+				<input type ='submit' value= 'Rate'> Current Rating: "; echo $hits; echo ">
+				</form>
+			";
+
+*/
+>>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
  	$server = new rabbitMQServer("rating.ini","ratingServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
