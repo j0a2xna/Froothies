@@ -29,6 +29,7 @@
 
 		
 # select username and smoothie name from the recipes table
+<<<<<<< HEAD
        #         $sql1 = "SELECT username, recipe_name from allrecipes";
 	  
   
@@ -60,6 +61,56 @@
 		 
 			
 	
+=======
+                $sql1 = "SELECT username, recipe_name from allrecipes";
+                $result1 = mysqli_query($conn, $sql1);
+ 
+                //as long as there is a row, insert it into the results array
+                if(mysqli_num_rows($result1) > 0){
+                        $results = array();
+                        while($row = mysqli_fetch_array($result)){
+                                $results[] = $row;
+                        }
+                        print_r($results); //prints array in cli
+
+
+                        foreach($results as $test) {
+                                echo $test[0] . '<br>';
+                                echo $test[1] . '<br>';
+                                echo $test[2] . '<br>';
+                                echo $test[3] . '<br>';
+                                echo $test[4] . '<br>';
+                        }
+			return $results; 
+		}
+
+# Insert everything into the rating table
+                $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
+		$result2 = mysqli_query($conn, $sql2);
+
+		$finddata= mysqli_query("SELECT * FROM rating");
+		while ($row = mysqli_fetch_array($finddata))
+		    {
+             		$id= $row ['id'];
+			$smoothie= $row ['smoothie'];
+			$rating= $row ['rating'];
+			$hits= $row ['hits'];
+			
+			echo "
+
+				<form action= "rating.php" method  ='POST'>
+				$smoothie: <select name = 'rating'>
+				    	<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<input type = 'hidden' value='$id' name ='smoothie'>
+				<input type ='submit' value= 'Rate'> Current Rating: "; echo $hits; echo ">
+				</form>
+			";
+>>>>>>> 44377769ef56c173d3b7f5ad67d8e7634bb724ba
 
 
  	$server = new rabbitMQServer("rating.ini","ratingServer");
