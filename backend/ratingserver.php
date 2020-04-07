@@ -24,8 +24,8 @@
 
         function requestProcessor($request){
 		$username = $request['username'];
-		$smoothie =$request['smoothie'];
-		$rating =$request['rating'];
+#		$smoothie =$request['smoothie'];
+#		$rating =$request['rating'];
 
 		
 # select username and smoothie name from the recipes table
@@ -74,13 +74,14 @@
                         foreach($results as $test) {
                                 echo $test[0] . '<br>';
                                 echo $test[1] . '<br>';
-                                echo $test[2] . '<br>';
-                                echo $test[3] . '<br>';
-                                echo $test[4] . '<br>';
                         }
 			return $results; 
 		}
+<<<<<<< HEAD
+/*
+=======
 
+>>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
 # Insert everything into the rating table
                 $sql2 = "INSERT into rating VALUES ('$id','$smoothie','$rating','$hits')
 		$result2 = mysqli_query($conn, $sql2);
@@ -93,6 +94,12 @@
 			$rating= $row ['rating'];
 			$hits= $row ['hits'];
 			
+<<<<<<< HEAD
+			
+ */		
+
+
+=======
 			echo "
 
 				<form action= "rating.php" method  ='POST'>
@@ -109,6 +116,7 @@
 			";
 
 */
+>>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
  	$server = new rabbitMQServer("rating.ini","ratingServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
