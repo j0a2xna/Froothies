@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
         require_once('../backend/path.inc');
         require_once('../backend/get_host_info.inc');
@@ -28,7 +29,14 @@ function requestProcessor($request){
                 $db_name ='reef';
                 $connect = connectDB($db_name);
                 $sql = "INSERT INTO commentTable VALUES('$username','$comments') ";
-                $result = mysqli_query($connect, $sql);
+		$result = mysqli_query($connect, $sql);
 
+		$response = "SUCCESS.";
+                return $response;
+
+}
+
+$server = new rabbitMQServer("comment.ini","commentServer");
+$server->process_requests('requestProcessor');
+$server->send_request($response);
 ?>
-
