@@ -66,21 +66,13 @@
                 </style>
         </head>
         <body>
-<<<<<<< HEAD
+
                     <div class="rating">
                      <form action= "rating.php" method  ='POST'>
 				<h4> Enter the name of the smoothie you want to rate: </h4>
 				 <textarea name="ratings"  placeholder="Please enter here"></textarea>
  
-                                     <select name = 'rating'>
-=======
-                <div class="rating">
-                         <form action= "rating.php" method  ='POST'>
-				echo "hey '$userid',Enter the name of the smoothie you want to rate: 
-				 <textarea name="ratings"  placeholder="Please enter here"></textarea><br><br>
- 
-					$smoothie: <select name = 'rating'>
->>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
+                                  <select name = 'rating'>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -88,11 +80,10 @@
                                         <option>5</option>
                                 </select>
                                 <input type = 'hidden' value='$id' name ='smoothie'>
-<<<<<<< HEAD
-				<input type ='submit' value= 'Rate'> Current Rating: "<phpo $hits; ?> "
-=======
-                                <input type ='submit' value= 'Rate'> Current Rating: "; echo $hits; echo ">
->>>>>>> 8e44b90eafc0c0cc091f58c8648eab97947e055e
+				<input type ='submit' value= 'Rate'> Current Rating: <?php $hits; ?> "
+
+                                
+
                                 </form>
 
                         <h4><a href="../frontend/welcome.php">Go to home page</a></h4>
