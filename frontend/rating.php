@@ -11,7 +11,7 @@
 
         $username=$_SESSION['userid'];
 
-	$client = new rabbitMQClient("rating.ini","ratingServer");
+	$client = new rabbitMQClient("rating.ini","indexrating");
 	if(isset($_SESSION['userid'])){
 		$request['username'] = $username;
 		$response = $client -> send_request($request);
