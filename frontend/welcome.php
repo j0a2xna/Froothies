@@ -31,7 +31,8 @@ if(isset($_SESSION['userid'])){
     <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
     <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script type="text/javascript">
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 var originalAddEventListener = EventTarget.prototype.addEventListener,
