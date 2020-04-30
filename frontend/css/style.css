@@ -94,3 +94,12 @@ body{
 		margin:50 50;
 		  color: tomato;
   }
+/* This is for the social media share button. to share our page */  
+  .socialMediaFooter{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #cec1e7;
+	text-align: center;
+  }
