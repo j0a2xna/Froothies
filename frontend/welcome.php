@@ -218,19 +218,33 @@ if(isset($_SESSION['userid'])){
     js = d.createElement(s); js.id = id;
     js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  }
+    (document, 'script', 'facebook-jssdk'));
+  </script>
 
   <div class="socialMediaFooter">
-  <p>
-  <!-- share button-->
-  <div class="fb-share-button" 
-    data-href="https://froothies.com" 
-    data-layout="button_count">
+    <p>
+      <div class="fb-share-button" 
+        data-href="https://froothies.com" 
+        data-layout="button_count">
+      </div>
+    
+    <!-- FACEBOOK end -->
+    
+    <!-- TWITTER start -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+        class="twitter-share-button" 
+        data-text="Checkout this page!" 
+        data-url="https://froothies.com" 
+        data-hashtags="froothies" 
+        data-related="" 
+        data-show-count="true">Tweet
+      </a>
+    </p>
+    <!-- TWITTER end -->
   </div>
-  </p>
-  </div>
-   <!-- FACEBOOK end -->
-
 </body>
 </html>
 </body>
