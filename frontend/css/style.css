@@ -103,3 +103,10 @@ body{
 	background-color: #cec1e7;
 	text-align: center;
   }
+
+/* this is for the social media share button. to share a smoothie */
+  .socialMediaMyAccount{
+	  left: 0;
+	  bottom: 0;
+	  text-align:center
+  }

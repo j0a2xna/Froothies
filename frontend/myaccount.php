@@ -54,30 +54,47 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
 				echo "Base: " . $column[4] . '<br>';
-								//echo "<hr>";
-				
-					//for every smoothie the user has, add a facebook and twitter share button :)
-					echo '<div class="twitterMyAccount">';
-					echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-						<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-						class="twitter-share-button" 
-						data-text="Take a look at this awesome smoothie recipe! " '. $column[0];
-					echo 'data-url="https://froothies.com"
-						data-hashtags="froothies" 
-						data-related="" 
-						data-show-count="true">Tweet
-						</a>';
-					echo "</div>";
-				echo "</div>";
-		}
-	}
 ?>
 
+				<!-- facebook button -->
+				  <div id="fb-root"></div>
+				  <script>(function(d, s, id) {
+				    var js, fjs = d.getElementsByTagName(s)[0];
+				    if (d.getElementById(id)) return;
+				    js = d.createElement(s); js.id = id;
+				    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+				    fjs.parentNode.insertBefore(js, fjs);
+				  }
+				    (document, 'script', 'facebook-jssdk'));
+				  </script>
+
+				  <div class="socialMediaMyAccount">
+				    <p>
+				      <div class="fb-share-button" 
+				        data-href="https://froothies.com" 
+				        data-layout="button_count">
+				      </div>
+    
+					<!-- twitter button + smoothie info in it -->	
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+							class="twitter-share-button"
+							data-text="Take a look at this awesome smoothie recipe! <?php echo ' Recipe Name: ' . $column[0] . '. Fruits: ' . $column[1] . '. Vegetables: ' . $column[2] . '. Protein: ' . $column[3] . '. Base: ' . $column[4];?>"
+							data-hashtags="froothies" 
+							data-related="" 
+							data-show-count="true">Tweet
+						</a>
+				    </p>
+				 </div>
+			</div></div>
+		<?php	}
+	} ?>
 <html>
 	<head>
 	<title>My Account</title>
 	<link rel="stylesheet" href="../frontend/css/nav.css">
-        <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+	<meta property="og:description" content="Tutorials, thoughts, and random stuff ♥" />
 	<style>
         	.oneRecipe{
 			top: 50%;
