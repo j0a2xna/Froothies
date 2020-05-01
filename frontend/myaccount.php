@@ -54,6 +54,7 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
 				echo "Base: " . $column[4] . '<br>';
+		}
 ?>
 
 				<!-- facebook button -->
