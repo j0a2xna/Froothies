@@ -36,7 +36,7 @@ if(isset($_SESSION['userid'])){
 		// created div for the greeting because it was looping inside foreach
 		echo '<div class="greetingSuccess">';
 		echo "<h1> Hello, $username!!</h1>"; //need to make sure we're getitng the user's name here. :)
-		echo "<h2> You can see all your recipes below </h2>";
+		echo "<h2> You can see all your recipes bellow </h2>";
 		echo "</div>";
 
 		 //if user does not have any recipes in their account, ask them to go make a smoothie in the welcome page
@@ -54,7 +54,20 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
 				echo "Base: " . $column[4] . '<br>';
-                                //echo "<hr>";
+								//echo "<hr>";
+				
+					//for every smoothie the user has, add a facebook and twitter share button :)
+					echo '<div class="twitterMyAccount">';
+					echo '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+						class="twitter-share-button" 
+						data-text="Take a look at this awesome smoothie recipe! " '. $column[0];
+					echo 'data-url="https://froothies.com"
+						data-hashtags="froothies" 
+						data-related="" 
+						data-show-count="true">Tweet
+						</a>';
+					echo "</div>";
 				echo "</div>";
 		}
 	}
