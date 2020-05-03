@@ -94,6 +94,7 @@
 <html>
         <head>
                 <title> Created Smoothie </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
                         body{
                                 background-image: url("/var/www/froothies/assets/fruits-bg.png");
