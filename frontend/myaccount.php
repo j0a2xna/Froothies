@@ -96,6 +96,7 @@ if(isset($_SESSION['userid'])){
 	<link rel="stylesheet" href="../frontend/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
 	<meta property="og:description" content="Tutorials, thoughts, and random stuff ♥" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
         	.oneRecipe{
 			top: 50%;
