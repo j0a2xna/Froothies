@@ -15,10 +15,9 @@
 	margin:30% 30%;
 	width:50%;
 	centre:0%;*/
-	
-	position: absolute;
-        top:15%;
-        right:45%;;
+    top: auto;
+	float: left;
+	width: 33.33%;
         border:#ced962 dashed 3px;
         background-color: #ffffff;
         border-radius:5px;
@@ -75,3 +74,20 @@
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }*/
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
