@@ -214,7 +214,8 @@ if(isset($_SESSION['userid'])){
         data-related="" 
         data-show-count="true">Tweet
       </a>
-	    </div>
+        </div>
+    
     </footer>
 </html>
 
