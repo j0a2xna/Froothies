@@ -68,7 +68,7 @@ if(isset($_SESSION['userid'])){
         <link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
     </head>
 
-    <body>
+    
         <div class="navbar">
             <a href="../frontend/welcome.php">Home</a>
             <a href="../frontend/indexrating.php">Rating</a>
@@ -156,11 +156,14 @@ if(isset($_SESSION['userid'])){
             </div>
             </form>
         </div>
-
+	<form action="..//frontend/comment.php" method="POST">
+	<link rel="stylesheet" type="text/css" href="../frontend/css/style1.css">
+	<link rel="../frontend/recommendSmoothie.php">
+	<body>
         <div class = "data">
 
             <form action="../frontend/comment.php" method="POST">
-                <link rel="../frontend/recommendSmoothie.php">
+		    
                   <h3> Do you like our page?</h3>
                   <h3>Leave Us a Comment </h3>
 
