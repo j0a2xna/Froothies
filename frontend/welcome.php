@@ -176,8 +176,6 @@ if(isset($_SESSION['userid'])){
 
         </div>
         
-    </body>
-    <footer>
         <!-- 
    SOCIAL MEDIA PLUGINS TO SHARE OUR PAGE. THIS IS AT THE BOTTOM
 -->
@@ -216,6 +214,6 @@ if(isset($_SESSION['userid'])){
       </a>
         </div>
     
-    </footer>
+    </body>
 </html>
 
