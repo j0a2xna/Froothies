@@ -21,6 +21,10 @@ body{
 	background-image: url("../../assets/fruits-bg.png");
     font-size:20px;
 	text-align: center;
+	width:90%;
+	margin:auto;
+	min-width:600px;
+	max-width:2000px;
 }
 #dialog{
 	position: absolute;
