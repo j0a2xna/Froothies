@@ -54,8 +54,9 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
                 echo "Base: " . $column[4] . '<br>';
-                echo "Yoamam: " . $column[5] . '<br>';
-		// please don't close this here. it closes on line 91.
+                echo "Yomama: " . $column[5] . '<br>';
+        }
+    }
 ?>
 
 <html>
