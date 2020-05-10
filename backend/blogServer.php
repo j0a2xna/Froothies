@@ -42,7 +42,7 @@
                 echo $test[4] . '<br>';
                 echo $test[5] . '<br>';*/
             }
-            echo gettype($response);
+            echo gettype($results);
 			return $results; 
 		}
         
