@@ -2,14 +2,11 @@
 <?php
 //index.php
 session_start();
-        if(isset($_SESSION['userid'])){
+if(isset($_SESSION['userid'])){
 
-        }else{
-                header("Location: ../frontend/index.php");
-        }
-     
-
-        $username=$_SESSION['userid'];
+}else{
+        header("Location: ../frontend/index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,15 +14,13 @@ session_start();
   <title>All Recipes</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
 
 
   
-  <style="color: red; font-weight: bold;">
-  <input type="hidden" id="user_id" value="<?php echo $_SESSION ['userid'];?>"/>
+ <input type="hidden" id="user_id" value=  <?php echo $_SESSION['userid']?>>
 
 
 
@@ -52,7 +47,7 @@ session_start();
   <div class="row">
         <div class="span12">
         <div class="thumbnail center well well-small text-center">
-                <h2>Newsletter</h2>
+             
                 
                 <p>Interested in getting similar smoothie recommedation?? 
                   <br>Enter your email to start getting recommendations.</p>
@@ -61,8 +56,8 @@ session_start();
                     <div class="input-prepend form-group">
 
                       
-                      <style="color: red; font-weight: bold;">
-		      <input type="text" name="user_id" value="<?php echo  $userid;?>" />
+                      
+		    <input type="hidden" name="user_id" value= <?php echo $_SESSION['userid']?>>
 
                       
                       <input style="margin: 0px auto; width: 30% !important;" type="email" id="" class="form-control" name="email" required="" placeholder="your@email.com">
@@ -132,7 +127,7 @@ $(document).ready(function(){
   var index = $(this).data("index");
   var recipe_id = $(this).data('recipe_id');
   $.ajax({
-   url:"insert_rating.php",
+   url:"insertrating.php",
    method:"POST",
    data:{index:index, recipe_id:recipe_id, user_id:user_id},
    success:function(data)

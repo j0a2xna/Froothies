@@ -3,9 +3,9 @@
 //Database connection using PDO
 
 //$connect = new PDO('mysql:host=localhost;dbname=recipe_db', 'root', '');
-        require_once('../backend/path.inc');
-        require_once('../backend/get_host_info.inc');
-        require_once('../backend/rabbitMQLib.inc');
+//        require_once('../backend/path.inc');
+  //      require_once('../backend/get_host_info.inc');
+    //    require_once('../backend/rabbitMQLib.inc');
 
      
 
