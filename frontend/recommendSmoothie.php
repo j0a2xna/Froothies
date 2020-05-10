@@ -58,6 +58,7 @@ if(isset($_SESSION['userid'])){
 		<title>Smoothie of the Day</title>
 		<link rel="stylesheet" href="../frontend/css/nav.css">
 		<link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
 			.recommended{
 				background-color:white;

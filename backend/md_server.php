@@ -1,9 +1,10 @@
+#!/usr/bin/php
 <?php
     require_once('md_cred.php');
     require_once('path.inc');
     require_once('rabbitMQLib.inc');
 
-    $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
+    $client = new rabbitMQClient("RMQ_server.ini","RMQ_Server");
     
     if(isset($_POST['add'])){
         $type = $_POST['type'];
@@ -12,7 +13,7 @@
 
     //i know i can use $GLOBALS[] but i like to isolate it a lil
     function cRMQ(){
-        $client = new rabbitMQClient("RMQ_Server.ini","RMQ_Server");
+        $client = new rabbitMQClient("RMQ_server.ini","RMQ_Server");
         return $client;
     }
 
@@ -33,8 +34,8 @@
 
     function connectDB(){
         $db_host = 'localhost';
-        $db_username = 'admin';
-        $db_password = 'adminpassword';
+        $db_username = 'nemo';
+        $db_password = 'dory123';
         $db_name = 'ingr';
         $mydb = new mysqli($db_host, $db_username,$db_password, $db_name);	
         return $mydb;
