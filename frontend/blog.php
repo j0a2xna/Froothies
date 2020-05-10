@@ -46,7 +46,7 @@
         }
 
         foreach($response as $column){
-            echo "hello im in foreach";
+            echo "<h2>hello im in foreach<h2>";
             echo '<div class="oneRecipe">';
             echo "<h3>Recipe Name: " . $column[0] . "</h3>" . "<br>";
                             echo "Fruits: " . $column[1] . '<br>';
