@@ -198,7 +198,7 @@ if(isset($_SESSION['userid'])){
   <div class="socialMediaFooter">
     <p>
       <div class="fb-share-button" 
-        data-href="https://froothies.com" 
+        data-href="https://froothies.net" 
         data-layout="button_count">
       </div>
     
@@ -210,7 +210,7 @@ if(isset($_SESSION['userid'])){
       <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
         class="twitter-share-button" 
         data-text="Checkout this page!" 
-        data-url="https://froothies.com" 
+        data-url="https://froothies.net" 
         data-hashtags="froothies" 
         data-related="" 
         data-show-count="true">Tweet
