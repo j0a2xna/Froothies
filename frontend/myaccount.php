@@ -37,7 +37,6 @@ if(isset($_SESSION['userid'])){
 		echo '<div class="greetingSuccess">';
 		echo "<h1> Hello, $username!!</h1>"; //need to make sure we're getitng the user's name here. :)
 		echo "<h2> You can see all your recipes below </h2>";
-		echo gettype($response);
 		echo "</div>";
 
 		 //if user does not have any recipes in their account, ask them to go make a smoothie in the welcome page
@@ -55,6 +54,7 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
 				echo "Base: " . $column[4] . '<br>';
+				echo gettype($response);
 		// please don't close this here. it closes on line 91.
 ?>
 
