@@ -45,6 +45,8 @@
             echo "</div>";
         }
 
+        echo "<h2> $response </h2>";
+
         foreach($response as $column){
             echo "<h2>hello im in foreach<h2>";
             echo '<div class="oneRecipe">';
