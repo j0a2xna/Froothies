@@ -42,10 +42,11 @@
         if($response == "[empty response]"){
             echo '<div class="greetingNOSuccess">';
             echo 'OOPS! You have not created any recipes yet! <a href="../frontend/welcome.php"> Go here to create one <3 </a>';
+            echo "<h2> $response </h2>";
             echo "</div>";
         }
 
-        echo "<h2> $response </h2>";
+        
 
         foreach($response as $column){
             echo "<h2>hello im in foreach<h2>";
