@@ -41,7 +41,8 @@
 				echo $test[3] . '<br>';
                 echo $test[4] . '<br>';
                 echo $test[5] . '<br>';*/
-			}
+            }
+            echo gettype($response);
 			return $results; 
 		}
         
