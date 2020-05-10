@@ -72,6 +72,7 @@ if(isset($_SESSION['userid'])){
         <div class="navbar">
             <a href="../frontend/welcome.php">Home</a>
             <a href="../frontend/indexrating.php">Rating</a>
+            <a href="../frontend/blog.php">Visit Blog</a>
             <a href="../frontend/myaccount.php" id="acc">My Account</a>
             <a href="../frontend/logout.php" id="log">Log Out</a>
                 <form action="../backend/search.php" method="post" id="form">
