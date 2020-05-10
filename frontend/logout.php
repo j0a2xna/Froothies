@@ -26,6 +26,7 @@
                                 padding:50px;
                         }
                 </style>
+            <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
         </head>
         <body>
                 <div class="message">
