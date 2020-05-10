@@ -54,7 +54,7 @@
                             echo "Protein: " . $column[3] . '<br>';
                             echo "Base: " . $column[4] . '<br>';
                             echo "Made by: " . $column[5] . '<br>'; //will display other users usernames
-         }
+         
 
 
 ?>
