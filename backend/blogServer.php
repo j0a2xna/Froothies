@@ -36,18 +36,22 @@
 
 			foreach($results as $test) {
 				echo $test[0] . '<br>';
-				echo $test[1] . '<br>';
+				/*echo $test[1] . '<br>';
 			    echo $test[2] . '<br>';
 				echo $test[3] . '<br>';
                 echo $test[4] . '<br>';
-                echo $test[5] . '<br>';
+                echo $test[5] . '<br>'; 
+                */
+
+                echo gettype($results);
+                echo "********************";
 
                 echo "<h3>Recipe Name: " . $test[0] . "</h3>" . "<br>";
-                            echo "Fruits: " . $test[1] . '<br>';
+                          /*  echo "Fruits: " . $test[1] . '<br>';
                             echo "Vegetables: " . $test[2] . '<br>';
                             echo "Protein: " . $test[3] . '<br>';
                             echo "Base: " . $test[4] . '<br>';
-                            echo "Made by: " . $test[5] . '<br>'; //will display other users usernames
+                            echo "Made by: " . $test[5] . '<br>'; //will display other users usernames */
             }
             echo gettype($results);
 			return $results; 
