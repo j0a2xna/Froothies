@@ -21,7 +21,6 @@
         $request['username'] = $username;
         $response = $client -> send_request($request);
         process_response($reponse);
-        echo "in frontend" . gettype($results);
     }
 
     function process_response($response){
