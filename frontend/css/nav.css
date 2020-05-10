@@ -32,7 +32,7 @@ background-color: #876fa1;
 }
 .sel{
     padding: 1px 3px;
-    color: #white;
+    color: white;
     margin:10 10 0;
     text-align: center;
     position: justified;
@@ -40,7 +40,7 @@ background-color: #876fa1;
 
 @media screen and (max-width: 500px) {
 .navbar a {
-    float: none;
+    float: left;
     display: block;
 }
 }
