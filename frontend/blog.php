@@ -35,7 +35,7 @@
         //echos greeting upon response
         echo '<div class="greetingSuccess">';
         echo "<h1> Hello, $username!!</h1>";
-        echo '<h2> You can see all your recipes on <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a></h2>';
+        echo '<h2> You can see all YOUR recipes on <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a></h2>';
         echo $response;
         echo "</div>";
        
