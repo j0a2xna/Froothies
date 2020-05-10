@@ -36,11 +36,11 @@
 
 			foreach($results as $test) {
 				echo $test[0] . '<br>';
-				echo $test[1] . '<br>';
+			/*	echo $test[1] . '<br>';
 				echo $test[2] . '<br>';
 				echo $test[3] . '<br>';
                 echo $test[4] . '<br>';
-                echo $test[5] . '<br>';
+                echo $test[5] . '<br>';*/
 			}
 			return $results; 
 		}
