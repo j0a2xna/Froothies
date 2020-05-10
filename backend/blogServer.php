@@ -23,7 +23,7 @@
         var_dump($request);
         $username = $request['username'];
         $conn = connectDB();
-        $sql = "SELECT username, recipe, fruit, veggies, protein, base FROM allrecipes";
+        $sql = "SELECT username, recipe_name, fruit, veggies, protein, base FROM allrecipes";
         $result = mysqli_query($conn, $sql);
         
         if(mysqli_num_rows($result) > 0){
