@@ -44,7 +44,6 @@
             echo 'OOPS! You have not created any recipes yet! <a href="../frontend/welcome.php"> Go here to create one <3 </a>';
             echo "</div>";
         }
-    }
 
         foreach($response as $column){
             echo '<div class="oneRecipe">';
