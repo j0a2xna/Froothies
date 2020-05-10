@@ -36,13 +36,13 @@
         echo '<div class="greetingSuccess">';
         echo "<h1> Hello, $username!!</h1>";
         echo '<h2> You can see all your recipes on <a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a></h2>';
+        echo "<h2> $response </h2>";
         echo "</div>";
        
         //if the user has no recipes, link to create one
         if($response == "[empty response]"){
             echo '<div class="greetingNOSuccess">';
             echo 'OOPS! You have not created any recipes yet! <a href="../frontend/welcome.php"> Go here to create one <3 </a>';
-            echo "<h2> $response </h2>";
             echo "</div>";
         }
 
