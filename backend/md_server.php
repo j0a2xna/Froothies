@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
     require_once('md_cred.php');
     require_once('path.inc');

@@ -1,10 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Spartan:600&display=swap');
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
 body{
     font-family: 'Spartan', sans-serif;
     background-color:#ffffff;
 	background-image: url("../../assets/fruits-bg.png");
     font-size:20px;
 	text-align: center;
+	width:90%;
+	margin:auto;
+	min-width:600px;
+	max-width:2000px;
 }
 #dialog{
 	position: absolute;
@@ -42,9 +62,9 @@ body{
 /*	float: right;
 	margin: 30% 30%;*/
 	/*position: fixed;*/
-	position: absolute;
-	top:15%;
-	left:65%;;
+    top: auto;
+    float: left;
+	width: 33.33%;
 	border:#ced962 dashed 3px;
 	background-color: #ffffff;
         border-radius:5px; 
@@ -66,12 +86,11 @@ body{
                                 padding:50px; */
 }
 #day{
-	float: left;
+	float: center;
 }
 .fDiv{
-	position: absolute;
-                                top: 50%;
-                                left: 50%;
+	
+                              
                                 transform: translate(-50%, -50%);
                                 border: 3px solid pink;
                                 border-style: dashed;
@@ -84,9 +103,9 @@ body{
 
   /* for the recommendation form */
   #recommend{
-		position: absolute;
-		top:15%;
-		left:3%;;
+        top: auto;
+        float: right;
+		width: 33.33%;
 		border:#ced962 dashed 3px;
 		background-color: #ffffff;
 			border-radius:5px; 

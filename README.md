@@ -8,6 +8,14 @@ froothies.com
             AMD_Server.ini
             RMQ_Server.ini
             recommend.ini
+            form.ini
+            local.ini
+            comment.ini
+            backup.ini
+            blog.ini
+            host.ini
+            rating.ini
+            testRMQ.ini
 
   frontend: php/html hosted on apache
     front page: 
@@ -24,8 +32,21 @@ froothies.com
                 search.php, searches for ingredients and recipes
                 
                 recommendSmoothie.php, requests smoothies data from localdb
-    
-  backend: php hosted on mariadb
+                
+                rating.php, user can rate smoothies *still beta*
+                
+                comment.php, user can send us their comments about our page
+                
+                logout.php, terminates the user's session
+                
+                blog.php, users can add comments to previously created smoothies *still beta*
+                
+                form.php, users add fruits and veggies that can't find
+                
+                register.php, creation of users
+                
+                                       
+  backend: php hosted on mysql and mariadb
                 mysqlserver.php, connects to localdb, authenticates login and creates table for new users
 
                 myaccountserver.php, pulls users data from my account request
@@ -37,7 +58,7 @@ froothies.com
                 recommendSmoothieServer.php, pulls random smoothie data
 
 
-How do I run this?
+How do I run this? You can run this manually or preferrably through Systemd
 <ul>
 <li>./mysqlserver.php -> log in, register</li>
 <li>./myaccountserver.php -> my account</li>
@@ -51,7 +72,6 @@ How do I run this?
 Needs attention
 <ul>
 <li> logging: https://github.com/jyoussef98/Froothies/tree/master/logs Need face to face testing </li>
-<li> Virtual machines: The code currently works on localhost as we were testing our changes individually. Once it's time to show our presentations, we'll change to our virtual machines' local IP addresses. Communication between the 4 virtual machines works as shown in class.</li>
 </ul>
 
 
@@ -59,4 +79,4 @@ Needs attention
 Contact Email: jy353@njit.edu
 trello: https://trello.com/b/y4qIl03S/it-490system-integration
 
-side note: contributor captainpwnbugs is orquidia's other account.
+Side note: contributor captainpwnbugs is Orquidia's other account.

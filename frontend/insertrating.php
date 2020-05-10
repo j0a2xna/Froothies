@@ -2,7 +2,7 @@
 
 //Database connection using PDO
 //$connect = new PDO('mysql:host=localhost;dbname=recipe_db', 'root', '');
-         function connectDB(){
+         
 
                 $servername= "10.0.0.31";
                 $user = "nemo";
@@ -11,16 +11,10 @@
 
                 $connect = mysqli_connect($servername, $user, $password, $db);
 
-                if (!$connect){
-                        die("Connection Failed: " . mysqli_connect_error());
-                }
-                else {
-                }
+              
+	 
 
-                return $connect;
-	 }
-
-$connect = connectDB();
+//$connect = connectDB();
 
 //Check if data are passed by post method.
 if(isset($_POST["index"], $_POST["recipe_id"], $_POST["user_id"]))

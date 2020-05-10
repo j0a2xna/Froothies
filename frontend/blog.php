@@ -44,7 +44,6 @@
             echo 'OOPS! You have not created any recipes yet! <a href="../frontend/welcome.php"> Go here to create one <3 </a>';
             echo "</div>";
         }
-    }
 
         foreach($response as $column){
             echo '<div class="oneRecipe">';
@@ -54,7 +53,7 @@
                             echo "Protein: " . $column[3] . '<br>';
                             echo "Base: " . $column[4] . '<br>';
                             echo "Made by: " . $column[5] . '<br>'; //will display other users usernames
-         }
+         
 
 
 ?>

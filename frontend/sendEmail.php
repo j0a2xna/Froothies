@@ -1,5 +1,5 @@
 <?php 
-	require 'PHPMailerAutoload.php';
+	require 'PHPMailer/PHPMailerAutoload.php';
 
 	//Database connection using PDO
 	//$connect = new PDO('mysql:host=localhost;dbname=recipe_db', 'root', '');
@@ -72,7 +72,7 @@
 		} else {
 			session_start();
 			$_SESSION['message'] = "Email sent successfully!";
-			header("location: index.php");
+			header("location: indexrating.php");
 		}
 
 	}

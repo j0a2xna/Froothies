@@ -54,7 +54,7 @@ if(isset($_SESSION['userid'])){
                                 echo "Vegetables: " . $column[2] . '<br>';
                                 echo "Protein: " . $column[3] . '<br>';
 				echo "Base: " . $column[4] . '<br>';
-		}
+		// please don't close this here. it closes on line 91.
 ?>
 
 				<!-- facebook button -->
@@ -72,7 +72,7 @@ if(isset($_SESSION['userid'])){
 				  <div class="socialMediaMyAccount">
 				    <p>
 				      <div class="fb-share-button" 
-				        data-href="https://froothies.com" 
+				        data-href="https://froothies.net" 
 				        data-layout="button_count">
 				      </div>
     
