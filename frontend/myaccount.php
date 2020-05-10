@@ -37,6 +37,7 @@ if(isset($_SESSION['userid'])){
 		echo '<div class="greetingSuccess">';
 		echo "<h1> Hello, $username!!</h1>"; //need to make sure we're getitng the user's name here. :)
 		echo "<h2> You can see all your recipes below </h2>";
+		echo gettype($response);
 		echo "</div>";
 
 		 //if user does not have any recipes in their account, ask them to go make a smoothie in the welcome page
