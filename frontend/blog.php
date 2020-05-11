@@ -103,7 +103,7 @@ if(isset($_SESSION['userid'])){
 		if(isset($_POST['commentSubmit'])){
 
 			$conn2 = mysqli_connect('localhost', 'nemo', 'dory123', 'allrecipes');
-			if($conn2){
+			if(!$conn2){
 				die("Failed to connect: " . mysqli_connect_error());
 			}
 
