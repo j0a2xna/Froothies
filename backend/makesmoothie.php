@@ -38,7 +38,7 @@
 		
 		$db_name ='allrecipes';
 		$conn = connectDB($db_name);
-		$sql = "INSERT INTO allrecipes(username, recipe_name, fruit, veggies, protein, base) VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
+		$sql = "INSERT INTO allrecipes VALUES('$username', '$recipe_name', '$fruit', '$veggies', '$protein', '$base')";
 		$result = mysqli_query($conn,$sql);
 
 		#*****************************#
