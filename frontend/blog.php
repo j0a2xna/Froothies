@@ -110,10 +110,16 @@ if(isset($_SESSION['userid'])){
 			$username = $_SESSION['userid'];
 			$date = $_POST['date'];
 			$message = $_POST['message'];
+
+			echo "username is " . $username;
+			echo "date is " . $date;
+			echo "message is " . $message;
 			
+			/*
 			$sql = "INSERT INTO comments(uid, date, message) VALUES('$username', '$date', '$message')";
 
 			$result = $conn->query($sql);
+			*/
 		}
 	}
 
