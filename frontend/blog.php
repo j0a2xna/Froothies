@@ -34,7 +34,7 @@ if(isset($_SESSION['userid'])){
 		// created div for the greeting because it was looping inside foreach
 		echo '<div class="greetingSuccess">';
 		echo "<h1> Hello, $username!!</h1>";
-		echo "<h2> You can see all your recipes below </h2>";
+		echo "<h2> Here's a blog of all the recipes </h2>";
 		echo "</div>";
 
 		 //if user does not have any recipes in their account, ask them to go make a smoothie in the welcome page
@@ -96,7 +96,13 @@ if(isset($_SESSION['userid'])){
 			</div></div>
 		<?php
 			}
-	} ?>
+	} 
+	
+	function setComments(){
+		echo "HELLO TANIA!";
+	}
+
+	?>
 
 
 

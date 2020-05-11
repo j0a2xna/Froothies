@@ -43,19 +43,12 @@
                 echo "********************";
             }
 
-            //call the setComments function
-            setComments();
 			return $results; 
 		}
         else{
 			echo "<h1>OOPS!</h1>";
 			echo "<h2> This is empty. Nobody has created any recipes! </h2>";
 		}
-
-    }
-
-    // for the comments section in the blog
-    function setComments(){
 
     }
 
