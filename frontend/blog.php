@@ -90,7 +90,7 @@ if(isset($_SESSION['userid'])){
 			<form>
 				  <input type='hidden' name='uid' value='$username'>
 				  <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-				  <textarea name='message'></textarea>
+				  <textarea name='message' placeholde='Enter your comment'></textarea><br>
 				  <button type='submit' name='submit'>Comment</button>
 			</form> ";
 			}
@@ -132,6 +132,24 @@ if(isset($_SESSION['userid'])){
                         border-style: dashed;
                         border-radius: 15px;
                         padding:50px;
+		}
+
+		textarea{
+			width: 400px;
+			height: 80px;
+			background-color: #fff;
+			resize: none;
+		}
+
+		button{
+			width: 100px;
+			height: 30px;
+			background-color: #282828;
+			border: none;
+			color: #fff;
+			font-family: arial;
+			font-weight: 400;
+			cursor: pointer;
 		}
 
         </style>
