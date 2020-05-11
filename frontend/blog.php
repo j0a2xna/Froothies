@@ -102,7 +102,7 @@ if(isset($_SESSION['userid'])){
 		// if user hits the submit button, enter into the table
 		if(isset($_POST['commentSubmit'])){
 
-			$conn2 = mysqli_connect('localhost', 'nemo', 'dory123', 'allrecipes');
+			$conn2 = mysqli_connect('10.0.0.31', 'nemo', 'dory123', 'allrecipes');
 			if(!$conn2){
 				die("Failed to connect: " . mysqli_connect_error());
 			}
