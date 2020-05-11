@@ -85,14 +85,16 @@ if(isset($_SESSION['userid'])){
 						</a>
 				    </p>
 				 </div>
+			<?php echo "
+				<form>
+					<input type='hidden' name='uid' value='$username'>
+					<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+					<textarea name='message' placeholde='Enter your comment'></textarea><br>
+					<button type='submit' name='submit'>Comment</button>
+				</form> ";
+			?>
 			</div></div>
-		<?php echo "
-			<form>
-				  <input type='hidden' name='uid' value='$username'>
-				  <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-				  <textarea name='message' placeholde='Enter your comment'></textarea><br>
-				  <button type='submit' name='submit'>Comment</button>
-			</form> ";
+		<?php
 			}
 	} ?>
 
