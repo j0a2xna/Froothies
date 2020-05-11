@@ -52,7 +52,7 @@ if(isset($_SESSION['userid'])){
                 echo "Fruit: " . $column[2] . '<br>';
                 echo "Vegetable: " . $column[3] . '<br>';
                 echo "Protein: " . $column[4] . '<br>';
-                echo "Base: " . $column[5] . '<br>';
+				echo "Base: " . $column[5] . '<br>';
 ?>
 
 				<!-- facebook button -->
@@ -86,7 +86,7 @@ if(isset($_SESSION['userid'])){
 				    </p>
 				 </div>
 			<?php echo "
-				<form>
+				<form method='POST' action='".setComments()."'>
 					<input type='hidden' name='uid' value='$username'>
 					<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 					<textarea name='message' placeholde='Enter your comment'></textarea><br>

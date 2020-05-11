@@ -42,6 +42,9 @@
                 echo $test[5] . '<br>';
                 echo "********************";
             }
+
+            //call the setComments function
+            setComments();
 			return $results; 
 		}
         else{
@@ -49,7 +52,13 @@
 			echo "<h2> This is empty. Nobody has created any recipes! </h2>";
 		}
 
-    } 
+    }
+
+    // for the comments section in the blog
+    function setComments(){
+
+    }
+
         $server = new rabbitMQServer("blog.ini","blogServer");
         $server->process_requests('requestProcessor');
         $server->send_request($row);
