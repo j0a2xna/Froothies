@@ -86,11 +86,11 @@ if(isset($_SESSION['userid'])){
 				    </p>
 				 </div>
 			<?php echo "
-				<form method='POST' action='".setComments()."'>
-					<input type='hidden' name='uid' value='$username'>
+				<form method='POST' action='".setComments($conn)."'>
+					<input type='hidden' name='userid' value='$username'>
 					<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 					<textarea name='message' placeholde='Enter your comment'></textarea><br>
-					<button type='submit' name='submit'>Comment</button>
+					<button type='submit' name='commentSubmit'>Comment</button>
 				</form> ";
 			?>
 			</div></div>
@@ -98,8 +98,22 @@ if(isset($_SESSION['userid'])){
 			}
 	} 
 	
-	function setComments(){
-		echo "HELLO TANIA!";
+	function setComments($conn){
+		// if user hits the submit button, enter into the table
+		if(isset($_POST['commentSubmit'])){
+
+			if($conn){
+				die("Failed to connect: " . mysqli_connect_error());
+			}
+
+			$username = $_SESSION['userid'];
+			$date = $_POST['date'];
+			$message = $_POST['message'];
+			
+			$sql = "INSERT INTO comments(uid, date, message) VALUES('$username', '$date', '$message')";
+
+			$result = $conn->query($sql);
+		}
 	}
 
 	?>
