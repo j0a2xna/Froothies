@@ -25,6 +25,15 @@
         $sql = "SELECT username, recipe_name, fruit, veggies, protein, base FROM allrecipes";
         $result = mysqli_query($conn, $sql);
         
+        var_dump($request);
+        $username = $request['username'];
+        $date = $request['date'];
+        $message = $request['message'];
+
+        //COMMENT is new column in table allrecipes, its getting $request which is an array
+        $sql2 = "INSERT INTO allrecipes(comment) VALUES($request)";
+        $res = mysqli_query($conn, $sql2);
+
         if(mysqli_num_rows($result) > 0){
 			$results = array();
 			while($row = mysqli_fetch_array($result)){
@@ -33,6 +42,7 @@
 			print_r($results); 
 
 
+        //prints an extra row for comments
 			foreach($results as $test) {
 				echo $test[0] . '<br>';
 				echo $test[1] . '<br>';
@@ -40,6 +50,8 @@
 				echo $test[3] . '<br>';
                 echo $test[4] . '<br>';
                 echo $test[5] . '<br>';
+                //comment row
+                echo $test[6] . '<br>';
                 echo "********************";
             }
 
