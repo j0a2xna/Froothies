@@ -11,6 +11,9 @@ if(isset($_SESSION['userid'])){
 	require_once('../backend/get_host_info.inc');
 	require_once('../backend/rabbitMQLib.inc');
 	
+	//set the timezone from new york
+	date_default_timezone_set('America/New_York');
+
 	$username = $_SESSION['userid'];
 
 	$client = new rabbitMQClient("blog.ini", "blogServer");
@@ -83,8 +86,17 @@ if(isset($_SESSION['userid'])){
 				    </p>
 				 </div>
 			</div></div>
-		<?php	}
+		<?php echo "
+			<form>
+				  <input type='hidden' name='uid' value='$username'>
+				  <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+				  <textarea name='message'></textarea>
+				  <button type='submit' name='submit'>Comment</button>
+			</form> ";
+			}
 	} ?>
+
+
 
 <html>
 	<head>
