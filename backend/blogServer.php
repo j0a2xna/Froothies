@@ -22,7 +22,7 @@
     function requestProcessor($request){
         $username = $request['username'];
         $conn = connectDB();
-        $sql = "SELECT username, recipe_name, fruit, veggies, protein, base FROM allrecipes";
+        $sql = "SELECT username, recipe_name, fruit, veggies, protein, base, comment FROM allrecipes";
         $result = mysqli_query($conn, $sql);
         
         var_dump($request);
