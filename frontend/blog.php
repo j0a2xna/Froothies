@@ -85,16 +85,17 @@ if(isset($_SESSION['userid'])){
 						</a>
 				    </p>
 				 </div>
-			</div></div>
-		<?php
-			}
-			echo "
+			<?php echo "
 				<form method='POST' action='".setComments()."'>
 					<input type='hidden' name='userid' value='$username'>
 					<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 					<textarea name='message' placeholde='Enter your comment'></textarea><br>
 					<button type='submit' name='commentSubmit'>Comment</button>
 				</form> ";
+			?>
+			</div></div>
+		<?php
+			}
 	} 
 	
 	function setComments(){
