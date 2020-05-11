@@ -102,8 +102,8 @@ if(isset($_SESSION['userid'])){
 		// if user hits the submit button, enter into the table
 		if(isset($_POST['commentSubmit'])){
 
-			$conn = mysqli_connect('localhost', 'nemo', 'dory123', 'allrecipes');
-			if($conn){
+			$conn2 = mysqli_connect('localhost', 'nemo', 'dory123', 'allrecipes');
+			if($conn2){
 				die("Failed to connect: " . mysqli_connect_error());
 			}
 
@@ -115,8 +115,8 @@ if(isset($_SESSION['userid'])){
 			echo "date is " . $date;
 			echo "message is " . $message;
 			
-			$sql = "INSERT INTO comments(uid, date, message) VALUES('$username', '$date', '$message')";
-			$result = mysqli_query($conn, $sql);
+			$sql2 = "INSERT INTO comments(uid, date, message) VALUES('$username', '$date', '$message')";
+			$result = mysqli_query($conn2, $sql2);
 
 			echo "im after sql query";
 		}
