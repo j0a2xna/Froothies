@@ -86,7 +86,7 @@ if(isset($_SESSION['userid'])){
 				    </p>
 				 </div>
 			<?php echo "
-				<form method='POST' action='".setComments($conn)."'>
+				<form method='POST' action='".setComments()."'>
 					<input type='hidden' name='userid' value='$username'>
 					<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 					<textarea name='message' placeholde='Enter your comment'></textarea><br>
@@ -98,10 +98,11 @@ if(isset($_SESSION['userid'])){
 			}
 	} 
 	
-	function setComments($conn){
+	function setComments(){
 		// if user hits the submit button, enter into the table
 		if(isset($_POST['commentSubmit'])){
 
+			$conn = mysqli_connect('localhost', 'nemo', 'dory123', 'allrecipes');
 			if($conn){
 				die("Failed to connect: " . mysqli_connect_error());
 			}
