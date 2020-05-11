@@ -49,27 +49,7 @@
 </head>
 <body>
     <header>
-      <!--div class="row">
-      <div class="col-25">
-        <label name=search>For more information: </label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="search" name="search" placeholder="Search here..">
-      </div>
-    </div>
-      <nav class="horizontalNavigation">
-         <ul>
-            <li><a href="welcome.html">Home</a></li>
-            <li><a href="#">Fruits</a></li>
-            <li><a href="#">Veggies</a></li>
-            <li><a href="#">Protin</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <div class="contact">
-                <a href="logout.php">Logout</a>
-            </div>
-         </ul>
-      </nav-->
-
+      
         <style>
             input[type=submit] {
                 background-color: #4CAF50;
@@ -104,19 +84,7 @@
         <input type="text" id="email" name="email" placeholder="Your email..">
       </div>
     </div>
-      <!--<div class="row">
-      <div class="col-25">
-        <label for="country">Country</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-           <option value="country">-Select one-</option>
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-      </div>
-    </div>-->
+      
       <div class="row">
       <div class="col-25">
         <label name="fruits">Name of Fruit</label>
