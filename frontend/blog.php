@@ -115,11 +115,8 @@ if(isset($_SESSION['userid'])){
 			echo "date is " . $date;
 			echo "message is " . $message;
 			
-			/*
 			$sql = "INSERT INTO comments(uid, date, message) VALUES('$username', '$date', '$message')";
-
-			$result = $conn->query($sql);
-			*/
+			$result = mysqli_query($conn, $sql);
 		}
 	}
 
