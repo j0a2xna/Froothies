@@ -29,6 +29,8 @@ if(isset($_SESSION['userid'])){
 		$username = $_SESSION['userid'];
 		echo '<div class="navbar">';
                 echo '<a href="../frontend/welcome.php"><i class="fa fa-fw fa-home"></i> Home</a>';
+		echo '<a href="../frontend/indexrating.php">Rating</a>';
+            	echo '<a href="../frontend/blog.php">Visit Blog</a>';
                 echo '<a href="../frontend/myaccount.php" id="acc"><i class="fa fa-fw fa-envelope"></i> My Account</a>';
                 echo '<a href="../frontend/logout.php" id="log"><i class="fa fa-fw fa-user"></i> Log Out</a> ';
                 echo '</div>';
